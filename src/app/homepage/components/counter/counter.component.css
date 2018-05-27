@@ -1,0 +1,112 @@
+@media (max-width: 767px) {
+  .counters-wrapper {
+    border-top: 1px solid var(--default-border);
+    border-bottom: 1px solid var(--default-border);
+  }
+}
+
+.counter-box {
+  padding: 120px 20px;
+  border-top: 1px solid var(--default-border);
+  border-bottom: 1px solid var(--default-border);
+  position: relative;
+  max-width: 100%;
+}
+
+@media (max-width: 767px) {
+  .counter-box {
+    padding: 50px 15px;
+    min-width: 100%;
+  }
+}
+
+.title-counter {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  text-align: center;
+  font-family: poppins;
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .title-counter {
+    margin-bottom: 5px;
+  }
+}
+
+.prop-obj {
+  font-size: 80px;
+  font-weight: 700;
+  font-family: poppins;
+  color: rgba(0, 0, 0, 0.3);
+  line-height: 1;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 767px) {
+  .prop-obj {
+    font-size: 48px;
+  }
+}
+
+.counter-box:hover .title-counter {
+  color: #ee3158;
+}
+
+.counter-box:hover .prop-obj {
+  color: #ee3158;
+}
+
+.counter-box:not(:last-child):after {
+  content: ' ';
+  height: 30%;
+  width: 1px;
+  background-color: var(--default-border);
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.counter-box:not(:last-child):before {
+  content: ' ';
+  height: 30%;
+  width: 1px;
+  background-color: var(--default-border);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.counter-box {
+  box-sizing: border-box;
+  --default-border: rgba(153, 153, 153, 0.2);
+  --card-border: rgba(153, 153, 153, 0.1);
+  --white-border: rgba(236, 236, 236, 0.5);
+  --thin-border: rgba(236, 236, 236, 0.09);
+  --light-border: rgba(236, 236, 236, 0.2);
+  --button-border: rgba(236, 236, 236, 0.4);
+}
+
+.counters-wrapper {
+  width: 100%;
+}
+
+.row {
+  margin: 0;
+}

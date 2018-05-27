@@ -1,0 +1,20 @@
+.arrow{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  color: red;
+  padding: 10px 3vmin;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.hideit{
+  opacity: 0;
+}
+
+@media (max-width: 1023px) {
+  .arrow{
+    bottom: 6vh;
+  }
+}

@@ -1,0 +1,77 @@
+._caption{
+  font-family: Yanone_Kaffeesatz;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+._benefits{
+  font-weight: 100;
+  font-family: Yanone_Kaffeesatz;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #aaa;
+}
+.page{
+  height: 50vh;
+  width: 25vw;
+  position: relative;
+}
+
+input{
+  min-width: 50vw;
+}
+
+.page img{
+  position: absolute;
+  width: 25vw;
+  z-index: 1;
+  left: 20px;
+}
+
+.page>div{
+  width: 19vw;
+  height: 30vh;
+  overflow-y: auto;
+  margin-top: 20%;
+  padding-left: 5px;
+  z-index: 3;
+  transform: rotateZ(-9deg);
+  font-family: Yanone_Kaffeesatz;
+  font-weight: 100;
+}
+
+span{
+  text-align: left;
+  min-width: 100%;
+}
+
+.by{
+  width: 18vw;
+  text-align: right;
+  font-weight: bold;
+}
+
+.titles{
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
+
+.alert{
+  transition: all 0.3s ease-in-out;
+}
+
+._hidden{
+  opacity: 0;
+}

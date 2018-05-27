@@ -1,0 +1,19 @@
+<div class="_container" #faq>
+  <h1>
+    FAQs
+  </h1>
+  <div class="questions" fxLayout="row wrap">
+    <div class="col-md-6">
+      <div class="question" *ngFor="let i of (data | async)?.slice(0,len/2)">
+        <h5 [innerHTML]="i?.questions?.content"></h5>
+        <p [innerHTML]="i?.answers?.content"></p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="question" *ngFor="let i of (data | async)?.slice(len/2,len)">
+        <h5 [innerHTML]="i?.questions?.content"></h5>
+        <p [innerHTML]="i?.answers?.content"></p>
+      </div>
+    </div>
+  </div>
+</div>

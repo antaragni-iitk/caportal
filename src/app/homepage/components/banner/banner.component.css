@@ -1,0 +1,87 @@
+.login {
+  cursor: pointer;
+  font-family: open-sans-400;
+  background-color: transparent;
+  padding: 10px;
+  color: #aaa;
+  border-right: groove 0px rgba(0, 0, 0, 0);
+  /*border-radius: 10px;*/
+  transition: all 0.3s ease-out;
+}
+
+.login:hover {
+  border-right: groove 3px white;
+  color: #666;
+}
+
+.login_container {
+  width: 100%;
+  background-color: white;
+  padding: 10vh;
+}
+
+h1 {
+  font-family: Yanone_Kaffeesatz;
+}
+
+.banner {
+  height: 50vh;
+}
+
+.dash {
+  font-family: poppins;
+}
+
+.index {
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 3rem;
+  color: #333;
+}
+
+.content {
+  width: 20vw;
+  color: #999;
+}
+
+.title {
+  color: #ee3158;
+  text-transform: uppercase;
+}
+
+.login i {
+  font-size: 1.5rem;
+  background-color: #4267b2;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-left: 20px;
+}
+
+.soc-links {
+  margin: 0 10vw;
+}
+
+@media (max-width: 1023px) {
+  .banner {
+    height: auto;
+    padding-bottom: 10vh;
+  }
+
+  .content {
+    width: 60vw;
+  }
+
+  .index {
+    width: 30vw;
+    padding-left: 20px;
+  }
+
+  .login i {
+    margin-left: 0;
+  }
+
+  .login_container {
+    padding: 10vh 2vh;
+  }
+}

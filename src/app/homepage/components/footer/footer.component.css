@@ -1,0 +1,23 @@
+.footer{
+  background-color: #333;
+  color: white;
+  font-family: open-sans;
+  height: 8vh;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+span{
+  color: yellow;
+}
+
+div{
+  filter: grayscale(50%);
+  margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+  .not-mobile{
+    display: none;
+  }
+}

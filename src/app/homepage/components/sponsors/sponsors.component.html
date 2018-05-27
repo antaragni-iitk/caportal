@@ -1,0 +1,11 @@
+<div class="containers">
+  <h1>Sponsored By</h1>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center" class="full-width-100" fxLayoutGap.xs="20px">
+    <div *ngFor="let sponsor of (sponsors|async)?.data">
+      <a [href]="sponsor.link" fxLayoutAlign="center center" fxLayout="column">
+        <img [src]="sponsor.img" [alt]="sponsor.name">
+        <!--<span>{{sponsor.name}}</span>-->
+      </a>
+    </div>
+  </div>
+</div>

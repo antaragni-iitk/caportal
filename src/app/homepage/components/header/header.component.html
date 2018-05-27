@@ -1,0 +1,38 @@
+<div class="header backg" #top>
+  <div class="banner-agileits">
+    <div class="banner-top-w3-agile row" fxLayoutAlign="center center">
+      <ul class="headlinks">
+        <li *ngFor="let link of links" (click)="gonow(link.id)" fxLayoutAlign="center center" fxLayout="column">
+          <div><p>{{link.title}}</p><span>{{link.Desc}}</span></div>
+        </li>
+        <li (click)="onhit()" fxLayoutAlign="center center" fxLayout="column">
+          <div><p>Login</p><span><i class="fab fa-facebook-f"></i>facebook</span></div>
+        </li>
+      </ul>
+    </div>
+    <div class="slider">
+
+      <ul class="rslides">
+        <li>
+          <div class="layer slide-2">
+            <div class="banner-info-w3layouts">
+              <div class="group">
+                <div class="_group">
+                  <h3>Campus Ambassador</h3>
+                  <p>Antaragni, 2018</p>
+                  <!--<div class="bnr-butn-w3ls">-->
+                    <!--<div class="login" (click)="onhit()">-->
+                      <!--<i class="fab fa-facebook-f"></i>-->
+                      <!--<span> facebook login</span>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

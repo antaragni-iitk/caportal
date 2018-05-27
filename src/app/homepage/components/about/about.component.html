@@ -1,0 +1,16 @@
+<div class="body row" #about fxLayout="row wrap" fxLayoutAlign="center stretch">
+  <div class="about_text" fxLayoutAlign="center">
+    <tr>
+      <h3 class="heading">About
+        <span>Us</span>
+      </h3>
+    </tr>
+    <tr>
+      <span class="description" *ngFor="let content of contents"
+            [innerHtml]="content.about.content">
+         </span>
+    </tr>
+  </div>
+  <div class="about_image" fxLayoutAlign="center">
+  </div>
+</div>

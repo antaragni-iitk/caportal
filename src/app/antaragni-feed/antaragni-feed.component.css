@@ -1,0 +1,69 @@
+.full-content {
+  padding-top: 64px;
+}
+
+.hover-blue :hover {
+  background-color: rgb(59,89,152);
+  background-color: rgba(59,89,152, 0.25);
+  cursor: pointer;
+}
+
+.alert-wrapper {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.content-box {
+  background-color: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  color: #212121;
+  min-width: 540px;
+  width: 40%;
+}
+
+@media only screen and (max-width: 600px) {
+  .content-box {
+    min-width: 90vw;
+  }
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.line-breaker {
+  padding: 30px;
+  white-space: pre-wrap;
+}
+
+.loading {
+  height: 100vh;
+}
+
+
+.link {
+  color: #212121;
+}
+
+.link:hover {
+  text-decoration: none;
+}
+.link:focus {
+  text-decoration: none;
+}
+
+masonry {
+  margin: 0 auto;
+  width: 80%;
+}
+
+a:hover{
+  /*text-decoration: none;*/
+  background: inherit;
+}
+
+a{
+  background: inherit;
+  height: 100%;
+}

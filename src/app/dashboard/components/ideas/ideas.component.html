@@ -1,0 +1,38 @@
+<mat-card>
+  <div class="container" align="center">
+    <div class="col-10 mx-auto" fxLayout="column" fxLayoutAlign="center center">
+      <div class="_caption">Contribute to the fest!</div>
+      <div class="_benefits">be a part <span>|</span> Earn points <span>|</span> Innovate</div>
+      <div class="page" fxLayoutAlign="start start" fxLayout="column">
+        <div fxLayoutAlign="space-between start" fxLayout="column">
+          <span>
+            <div class="titles">{{model.subject}}</div>
+            <br>
+            {{model.message}}
+          </span>
+          <span class="by"><i>- {{(user|async)?.name}}</i></span>
+        </div>
+        <img src="/assets/page.jpg"/>
+      </div>
+      <form (ngSubmit)="evaluate(); ideasForm.reset()" class="_form" #ideasForm="ngForm">
+        <div class="form-group">
+          <!--<label for="subject"><b>Subject</b></label>-->
+          <input type="text" class="form-control" id="subject" [(ngModel)]="model.subject" placeholder="Awesome Subject"
+                 name="subject" (focus)="_clicked1()" maxlength="150" #subject>
+        </div>
+        <div class="form-group">
+          <!--<label for="message"><b>Message</b></label>-->
+          <textarea mat-autosize="true" matAutosizeMinRows="3" matAutosizeMaxRows="6" type="text" class="form-control" id="message" [(ngModel)]='model.message' name="message"
+                    placeholder="Awesome Message" (focus)="_clicked2()" maxlength="500" #message></textarea>
+          <div [class._hidden]="_state" class="alert alert-success">
+            Submit Brief and multiple information cards for more points. Each card counts!
+          </div>
+        </div>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!ideasForm.form.valid||submitted" (click)="evaluate()">
+          Submit
+        </button>
+      </form>
+
+    </div>
+  </div>
+</mat-card>

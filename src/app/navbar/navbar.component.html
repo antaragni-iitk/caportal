@@ -1,0 +1,22 @@
+<div fxLayout="row">
+  <nav mat-tab-nav-bar>
+    <div class="logo" fxLayout="row" fxLayoutAlign="left center">
+      <i class="fa fa-bars" (click)="toggleit()"></i>
+      <span class="mobile">Dashboard</span>
+    </div>
+    <div fxFlex="grow" class="mobile"></div>
+    <a mat-tab-link
+       *ngFor="let link of links"
+       [routerLink]="link.id"
+       [class.selected]="selectedLink === link.id"
+       (click)="selectedLink = link.name"
+       routerLinkActive #rla="routerLinkActive">
+      {{link.name}}
+    </a>
+    <a mat-tab-link
+       (click)="logout()"
+       routerLinkActive #rla="routerLinkActive">
+      Logout
+    </a>
+  </nav>
+</div>

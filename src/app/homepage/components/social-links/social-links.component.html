@@ -1,0 +1,9 @@
+<div class="social-links">
+  <div class="d-flex justify-content-end">
+    <div class="p-2" *ngFor="let i of links;">
+      <a target="_blank" [href]="img_datas[i].url">
+        <img [src]="img_datas[i].path"/>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "style_fonts.css";
+.mobile {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .mobile {
+    display: none;
+  }
+}
+
+.head{
+  font-family: open-sans-800 sans-serif;
+}
+
+.full-width{
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+::-webkit-scrollbar-track {
+  /*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ee3158;
+  /*outline: 3px solid white;*/
+}
+
+.incent a {
+  color: #ee3158;
+}

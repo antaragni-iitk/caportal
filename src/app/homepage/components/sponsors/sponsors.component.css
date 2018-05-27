@@ -1,0 +1,26 @@
+h1{
+  font-size: 46px;
+  font-family: Yanone_Kaffeesatz;
+}
+
+.containers{
+  width: 100%;
+  padding: 10vh 5vw;
+  overflow: hidden;
+  background-color: white;
+}
+
+.full-width-100{
+  width: 100%;
+}
+
+img{
+  width: 20vw;
+  cursor: pointer;
+}
+
+@media (max-width: 1023px) {
+  img{
+    width: 70vw;
+  }
+}

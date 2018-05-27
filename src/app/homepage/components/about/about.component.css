@@ -1,0 +1,60 @@
+.body{
+	width:100%;
+	min-width:100%;
+	margin: 0;
+	height: 60%;
+	min-height: 60%;
+	color: #ffffff;
+}
+
+.description{
+	margin-top: 2.5em;
+	line-height: 2em;
+	letter-spacing: 2px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.about_text{
+	width:55%;
+	padding: 5em;
+	background: #00affe;
+}
+
+.client{
+	padding: 2em;
+}
+
+.heading{
+	letter-spacing: 2px;
+	word-spacing: 1px;
+	font-size: 3.2em;
+	font-family: 'Yanone_Kaffeesatz', sans-serif;
+	font-weight: 600;
+	display: block;
+
+}
+
+.heading span{
+	font-weight: 300;
+}
+
+.about_image{
+  background: url("https://drive.google.com/uc?export=view&id=1-r2z8HOhXGxKbdGmdWpcHiqe8FeaWEu_") no-repeat left top;
+  background-size: cover;
+  width: 45%;
+}
+
+@media (max-width: 1023px) {
+  .about_text{
+    width: 100%;
+    padding: 10px;
+  }
+
+  .body{
+    height: auto;
+  }
+
+  .about_image{
+    display: none;
+  }
+}

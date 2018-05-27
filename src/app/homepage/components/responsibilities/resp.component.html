@@ -1,0 +1,22 @@
+<div>
+  <div class="responsibilities">
+    <div class="main">
+      <div class="container">
+        <h2 class="section-title">Responsibilities</h2>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap="30px" class="wrapper">
+      <div *ngFor="let content of contents; let i = index" class="clipper">
+        <div [class]="'overlayed '+bcolor[i]" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2vh">
+          <h1 [class]="content.icon"></h1>
+          <h4 [innerHtml]="content.title"></h4>
+        </div>
+        <div class="boxes" [ngsReveal]="{delay: 100*i, scale: 0.5, viewFactor: 0.5}"
+            fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2vh">
+          <h4 [innerHtml]="content.title"></h4>
+          <div [innerHtml]="content.desc.content"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

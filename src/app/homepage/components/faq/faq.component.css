@@ -1,0 +1,28 @@
+._container {
+  padding: 6%;
+  min-height: 80vh;
+  background: url("https://drive.google.com/uc?export=view&id=1pY9otTrIDQGDMXk2lE-hPWN3Ff0plYki");
+}
+
+p {
+  font-weight: 400;
+}
+
+.questions {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  padding: 3em 0;
+}
+
+h1{
+  font-family: Yanone_Kaffeesatz;
+  font-weight: 500;
+  font-size: 3.2em;
+}
+
+@media (max-width: 1023px) {
+  .container{
+    height: auto;
+  }
+}

@@ -1,0 +1,97 @@
+.container {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.boxes {
+  margin: 0 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  z-index: 1;
+  height: 30vh;
+}
+
+.responsibilities {
+  padding: 5em 0em;
+}
+
+.clipper{
+  position: relative;
+  overflow: hidden;
+  width: 16vw;
+  height: 30vh;
+  box-shadow: -10px 12px 20px rgba(158, 156, 156, 0.59);
+  z-index: 3;
+}
+
+.overlayed{
+  position: absolute;
+  width: 16vw;
+  height: 30vh;
+  background: red;
+  z-index: 2;
+  transition: all 0.5s ease-out;
+  color: white;
+}
+
+.overlayed h1{
+  color: white;
+}
+
+.clipper:hover .overlayed{
+  transform: translateY(30vh);
+}
+
+.orange {
+  background:linear-gradient(45deg, #fd6900 1%,#ff984f 100%);
+}
+
+.yellow {
+  background:linear-gradient(45deg, #f2d701 2%,#ffef71 100%);
+}
+.pink {
+  background:linear-gradient(45deg, #ec407a 2%,#ff7aa7 100%);
+}
+.blue{
+  background:linear-gradient(45deg, #03a9f4 2%,#5fcdff 100%);
+}
+h1 {
+  color: #666;
+  transition: all 0.5s ease-in-out;
+}
+
+
+.boxes div {
+  text-align: center;
+  line-height: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 100;
+  letter-spacing: 1.5px;
+}
+
+h2 {
+  font-weight: 600;
+  font-family: Yanone_Kaffeesatz;
+  font-size :3.2em;
+  letter-spacing: 2px;
+  word-spacing: 1px;
+}
+
+h4 {
+  letter-spacing: 0.8px;
+  font-family: Yanone_Kaffeesatz;
+  font-size: 1.7em;
+  font-weight: 600;
+}
+
+@media (max-width: 1023px) {
+  .boxes,.clipper,.overlayed{
+    width: 80vw;
+    height: 50vh;
+    margin: 0;
+  }
+
+  .clipper:hover .overlayed{
+    transform: translateY(60vh);
+  }
+}

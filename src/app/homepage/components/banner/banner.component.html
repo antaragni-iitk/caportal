@@ -1,0 +1,24 @@
+<div class="soc-links" fxLayoutAlign.xs="center center" fxLayoutAlign="end end">
+  <app-social-links></app-social-links>
+</div>
+<div class="banner">
+  <div fxLayout="row wrap" fxLayoutAlign="start center" class="login_container" fxLayout.xs="column" fxLayoutAlign.xs="center center">
+    <h1>Login with facebook</h1>
+    <div class="login" (click)="onhit()">
+      <i class="fab fa-facebook-f"></i>
+      <span> facebook login</span>
+    </div>
+  </div>
+
+  <div fxLayout="row wrap" fxLayoutAlign="center start" fxLayout.xs="column">
+    <div *ngFor="let dat of data; let i=index" fxLayout="row-wrap" fxLayoutAlign="center start" fxLayoutAlign.md="start center" class="dash"
+         fxLayoutGap="10px">
+      <div class="index">0{{i+1}}.</div>
+      <div fxLayout="column" class="content">
+        <div class="title">{{dat.title}}</div>
+        <div>{{dat.desc}}</div>
+      </div>
+    </div>
+  </div>
+
+</div>

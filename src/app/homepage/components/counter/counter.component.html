@@ -1,0 +1,10 @@
+<section class="counters-section-type-2">
+    <div>
+        <div class="row counters-wrapper" fxLayout="row" fxLayoutAlign="center center">
+            <div class="col-sm-4 col-6 counter-box d-flex flex-column align-items-center" *ngFor="let title of titles | async; let i= index">
+                <p class="title-counter">{{(title)}}</p>
+                <span class="prop-obj prop-obj1">{{counters$[i]|async}}+</span>
+            </div>
+        </div>
+    </div>
+</section>

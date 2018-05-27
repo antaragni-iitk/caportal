@@ -1,0 +1,28 @@
+@font-face {
+  font-family: open-sans-800;
+  src: url("/assets/fonts/OpenSans-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: open-sans-400;
+  src: url("/assets/fonts/OpenSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: open-sans;
+  src: url("/assets/fonts/OpenSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: poppins;
+  src: url("/assets/fonts/Poppins-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: Yanone_Kaffeesatz;
+  src: url("/assets/fonts/YanoneKaffeesatz-Regular.ttf");
+}
+
+html,body{
+  font-family: open-sans;
+}

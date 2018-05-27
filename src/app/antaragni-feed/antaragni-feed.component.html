@@ -1,0 +1,21 @@
+<div *ngIf="feeds" fxLayout="column" fxLayoutAlign="center center" fxLayoutWrap class="full-content">
+  <div class="content-box mx-auto my-3 no-padding" *ngFor="let feed of feeds|async">
+    <div class="" fxLayout="column" fxLayoutAlign="center stretch">
+      <img class="img-fluid mx-auto col-12 no-padding" [src]="feed.full_picture" alt="Image">
+      <div class="mt-1 line-breaker" [innerHTML]="feed.message">
+      </div>
+    </div>
+    <div class="text-center hover-blue pb-3 px-3">
+      <button mat-raised-button class="btn btn-outline-primary" (click)="sharePost(feed)">Share</button>
+
+      <a target="_blank" [href]="feed.permalink_url">
+        <button mat-raised-button>View</button>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="container loading" *ngIf="!feeds" fxLayoutAlign="center center">
+  <div>
+    <h2> Loading </h2>
+  </div>
+</div>
