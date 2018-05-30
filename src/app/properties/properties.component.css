@@ -1,5 +1,75 @@
-.row1 {
-    //background-color: orange;
+/*.row1 {
+    background-color: orange;
     margin-right: 0;
     margin-left: 0;
-}
+}*/
+
+.section-title {
+    font-size: 32px;
+    color: #111;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+  }
+  
+  .section-description {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .section-title-divider {
+    width: 50px;
+    height: 3px;
+    background: #03C4EB;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+#services {
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url("../assets/oat.jpg") fixed center center;
+    background-size: cover;
+    padding: 80px 0 60px 0;
+  }
+  
+  #services .service-item {
+    margin-bottom: 20px;
+  }
+  
+  #services .service-icon {
+    float: left;
+    background: #03C4EB;
+    padding: 16px;
+    border-radius: 50%;
+    transition: 0.5s;
+    border: 1px solid #03C4EB;
+  }
+  
+  #services .service-icon i {
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  #services .service-item:hover .service-icon {
+    background: #fff;
+  }
+  
+  #services .service-item:hover .service-icon i {
+    color: #03C4EB;
+  }
+  
+  #services .service-title {
+    margin-left: 80px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+  
+  #services .service-title a {
+    color: #111;
+  }
+  
+  #services .service-description {
+    margin-left: 80px;
+    line-height: 24px;
+  }
+  
