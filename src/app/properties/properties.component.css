@@ -37,11 +37,14 @@
   
   #services .service-icon {
     float: left;
-    background: #03C4EB;
+    /* background: #03C4EB; */
+    background: rgb(2, 1, 32);
     padding: 16px;
     border-radius: 50%;
     transition: 0.5s;
-    border: 1px solid #03C4EB;
+    /* border: 1px solid #03C4EB; */
+    border: 1px solid rgb(2, 1, 32);
+
   }
   
   #services .service-icon i {
@@ -54,7 +57,8 @@
   }
   
   #services .service-item:hover .service-icon i {
-    color: #03C4EB;
+    /* color: #03C4EB; */
+    color: rgb(2, 1, 32)
   }
   
   #services .service-title {
