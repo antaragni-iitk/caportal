@@ -16,6 +16,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { IdeasComponent } from './ideas/ideas.component';
+import { NavbarRoutingModule } from './/navbar-routing.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { IdeasComponent } from './ideas/ideas.component';
     BrowserModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    NavbarRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
