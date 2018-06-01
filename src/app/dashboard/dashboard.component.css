@@ -2,7 +2,7 @@
   min-width: 300px;
   width: 20vw;
   height: 90vh;
-  background-color: #000;
+  background-color: #444;
   overflow-x: hidden;
 }
 
@@ -22,18 +22,74 @@
   width: 100%;
 }
 
-.button{
-  position: fixed;
+.example-sidenav-content {
+  z-index: 400;
+  display: flex;
+  height: 6%;
+  top:10vh;
+  font-size: 32px;
+  text-align: center;
+}
+
+/*.button{
   margin: 20px;
   top: 0;
   left: 0;
-}
+}*/
 
 .name{
   color: white;
   text-align: center;
   width: 100%;
-  padding: 5px;
-  background-color: #666;
+  padding: 1px;
+  font-size: 30px;
+  font-family: 'Fredericka the Great'
   /*margin: 2px;*/
+}
+
+.img-circle{
+  border-radius: 50%;
+  height:25vw;
+  width:80%;
+}
+
+.point{
+  color: red;
+  text-align: center;
+  width: 100%;
+  padding: 3px;
+  font-size: 20px;
+}
+
+.sub{
+  color: orange;
+  text-align: center;
+  width: 100%;
+  padding: 5px;
+  font-size: 14px;
+  font-family: 'Luckiest Guy'
+}
+
+.head{
+  color: orange;
+  text-align: center;
+  width: 100%;
+  padding: 2px;
+  font-size: 16px;
+  background-color: #111;
+  font-family: 'Luckiest Guy';
+}
+
+.sb{
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding: 2px;
+  font-size: 25px;
+  font-family: 'Fredericka the Great';
+}
+
+.head:hover{
+  background-color: orange;
+  color:black;
 }

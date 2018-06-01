@@ -9,13 +9,13 @@ import { BannerComponent } from './banner/banner.component';
 import { PropertiesComponent } from './properties/properties.component';
 import { HeaderComponent } from './header/header.component';
 import { ContactComponent } from './contact/contact.component';
-<<<<<<< fc356775642f87cc567afeef256841681eef89ba
 import { RespComponent } from './resp/resp.component';
 import { AboutComponent } from './about/about.component';
-=======
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
->>>>>>> dashboard added
+import { HomeComponent } from './home/home.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { IdeasComponent } from './ideas/ideas.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +24,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     PropertiesComponent,
     HeaderComponent,
     ContactComponent,
-<<<<<<< fc356775642f87cc567afeef256841681eef89ba
     RespComponent,
     AboutComponent
-=======
     NavbarComponent,
-    DashboardComponent
->>>>>>> dashboard added
+    DashboardComponent,
+    HomeComponent,
+    LeaderboardComponent,
+    IdeasComponent
   ],
   imports: [
     BrowserModule,
