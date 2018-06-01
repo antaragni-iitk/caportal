@@ -1,0 +1,39 @@
+.example-sidenav{
+  min-width: 300px;
+  width: 20vw;
+  height: 90vh;
+  background-color: #000;
+  overflow-x: hidden;
+}
+
+.example-container{
+  width: 100vw;
+  height: 100vh;
+}
+
+.navbar{
+  height: 10vh;
+  background-color: #eee;
+  width: 100vw;
+  z-index: 999;
+}
+
+.Profile_pic img{
+  width: 100%;
+}
+
+.button{
+  position: fixed;
+  margin: 20px;
+  top: 0;
+  left: 0;
+}
+
+.name{
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding: 5px;
+  background-color: #666;
+  /*margin: 2px;*/
+}

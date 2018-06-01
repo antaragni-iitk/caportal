@@ -1,0 +1,55 @@
+<!-- Side navigation--> 
+<div class="navbar"></div>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened="true">
+    <div fxLayout="column" fxLayoutAlign="start center" class="full" [class.show]="state">
+      <div fxLayout="row" fxLayoutAlign="center center" class="Profile_pic">
+      <img src="../assets/dp.jpg">
+      </div>
+      <div class="name">Vaibhav Jindal</div>
+      <div class="name">Total Points: 32</div>
+      <div class="name">Idea Points: 324</div>
+      <div class="name">Total Points: 31</div>          
+    </div>
+  </mat-drawer>
+<div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      User Profile
+    </button>
+  </div>
+</mat-drawer-container>
+<!--    <div class="name">
+    <div  fxLayout="row" fxLayoutAlign="stretch stretch">
+      <div class="heading-name">{{user1.name}}</div>
+    </div>
+	<div>
+
+  	<div class="name">
+    <div  fxLayout="row" fxLayoutAlign="stretch stretch">
+      <div class="heading-id">{{user1.fb_id}}</div>
+    </div>
+	</div>
+
+  <h1>{{user1.name}}</h1>
+  <div>College: </div>{{user1.college}}
+  <div>Contact: </div>{{user1.contact}}
+</div>-->
+
+
+
+
+<!--  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+  </div>-->
+
+
