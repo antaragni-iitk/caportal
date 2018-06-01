@@ -1,4 +1,4 @@
-header.masthead {
+/* header.masthead {
     position: relative;
     overflow: hidden;
     padding-top: calc(7rem + 72px);
@@ -69,8 +69,19 @@ header.masthead {
     header.masthead .masthead-content .masthead-subheading {
       font-size: 4rem;
     }
-  }
+  }  */
   
   /* header {
     background-image: url("/assets/header-back.jpg");
   } */
+
+  .jumbotron {
+    background: url("/assets/header-back.jpg");
+    /* opacity: 0.8; */
+    height: 650px;
+    margin-bottom:0px;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

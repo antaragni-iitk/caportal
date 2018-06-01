@@ -1,0 +1,32 @@
+.fas {
+    color: orangered;
+}
+
+.main {
+    /* background: #ddd; */
+    /* background: url("/assets/card-back2.jpg"); */
+    /* background-size: cover; */
+}
+
+.section-title {
+    font-size: 32px;
+    color: #111;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 50px;
+  }
+  
+  .section-description {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .section-title-divider {
+    width: 50px;
+    height: 3px;
+    background: orangered;
+    /* background: rgb(2, 1, 32); */
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }

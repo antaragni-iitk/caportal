@@ -21,6 +21,7 @@
     width: 50px;
     height: 3px;
     background: #03C4EB;
+    /* background: rgb(2, 1, 32); */
     margin: 0 auto;
     margin-bottom: 20px;
   }
@@ -49,11 +50,13 @@
   
   #services .service-icon i {
     color: #fff;
+    /* color: yellow; */
     font-size: 24px;
   }
   
   #services .service-item:hover .service-icon {
     background: #fff;
+    /* background: yellow; */
   }
   
   #services .service-item:hover .service-icon i {
