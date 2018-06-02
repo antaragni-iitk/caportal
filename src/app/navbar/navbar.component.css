@@ -1,3 +1,7 @@
+.selected{
+    background-color: orange;
+}
+
 ul {
     list-style-type: none;
     margin: 0;

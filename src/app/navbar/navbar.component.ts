@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Link } from '../link';
 
 @Component({
   selector: 'app-navbar',
@@ -8,23 +9,20 @@ import { Component, OnInit } from '@angular/core';
 
 export class NavbarComponent implements OnInit {
 
-  export class Link {
-	name: string;
-	id: string;
-  }
-
-  selectedLink: Link;
+  
 	
-  const links: Link[]=[
+  links: Link[]= [
   	{ name:'Ideas', id:'ideas' },
   	{ name:'Leaderboard', id:'leaderboard' },
   	{ name:'Home', id:'home' }
   ];
 
-  constructor() { ;}
+  selectedLink: Link;
+  constructor() {}
 
 
-  ngOnInit() {;
+  ngOnInit() {
+
   }
 
   onSelect(link: Link): void {
