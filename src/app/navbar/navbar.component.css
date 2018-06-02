@@ -6,11 +6,18 @@ ul {
     background-color: #000;
 }
 
+
 li {
-    float: left;
     font-family: 'Questrial';
+    display: block;
+    float:right;
 }
 
+li.logo{
+    float: left;
+    font-family: 'Questrial';
+    display: block;
+}
 li a {
     display: block;
     color: white;
@@ -27,4 +34,36 @@ li a:hover {
 
 .logo{
     margin-left: calc(10vh + 20px);
+}
+
+div{
+    display: none;
+}
+
+
+
+@media screen and (max-width: 768px) {
+ul{
+    display:none;
+}
+
+div a {
+    color: white;
+    font-size: 20px;
+}
+
+
+div.item:hover{
+    background-color: orange;
+}
+
+
+div{
+    display: block;
+    background-color: #000;
+    color: white;
+    font-family: 'Questrial';
+    text-align: center;
+
+}
 }

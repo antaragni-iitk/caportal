@@ -20,6 +20,7 @@
 
 .Profile_pic img{
   width: 100%;
+  padding:20px;
 }
 
 .example-sidenav-content {
@@ -94,11 +95,33 @@ button{
   padding: 10px;
   top: 0vh;
   left: 0;
-  background-color: black;
+  background-color: #222;
   color: white;
   z-index: 999;
 }
 
 i{
   color: white !important;
+}
+
+@media screen and (max-width: 768px){
+  .Profile_pic img{
+    width: 100%;
+    text-align: center;
+    height: 90vw;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    left: 40px;
+    padding: 25px;
+
+  }
+
+  .img-circle{
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    
+  }
+
 }

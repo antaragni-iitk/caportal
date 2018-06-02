@@ -1,10 +1,21 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
- <ul>
-  <li><a href="#home" class="logo">Antaragni Logo</a></li>
-  <li style="float:right"><a href="#">Logout</a></li>
-  <li style="float:right"><a routerLink="ideas">Ideas</a></li>
-  <li style="float:right"><a routerLink="leaderboard">Leaderboard</a></li>
-  <li style="float:right"><a routerLink="home"><i class="fa fa-home"></i></a></li>
-</ul> 
+ <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet"> 
 
+<ul>
+ <li class="logo"><a href="https://antaragni.in/" class="logo">Antaragni Logo</a></li>
+ <li><a href="#">Logout</a></li>
+ <!--<li><a routerLink="ideas">Ideas</a></li>
+ <li><a routerLink="leaderboard">Leaderboard</a></li>
+ <li><a routerLink="home"><i class="fa fa-home"></i></a></li>-->
+   <li *ngFor="let link of links" [class.selected]="link === selectedLink" (click)="onSelect(link)">
+    <a routerLink="{{link.id}}">{{link.name}}</a>
+  </li>
+</ul>
+
+<div><br><br><br>
+ <div class="item"><a href="https://antaragni.in/">Antaragni Logo</a></div>
+ <div class="item"><a href="#">Logout</a></div>
+ <div class="item"><a routerLink="ideas">Ideas</a></div>
+ <div class="item"><a routerLink="leaderboard">Leaderboard</a></div>
+ <div class="item"><a routerLink="home"><i class="fa fa-home"></i></a></div>
+<div>

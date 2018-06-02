@@ -5,11 +5,30 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  export class Link {
+	name: string;
+	id: string;
+  }
 
-  ngOnInit() {
+  selectedLink: Link;
+	
+  const links: Link[]=[
+  	{ name:'Ideas', id:'ideas' },
+  	{ name:'Leaderboard', id:'leaderboard' },
+  	{ name:'Home', id:'home' }
+  ];
+
+  constructor() { ;}
+
+
+  ngOnInit() {;
+  }
+
+  onSelect(link: Link): void {
+  	this.selectedLink = link;
   }
 
 }
