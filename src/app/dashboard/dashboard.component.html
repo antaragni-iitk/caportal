@@ -1,8 +1,9 @@
+<app-navbar></app-navbar>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Luckiest+Guy|Questrial" rel="stylesheet">
 
 <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side" opened="false">
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened="true">
     <div fxLayout="column" fxLayoutAlign="start center" class="full" [class.show]="state">
       <div fxLayout="row" fxLayoutAlign="center center" class="Profile_pic">
       <img src="../assets/dp.jpg" class="img-circle">
@@ -11,11 +12,8 @@
       <div class="sub"><i class="fa fa-graduation-cap"></i>IIT Kanpur</div><br>
       <div class="sb">Scoreboard</div>
       <div class="head">Total Points: 32</div>
-      <div class="point"></div>
       <div class="head">Idea Points: 32</div>
-      <div class="point"></div>
-      <div class="head">Other Points: 43</div>
-      <div class="point"></div>          
+      <div class="head">Other Points: 43</div>        
     </div>
   </mat-drawer>
 <div class="example-sidenav-content">
@@ -23,4 +21,5 @@
       <i class="fa fa-bars"></i>
     </button>
  </div>
+ <router-outlet></router-outlet>
 </mat-drawer-container>

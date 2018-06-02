@@ -4,13 +4,19 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { HomeComponent } from './home/home.component';
+import { LandingComponent } from './landing/landing.component';
 import { IdeasComponent } from './ideas/ideas.component';
+import { DashboardComponent} from './dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path:'leaderboard', component: LeaderboardComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path:'ideas', component: IdeasComponent },
-  { path:'home', component: HomeComponent }
+  { path:'dashboard', component: DashboardComponent, children: [
+  		{ path:'leaderboard', component: LeaderboardComponent },
+  		{ path:'ideas', component: IdeasComponent },
+  		{ path:'home', component: HomeComponent },
+  	]
+  },
+  {path: 'landing', component: LandingComponent},
+  {path: '', redirectTo: 'landing', pathMatch: 'full'}
 ]
 
 @NgModule({

@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { IdeasComponent } from './ideas/ideas.component';
 import { NavbarRoutingModule } from './/navbar-routing.module';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NavbarRoutingModule } from './/navbar-routing.module';
     DashboardComponent,
     HomeComponent,
     LeaderboardComponent,
-    IdeasComponent
+    IdeasComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

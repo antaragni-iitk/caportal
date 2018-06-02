@@ -8,6 +8,7 @@ ul {
 
 li {
     float: left;
+    font-family: 'Questrial';
 }
 
 li a {
@@ -16,10 +17,14 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 
 li a:hover {
     background-color: orange;
+}
+
+.logo{
+    margin-left: calc(10vh + 20px);
 }
