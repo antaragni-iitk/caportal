@@ -6,20 +6,21 @@
   <mat-drawer #drawer class="example-sidenav" mode="side" opened="true">
     <div fxLayout="column" fxLayoutAlign="start center" class="full" [class.show]="state">
       <div fxLayout="row" fxLayoutAlign="center center" class="Profile_pic">
-      <img src="../assets/dp.jpg" class="img-circle">
+        <img src="../assets/dp.jpg" class="img-circle">
       </div>
       <div class="name">Vaibhav Jindal</div>
-      <div class="sub"><i class="fa fa-graduation-cap"></i>IIT Kanpur</div><br>
+      <div class="sub"><i class="fa fa-graduation-cap"></i>IIT Kanpur</div>
+      <br>
       <div class="sb">Scoreboard</div>
       <div class="head">Total Points: 32</div>
       <div class="head">Idea Points: 32</div>
-      <div class="head">Other Points: 43</div>        
+      <div class="head">Other Points: 43</div>
     </div>
   </mat-drawer>
-<div class="example-sidenav-content">
+  <div class="example-sidenav-content">
     <button type="button" mat-button (click)="drawer.toggle()">
       <i class="fa fa-bars"></i>
     </button>
- </div>
- <router-outlet></router-outlet>
+  </div>
+  <router-outlet></router-outlet>
 </mat-drawer-container>

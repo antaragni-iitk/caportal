@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Link } from '../link';
+import { Link } from '../dashboard/models/link';
 
 @Component({
   selector: 'app-navbar',
@@ -9,8 +9,8 @@ import { Link } from '../link';
 
 export class NavbarComponent implements OnInit {
 showmenu=false;
-  
-	
+
+
   links: Link[]= [
   	{ name:'Ideas', id:'ideas' },
   	{ name:'Leaderboard', id:'leaderboard' },

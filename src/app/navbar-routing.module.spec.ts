@@ -1,10 +1,10 @@
-import { NavbarRoutingModule } from './navbar-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
-describe('NavbarRoutingModule', () => {
-  let navbarRoutingModule: NavbarRoutingModule;
+describe('AppRoutingModule', () => {
+  let navbarRoutingModule: AppRoutingModule;
 
   beforeEach(() => {
-    navbarRoutingModule = new NavbarRoutingModule();
+    navbarRoutingModule = new AppRoutingModule();
   });
 
   it('should create an instance', () => {

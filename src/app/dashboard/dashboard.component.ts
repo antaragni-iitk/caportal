@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatSidenavModule} from '@angular/material/sidenav'; 
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +7,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  state;
   showFiller = false;
   constructor() { }
 

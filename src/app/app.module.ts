@@ -5,20 +5,20 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { AppComponent } from './app.component';
-import { BannerComponent } from './banner/banner.component';
-import { PropertiesComponent } from './properties/properties.component';
-import { HeaderComponent } from './header/header.component';
-import { ContactComponent } from './contact/contact.component';
-import { RespComponent } from './resp/resp.component';
-import { AboutComponent } from './about/about.component';
+import { AppComponent } from './app-component/app.component';
+import { BannerComponent } from './homepage/components/banner/banner.component';
+import { PropertiesComponent } from './homepage/components/properties/properties.component';
+import { HeaderComponent } from './homepage/components/header/header.component';
+import { ContactComponent } from './homepage/components/contact/contact.component';
+import { RespComponent } from './homepage/components/resp/resp.component';
+import { AboutComponent } from './homepage/components/about/about.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HomeComponent } from './home/home.component';
-import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-import { IdeasComponent } from './ideas/ideas.component';
+import { HomeComponent } from './dashboard/components/home/home.component';
+import { LeaderboardComponent } from './dashboard/components/leaderboard/leaderboard.component';
+import { IdeasComponent } from './dashboard/components/ideas/ideas.component';
 import { NavbarRoutingModule } from './/navbar-routing.module';
-import { LandingComponent } from './landing/landing.component';
+import { LandingComponent } from './homepage/components/landing/landing.component';
 
 @NgModule({
   declarations: [
