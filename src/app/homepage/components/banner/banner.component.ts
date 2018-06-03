@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
   title = 'Header';
-
+  shownavmenu = false;
   constructor() { }
 
   ngOnInit() {

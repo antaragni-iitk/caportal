@@ -2,10 +2,11 @@
     <div class="container">
       <img src="/assets/logo.png" style="width:30px">
       <a class="navbar-brand" href="#">Antaragni</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+              aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" (click)="shownavmenu = !shownavmenu"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div class="navbar-collapse" id="navbarResponsive" [class.collapse]="!shownavmenu">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="#">Dashboard</a>
