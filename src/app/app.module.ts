@@ -28,7 +28,7 @@ import { LandingComponent } from './landing/landing.component';
     HeaderComponent,
     ContactComponent,
     RespComponent,
-    AboutComponent
+    AboutComponent,
     NavbarComponent,
     DashboardComponent,
     HomeComponent,
