@@ -14,10 +14,9 @@
     <button mat-raised-button *ngIf="mobile" (click)="shownavmenu=!shownavmenu">
       menu
     </button>
-    <div *ngIf="shownavmenu" class="navs">
+    <div *ngIf="shownavmenu" class="navs" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
       <div class="item" *ngFor="let link of links" [class.selected]="link === selectedLink"
-           (click)="onSelect(link)" routerLink="{{link.id}}"
-           fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
+           (click)="onSelect(link)" routerLink="{{link.id}}" fxLayoutAlign="center center">
         {{link.name}}
       </div>
     </div>
