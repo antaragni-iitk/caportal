@@ -8,13 +8,22 @@
   background-color: black;
 }
 
-.side-button{
+.side-button {
   width: 20vw;
   background-color: black;
   height: 10vh;
 }
 
-.item{
+button {
+  z-index: 5;
+  background-color: black;
+  color: white;
+  border: 0.3px solid white;
+  border-radius: 3px;
+  margin: 0 10px;
+}
+
+.item {
   color: white;
   cursor: pointer;
   font-family: 'Questrial';
@@ -34,8 +43,12 @@ li a:hover {
 }
 
 @media (max-width: 768px) {
-  .navbarlinks{
+  .navs {
     position: absolute;
-    z-index: 9999;
+    z-index: 9;
+    top: 10vh;
+    width: 100vw;
+    left: 0;
+    background-color: black;
   }
 }
