@@ -1,16 +1,24 @@
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet"> 
-	<ul>
- 		<li class="logo"><a href="https://antaragni.in/" class="logo">Antaragni Logo</a></li>
- 		<li><a href="#">Logout</a></li>
- 		<li *ngFor="let link of links" [class.selected]="link === selectedLink" (click)="onSelect(link)">
-    	<a routerLink="{{link.id}}">{{link.name}}</a></li>
-	</ul>
-<div class="menu" (click)="showmenu=!showmenu">menu</div>
-<div *ngIf="showmenu">
- <div class="item"><a href="https://antaragni.in/">Antaragni Logo</a></div>
- <div class="item"><a href="#">Logout</a></div>
- <div *ngFor="let link of links" [class.selected]="link === selectedLink" (click)="onSelect(link)">
-    <a routerLink="{{link.id}}">{{link.name}}</a>
- </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+<!--<div class="menu" (click)="showmenu=!showmenu">menu</div>-->
+<!--<div class="item"><a href="https://antaragni.in/">Antaragni Logo</a></div>-->
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div class="side-button" fxLayoutAlign="start center">
+    <button type="button" mat-button (click)="toggleit()">
+      <i class="fa fa-bars"></i>
+    </button>
+    <span></span>
+  </div>
+  <div class="navbarlinks" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end center" fxLayoutGap="10px">
+    <button mat-raised-button *ngIf="mobile" (click)="shownavmenu=!shownavmenu">
+      menu
+    </button>
+    <div *ngIf="shownavmenu">
+      <div class="item" *ngFor="let link of links" [class.selected]="link === selectedLink"
+           (click)="onSelect(link)" routerLink="{{link.id}}"
+           fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
+        {{link.name}}
+      </div>
+    </div>
+  </div>
 </div>

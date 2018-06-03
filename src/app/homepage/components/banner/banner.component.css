@@ -1,4 +1,4 @@
-.navbar {
+.navbarlinks {
     margin-top: 0;
     margin-bottom: 0;
     font-family: 'Lato';
@@ -10,14 +10,14 @@
     background-color: rgba(0, 0, 0, 0.8);
     /*background-color: black;*/
   }
-  
+
   .navbar-custom .navbar-brand {
     text-transform: uppercase;
     font-size: 1rem;
     letter-spacing: 0.1rem;
     font-weight: 700;
   }
-  
+
   .navbar-custom .navbar-nav .nav-item .nav-link {
     text-transform: uppercase;
     font-size: 0.8rem;

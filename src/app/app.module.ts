@@ -17,8 +17,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './dashboard/components/home/home.component';
 import { LeaderboardComponent } from './dashboard/components/leaderboard/leaderboard.component';
 import { IdeasComponent } from './dashboard/components/ideas/ideas.component';
-import { NavbarRoutingModule } from './/navbar-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { LandingComponent } from './homepage/components/landing/landing.component';
+import {UiService} from './services/ui.service';
 
 @NgModule({
   declarations: [
@@ -41,10 +42,10 @@ import { LandingComponent } from './homepage/components/landing/landing.componen
     BrowserAnimationsModule,
     MatSidenavModule,
     MatButtonModule,
-    NavbarRoutingModule,
+    AppRoutingModule,
     FlexLayoutModule,
   ],
-  providers: [],
+  providers: [UiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

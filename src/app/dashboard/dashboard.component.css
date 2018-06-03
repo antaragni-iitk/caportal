@@ -11,7 +11,7 @@
   height: 90vh;
 }
 
-.navbar{
+.navbarlinks{
   height: 10vh;
   background-color: #eee;
   width: 100vw;
@@ -121,7 +121,7 @@ i{
     align-items: center;
     align-content: center;
     align-self: center;
-    
+
   }
 
 }

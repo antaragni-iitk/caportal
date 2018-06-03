@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {UiService} from '../services/ui.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,10 +9,12 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 })
 export class DashboardComponent implements OnInit {
   state;
+  @ViewChild('drawer') drawer;
   showFiller = false;
-  constructor() { }
+  constructor(private ui: UiService) { }
 
   ngOnInit() {
+    this.ui.sidenav.subscribe(() => this.drawer.toggle());
   }
 
 }

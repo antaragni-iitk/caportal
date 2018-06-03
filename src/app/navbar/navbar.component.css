@@ -1,83 +1,41 @@
-.selected{
-    background-color: orange;
+.selected {
+  background-color: orange;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #000;
+.navbarlinks {
+  min-height: 10vh;
+  width: 80vw;
+  background-color: black;
 }
 
-
-li {
-    font-family: 'Questrial';
-    display: block;
-    float:right;
+.side-button{
+  width: 20vw;
+  background-color: black;
+  height: 10vh;
 }
 
-li.logo{
-    float: left;
-    font-family: 'Questrial';
-    display: block;
+.item{
+  color: white;
+  cursor: pointer;
+  font-family: 'Questrial';
+  text-align: center;
+  text-decoration: none;
+  height: 10vh;
+  z-index: 9999;
+  padding: 0 20px;
 }
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 20px;
-}
-
 
 li a:hover {
-    background-color: orange;
+  background-color: orange;
 }
 
-.logo{
-    margin-left: calc(10vh + 20px);
+.logo {
+  margin-left: calc(10vh + 20px);
 }
 
-div{
-    display: none;
-}
-
-
-
-@media screen and (max-width: 768px) {
-ul{
-    display:none;
-}
-
-div a {
-    color: white;
-    font-size: 20px;
-}
-
-
-div.item:hover{
-    background-color: orange;
-}
-
-
-div{
-    display: block;
-    background-color: #000;
-    color: white;
-    font-family: 'Questrial';
-    text-align: center;
-    z-index: 9999;
-
-}
-}
-
-.menu{
-    height: 10vh;
-    width: 100vw;
-    text-align: right;
-    right: 0;
-    top: 0;
+@media (max-width: 768px) {
+  .navbarlinks{
     position: absolute;
+    z-index: 9999;
+  }
 }
