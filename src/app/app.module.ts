@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { BannerComponent } from './banner/banner.component';
@@ -33,14 +34,15 @@ import { LandingComponent } from './landing/landing.component';
     HomeComponent,
     LeaderboardComponent,
     IdeasComponent,
-    LandingComponent
+    LandingComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatButtonModule,
-    NavbarRoutingModule
+    NavbarRoutingModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,6 +10,7 @@ import { DashboardComponent} from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path:'dashboard', component: DashboardComponent, children: [
+      {path: '', redirectTo: 'home', pathMatch: 'prefix'},
   		{ path:'leaderboard', component: LeaderboardComponent },
   		{ path:'ideas', component: IdeasComponent },
   		{ path:'home', component: HomeComponent },

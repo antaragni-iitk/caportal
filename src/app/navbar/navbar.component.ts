@@ -8,7 +8,7 @@ import { Link } from '../link';
 })
 
 export class NavbarComponent implements OnInit {
-
+showmenu=false;
   
 	
   links: Link[]= [
