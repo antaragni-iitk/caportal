@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppComponent } from './app-component/app.component';
 import { BannerComponent } from './homepage/components/banner/banner.component';
 import { PropertiesComponent } from './homepage/components/properties/properties.component';
@@ -20,7 +20,8 @@ import { IdeasComponent } from './dashboard/components/ideas/ideas.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingComponent } from './homepage/components/landing/landing.component';
 import {UiService} from './services/ui.service';
-
+import { AngularFireModule } from 'angularfire2';
+import {environment} from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,8 @@ import {UiService} from './services/ui.service';
     BrowserModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     MatButtonModule,
     AppRoutingModule,
     FlexLayoutModule,
