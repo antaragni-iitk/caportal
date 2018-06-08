@@ -1,38 +1,45 @@
 section {
-    padding: 20px; }
+    padding: 20px; 
+}
   
-  .row-padded {
-    padding: 25px; }
+section h2 {
+  font-family: Trebuchet MS, snas-serif;
+  line-height: 1.1;
+  color: rgb(12, 64, 141);
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 40px;
+  margin-bottom: 20px; 
+}
   
-  section h2 {
-    font-family: Trebuchet MS, snas-serif;
-    line-height: 1.1;
-    color: rgb(12, 64, 141);
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-top: 40px;
-    margin-bottom: 20px; }
-  
-  section p {
-      font-size: 17px;
-      padding: 0px 20px 0px 0px;
-      color: rgb(107, 48, 13);
-      line-height: 1.8em;
-      margin: 1em 0 0 0;}
+section p {
+    font-size: 17px;
+    padding: 0px 20px 0px 0px;
+    color: rgb(107, 48, 13);
+    line-height: 1.8em;
+    margin: 1em 0 0 0;
+    margin-bottom: 20px;
+}
 
-  .inner {
-    text-align: left; }
+.aboutus {
+  background-color: rgb(255, 255, 255);
+}
 
-  .aboutus {
-    height: 375px;
-    background-color: rgb(255, 255, 255);
-    /* background-image: url("/assets/card-back6.jpg"); */
-  }
+.about-img {
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
 
+.container {
+    margin-top: 10px;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+}
+
+@media (max-width: 920px) {
   .container {
-      margin-top: 20px;
+    display: flex;
+    flex-direction: column;
   }
-
-  .about-img {
-    border-radius: 20px;
-  }
+}
