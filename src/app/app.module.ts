@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule, MatSelectModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app-component/app.component';
@@ -21,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LandingComponent } from './homepage/components/landing/landing.component';
 import { UiService } from './services/ui.service';
 import { RegisterComponent } from './homepage/components/register/register.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,15 +38,19 @@ import { RegisterComponent } from './homepage/components/register/register.compo
     LeaderboardComponent,
     IdeasComponent,
     LandingComponent,
-    RegisterComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    MatButtonModule,
+    FormsModule,
     AppRoutingModule,
     FlexLayoutModule,
+    MatButtonModule,
+    MatInputModule,
+    MatTooltipModule,
+    MatSelectModule
   ],
   providers: [UiService],
   bootstrap: [AppComponent]

@@ -1,3 +1,44 @@
-<p>
-  register works!
-</p>
+<div class="container example-container">
+  <mat-form-field>
+    <input matInput placeholder="Name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Email ID">
+  </mat-form-field>
+  
+  <mat-form-field>
+    <textarea matInput placeholder="Address"
+    matTooltip="Your Address :)" [matTooltipPosition]="'left'"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Pincode"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="College"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select Sex">
+      <mat-option value="Male">Male</mat-option>
+      <mat-option value="Female">Female</mat-option>
+      <mat-option value="Other">Other</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select Year">
+      <mat-option value="1">1st Year</mat-option>
+      <mat-option value="2">2nd Year</mat-option>
+      <mat-option value="3">3rd Year</mat-option>
+      <mat-option value="4">4th Year</mat-option>
+      <mat-option value="5">5+ Year</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Mobile Number"></textarea>
+  </mat-form-field>
+</div>
