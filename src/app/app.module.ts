@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app-component/app.component';
@@ -50,7 +50,9 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatInputModule,
     MatTooltipModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [UiService],
   bootstrap: [AppComponent]

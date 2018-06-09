@@ -1,8 +1,17 @@
-.example-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .example-container > * {
+.container {
+    padding-top: 6%;
+}
+
+.example-form {  
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.example-form > * {
     width: 100%;
   }
+
+.example-full-width {
+  width: 100%;  
+}
