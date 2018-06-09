@@ -19,7 +19,8 @@ import { LeaderboardComponent } from './dashboard/components/leaderboard/leaderb
 import { IdeasComponent } from './dashboard/components/ideas/ideas.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingComponent } from './homepage/components/landing/landing.component';
-import {UiService} from './services/ui.service';
+import { UiService } from './services/ui.service';
+import { RegisterComponent } from './homepage/components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {UiService} from './services/ui.service';
     LeaderboardComponent,
     IdeasComponent,
     LandingComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
