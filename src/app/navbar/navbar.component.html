@@ -1,24 +1,17 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
-<!--<div class="menu" (click)="showmenu=!showmenu">menu</div>-->
-<!--<div class="item"><a href="https://antaragni.in/">Antaragni Logo</a></div>-->
-<div fxLayout="row" fxLayoutAlign="center center">
-  <div class="side-button" fxLayoutAlign="start center">
-    <button type="button" (click)="toggleit()">
-      <i class="fa fa-bars"></i>
-    </button>
-    <span></span>
-  </div>
-  <div class="navbarlinks" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px"
-       fxLayout.xs="column" fxLayoutAlign.xs="center end">
-    <button mat-raised-button *ngIf="mobile" (click)="shownavmenu=!shownavmenu">
-      menu
-    </button>
-    <div *ngIf="shownavmenu" class="navs" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
-      <div class="item" *ngFor="let link of links" [class.selected]="link === selectedLink"
-           (click)="onSelect(link)" routerLink="{{link.id}}" fxLayoutAlign="center center">
-        {{link.name}}
-      </div>
+<div fxLayout="row">
+  <nav mat-tab-nav-bar>
+    <div class="logo" fxLayout="row" fxLayoutAlign="left center">
+      <i class="fa fa-bars" (click)="toggleit()"></i>
+      <span class="mobile">Dashboard</span>
     </div>
-  </div>
+    <div fxFlex="grow" class="mobile"></div>
+    <a mat-tab-link
+       *ngFor="let link of links"
+       [routerLink]="link.id"
+       [class.selected]="selectedLink === link.name"
+       (click)="selectedLink = link.name"
+       routerLinkActive #rla="routerLinkActive">
+      {{link.name}}
+    </a>
+  </nav>
 </div>

@@ -11,10 +11,17 @@ export class DashboardComponent implements OnInit {
   state;
   @ViewChild('drawer') drawer;
   showFiller = false;
-  constructor(private ui: UiService) { }
+  points = {
+    'Total Points': 32,
+    'Idea Points': 31,
+    'Other Points': 89,
+  };
+  pointkeys = Object.keys(this.points);
+
+  constructor(private ui: UiService) {
+  }
 
   ngOnInit() {
     this.ui.sidenav.subscribe(() => this.drawer.toggle());
   }
-
 }

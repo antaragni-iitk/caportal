@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule } from '@angular/material';
+import {MatButtonModule, MatCardModule, MatDividerModule, MatTabsModule} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app-component/app.component';
@@ -40,8 +40,13 @@ import {UiService} from './services/ui.service';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    // material
     MatSidenavModule,
     MatButtonModule,
+    MatCardModule,
+    MatDividerModule,
+    MatTabsModule,
+    // other
     AppRoutingModule,
     FlexLayoutModule,
   ],

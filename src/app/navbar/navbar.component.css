@@ -1,54 +1,38 @@
-.selected {
-  background-color: orange;
-}
-
-.navbarlinks {
-  min-height: 10vh;
-  width: 80vw;
-  background-color: black;
-}
-
-.side-button {
-  width: 20vw;
-  background-color: black;
-  height: 10vh;
-}
-
-button {
-  z-index: 5;
-  background-color: black;
-  color: white;
-  border: 0.3px solid white;
-  border-radius: 3px;
-  margin: 0 10px;
-}
-
-.item {
-  color: white;
-  cursor: pointer;
-  font-family: 'Questrial';
-  text-align: center;
-  text-decoration: none;
-  height: 10vh;
-  z-index: 9999;
-  padding: 0 20px;
-}
-
-li a:hover {
-  background-color: orange;
+nav {
+  width: 100%;
 }
 
 .logo {
-  margin-left: calc(10vh + 20px);
+  letter-spacing: 5px;
+  font-weight: 100;
+}
+
+.selected {
+  background-color: rgba(111, 66, 193, 0.1);
+  opacity: 1;
+}
+
+i {
+  margin: 0 15px;
+  padding: 12px 10px 12px 14px;
+  border-radius: 50%;
+  color: rgba(111, 66, 193, 0.7);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+i:hover {
+  background-color: rgba(111, 66, 193, 1);
+  color: white;
+}
+
+mat-tab-group{
+  max-width: calc(100vw - 50px);
 }
 
 @media (max-width: 768px) {
-  .navs {
-    position: absolute;
-    z-index: 9;
-    top: 10vh;
-    width: 100vw;
-    left: 0;
-    background-color: black;
+  i{
+    margin: 0;
   }
 }
