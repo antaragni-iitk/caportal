@@ -22,6 +22,8 @@ import { LandingComponent } from './homepage/components/landing/landing.componen
 import { UiService } from './services/ui.service';
 import { RegisterComponent } from './homepage/components/register/register.component';
 import { FormsModule } from '@angular/forms';
+import { TncComponent } from './homepage/components/register/tnc/tnc.component';
+import { FollowPortalsComponent } from './homepage/components/register/follow-portals/follow-portals.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { FormsModule } from '@angular/forms';
     LeaderboardComponent,
     IdeasComponent,
     LandingComponent,
-    RegisterComponent
+    RegisterComponent,
+    TncComponent,
+    FollowPortalsComponent
   ],
   imports: [
     BrowserModule,
