@@ -22,6 +22,7 @@ import { LandingComponent } from './homepage/components/landing/landing.componen
 import {UiService} from './services/ui.service';
 import { AngularFireModule } from 'angularfire2';
 import {environment} from '../environments/environment';
+import { AnalyticsDirective } from './analytics.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import {environment} from '../environments/environment';
     LeaderboardComponent,
     IdeasComponent,
     LandingComponent,
+    AnalyticsDirective,
   ],
   imports: [
     BrowserModule,
