@@ -4,7 +4,7 @@ import { Directive,HostListener,Input } from '@angular/core';
 @Directive({
   selector: '[eventTracker]'
 })
-export class ButtonDirective {
+export class AnalyticsDirective {
 
   @Input('eventTracker') option:any;
 

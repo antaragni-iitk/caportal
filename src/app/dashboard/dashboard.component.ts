@@ -1,5 +1,4 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import {UiService} from '../services/ui.service';
 
 @Component({
