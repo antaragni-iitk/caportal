@@ -25,6 +25,7 @@ import { Funcs } from './utility/function';
 
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import {environment} from '../environments/environment';
+import { AnalyticsDirective } from './analytics.directive';
 import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {HttpClientModule} from '@angular/common/http';
     LeaderboardComponent,
     IdeasComponent,
     LandingComponent,
+    AnalyticsDirective,
   ],
   imports: [
     BrowserModule,
