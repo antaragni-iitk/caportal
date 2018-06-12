@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatButtonModule, MatCardModule, MatDividerModule, MatTabsModule} from '@angular/material';
+import {MatButtonModule ,MatCardModule,MatSnackBarModule, MatDividerModule, MatTabsModule} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppComponent } from './app-component/app.component';
@@ -21,7 +21,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { LandingComponent } from './homepage/components/landing/landing.component';
 import {UiService} from './services/ui.service';
 import { AngularFireModule } from 'angularfire2';
+import { Funcs } from './utility/function';
+
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import {environment} from '../environments/environment';
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,13 +51,16 @@ import {environment} from '../environments/environment';
     AngularFireAuthModule,
     MatButtonModule,
     MatCardModule,
+    MatSnackBarModule,
+    HttpClientModule,
     MatDividerModule,
     MatTabsModule,
+    AngularFirestoreModule,
     // other
     AppRoutingModule,
     FlexLayoutModule,
   ],
-  providers: [UiService],
+  providers: [UiService,Funcs],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
