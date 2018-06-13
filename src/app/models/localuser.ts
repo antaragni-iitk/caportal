@@ -4,57 +4,60 @@ export interface ILocalUser {
   email: string | null;
 }
 
+export interface email{
+   value: string;
+   verified: boolean;
+   varificationSent: boolean;
+}
+
+export interface facebook{
+  id: string;
+  token: string;
+  expires_at: date;
+}
+export interface promocode{
+  invite: string;
+  used: string;
+}
+export interface personal{
+  birthday: string;
+   city: string;
+   college: string;
+   yearOfStudy: string;
+   postalAddress: string;
+   zipcode: number;
+   phoneNumber: string;
+   whatsAppNumber: string;
+   picture: string;
+}
+export interface campus{
+  isAmbassador: boolean;
+   posts:  Array<number>;
+   validPosts:  Array<number>;
+  likes: number;
+  shares: number;
+  otherPoints: number;
+  ideaPoints: number;
+  totalPoints: number;
+  isExclusive: boolean;
+  rank: boolean;
+  exclusiveApproved: boolean;
+}
+
+export interface registration{
+  manifest: Array<number>;
+}
+
+export interface payment{
+  status: boolean;
+  orders: Array<number>;
+  all: Array<number>;
+}
 export class LocalUser implements ILocalUser {
-  name: { type: String };
- facebook: {
-   id: { type: String, unique: true },
-   token: { type: String },
-   expires_at: { type: Date }
- };
-teamid: { type: String };
-promocode: {
-   invite: { type: string },
-   used: { type: string }
- };
- email: {
-   value: { type: String },
-   verified: { type: Boolean, default: false },
-   verificationSent: { type: Boolean, default: false }
- };
- personal: {
-   birthday: { type: String, default: '2017-10-26' },
-   city: { type: String },
-   college: { type: String },
-   yearOfStudy: { type: String },
-   postalAddress: { type: String },
-   zipcode: { type: Number },
-   phoneNumber: { type: String },
-   whatsAppNumber: { type: String },
-   picture: { type: String }
- };
- firstUpdate: { type: Boolean, default: false };
- campus: {
-   isAmbassador: { type: Boolean, default: false },
-   posts: { type: Array },
-   validPosts: { type: Array },
-   likes: { type: Number, default: 0 },
-   shares: { type: Number, default: 0 },
-   otherPoints: { type: Number, default: 0 },
-   ideaPoints: { type: Number, default: 0 },
-   totalPoints: { type: Number, default: 0 },
-   isExclusive: { type: Boolean, default: false },
-   rank: { type: Boolean },
-   exclusiveApproved: { type: Boolean, default: false }
- };
- progress: { type: Number };
- registration: {
-   mainfest: { type: Array }
- };
- payment: {
-   status: { type: Boolean },
-   orders: { type: Array },
-   all: { type: Array }
- };
+  name: string;
+  teamid:  string;
+ firstUpdate: boolean;
+ progress: number ;
   constructor(localUser) {
     this.levelsCurrent = localUser.levelsCurrent;
   this.levelsRequested = localUser.levelsRequested;
