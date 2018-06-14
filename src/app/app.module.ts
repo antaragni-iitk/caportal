@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatSnackBarModule, MatDividerModule, MatTabsModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app-component/app.component';
@@ -24,6 +24,14 @@ import { RegisterComponent } from './homepage/components/register/register.compo
 import { FormsModule } from '@angular/forms';
 import { TncComponent } from './homepage/components/register/tnc/tnc.component';
 import { FollowPortalsComponent } from './homepage/components/register/follow-portals/follow-portals.component';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {AngularFireModule} from 'angularfire2';
+import {Funcs} from './utility/function';
+
+import {AngularFirestoreModule} from 'angularfire2/firestore';
+import {environment} from '../environments/environment';
+import {HttpClientModule} from '@angular/common/http';
+import {AnalyticsDirective} from './directives/analytics.directive';
 
 @NgModule({
   declarations: [
@@ -42,13 +50,24 @@ import { FollowPortalsComponent } from './homepage/components/register/follow-po
     LandingComponent,
     RegisterComponent,
     TncComponent,
-    FollowPortalsComponent
+    AnalyticsDirective,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    // material
     MatSidenavModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    MatButtonModule,
+    MatCardModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    MatDividerModule,
+    MatTabsModule,
+    AngularFirestoreModule,
+    // other
     AppRoutingModule,
     FlexLayoutModule,
     MatButtonModule,
@@ -58,7 +77,8 @@ import { FollowPortalsComponent } from './homepage/components/register/follow-po
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [UiService],
+  providers: [UiService, Funcs],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

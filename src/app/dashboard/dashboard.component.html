@@ -1,21 +1,35 @@
-<app-navbar></app-navbar>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Luckiest+Guy|Questrial" rel="stylesheet">
 
-<mat-drawer-container class="example-container" autosize>
+<mat-drawer-container class="example-container">
   <mat-drawer #drawer class="example-sidenav" mode="side" opened="true">
     <div fxLayout="column" fxLayoutAlign="start center" class="full" [class.show]="state">
-      <div fxLayout="row" fxLayoutAlign="center center" class="Profile_pic">
+      <mat-card fxLayoutAlign="center center">
+        Antaragni
+      </mat-card>
+      <mat-divider></mat-divider>
+      <mat-card fxLayout="row" fxLayoutAlign="left center" fxLayoutGap="15px">
         <img src="../assets/dp.jpg" class="img-circle">
-      </div>
-      <div class="name">Vaibhav Jindal</div>
-      <div class="sub"><i class="fa fa-graduation-cap"></i>IIT Kanpur</div>
-      <br>
-      <div class="sb">Scoreboard</div>
-      <div class="head">Total Points: 32</div>
-      <div class="head">Idea Points: 32</div>
-      <div class="head">Other Points: 43</div>
+        <div fxLayout="column" fxLayoutAlign="center left">
+          <div class="name">Vaibhav Jindal</div>
+          <div class="clg"><i class="fa fa-graduation-cap"></i> IIT Kanpur</div>
+        </div>
+      </mat-card>
+      <mat-card>
+        <mat-card-title class="sb">Scoreboard</mat-card-title>
+        <mat-card-content>
+          <div *ngFor="let point of pointkeys" fxLayout="row" fxLayoutAlign="space-between center">
+            <div>{{point}}</div>
+            <div>: {{points[point]}}</div>
+          </div>
+        </mat-card-content>
+      </mat-card>
     </div>
   </mat-drawer>
-  <router-outlet></router-outlet>
+  <app-navbar></app-navbar>
+  <!--<div class="outlet" fxLayoutAlign="center center" fxFlex="grow">-->
+    <mat-card>
+      <router-outlet></router-outlet>
+    </mat-card>
+  <!--</div>-->
 </mat-drawer-container>

@@ -1,127 +1,63 @@
 .example-sidenav{
   min-width: 300px;
-  width: 20vw;
-  height: 90vh;
-  background-color: #000;
+  width: 25vw;
+  height: 100vh;
+  background: #27242d url("/assets/side_back.jpg") left bottom no-repeat no-repeat;
+  background-size: cover;
   overflow-x: hidden;
+}
+.example-sidenav::after{
+  content: "";
+  background-color: rgba(39, 36, 45, 0.7);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 1;
 }
 
 .example-container{
   width: 100vw;
-  height: 90vh;
-}
-
-.navbarlinks{
-  height: 10vh;
-  background-color: #eee;
-  width: 100vw;
-  z-index: 999;
-}
-
-.Profile_pic img{
-  width: 100%;
-  padding:20px;
-}
-
-.example-sidenav-content {
-  z-index: 400;
-  display: flex;
-  height: 6%;
-  top:10vh;
-  font-size: 32px;
-  text-align: center;
-}
-
-.name{
-  color: white;
-  text-align: center;
-  width: 100%;
-  padding: 1px;
-  font-size: 30px;
-  font-family:'Questrial';
-  /*margin: 2px;*/
+  height: 100vh;
 }
 
 .img-circle{
+  width: 5vw;
+  height: 5vw;
   border-radius: 50%;
-  height:25vw;
-  width:80%;
+  min-width: 50px;
+  min-height: 50px;
 }
 
-.point{
-  color: red;
-  text-align: center;
+mat-drawer mat-card{
   width: 100%;
-  padding: 3px;
-  font-size: 20px;
-}
-
-.sub{
-  color: orange;
-  text-align: center;
-  width: 100%;
-  padding: 5px;
-  font-size: 14px;
-  font-family: 'Questrial';
-}
-
-.head{
-  color: orange;
-  text-align: center;
-  width: 100%;
-  padding: 10px 0;
-  margin: 2px;
-  font-size: 16px;
-  background-color: #111;
-  font-family: 'Questrial';
-}
-
-.sb{
   color: white;
-  text-align: center;
-  width: 100%;
-  padding: 2px;
-  font-size: 25px;
-  font-family: 'Questrial';
+  z-index: 2;
+  background-color: transparent;
 }
 
-.head:hover{
-  background-color: orange;
-  color:black;
-}
-
-button{
-  position: fixed;
-  padding: 10px;
-  top: 0vh;
-  left: 0;
-  background-color: #222;
+mat-divider{
   color: white;
-  z-index: 999;
+  background-color: white;
 }
 
-i{
-  color: white !important;
+mat-card-title, .name{
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: 100;
 }
 
-@media screen and (max-width: 768px){
-  .Profile_pic img{
-    width: 100%;
-    text-align: center;
-    height: 90vw;
-    align-content: center;
-    align-items: center;
-    align-self: center;
-    left: 40px;
-    padding: 25px;
+.name{
+  font-size: 1.2rem;
+}
 
+.outlet mat-card{
+  width: 80%;
+}
+
+@media (max-width: 768px) {
+  .name{
+    font-size: 1rem;
   }
-
-  .img-circle{
-    align-items: center;
-    align-content: center;
-    align-self: center;
-
-  }
-
 }

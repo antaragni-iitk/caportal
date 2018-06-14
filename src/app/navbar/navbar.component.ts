@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
     {name: 'Logout', id: '/'}
   ];
 
-  selectedLink: Link;
+  selectedLink: string = this.links[0].name;
 
   constructor(private ui: UiService) {
   }
@@ -32,9 +32,4 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
 
   }
-
-  onSelect(link: Link): void {
-    this.selectedLink = link;
-  }
-
 }
