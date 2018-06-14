@@ -1,7 +1,9 @@
 export interface ILocalUser {
   uid: string;
-  displayName: string;
-  email: string | null;
+  name: string;
+  email: Email;
+  facebooktoken: string;
+  personal: Personal;
 }
 
 export interface Email{
@@ -10,11 +12,6 @@ export interface Email{
    varificationSent: boolean;
 }
 
-export interface Facebook{
-  id: string;
-  token: string;
-  expires_at: date;
-}
 export interface Promocode{
   invite: string;
   used: string;
@@ -54,21 +51,17 @@ export interface Payment{
   all: Array<number>;
 }
 export class LocalUser implements ILocalUser {
-  name: string;
   teamid:  string;
- firstUpdate: boolean;
- progress: number ;
+  name: string;
+  uid: string;
+  firstUpdate: boolean;
+  progress: number ;
+
   email: Email;
-  facebook: Facebook;
+  facebooktoken: string;
   promocode: Promocode;
   personal: Personal;
   campus: Campus;
   registration: Registration;
   payment: Payment;
-  constructor(localUser) {
-    this.levelsCurrent = localUser.levelsCurrent;
-  this.levelsRequested = localUser.levelsRequested;
-    this.uid = localUser.uid;
-    this.displayName = localUser.displayName;
-  }
 }
