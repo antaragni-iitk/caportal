@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatSnackBarModule, MatDividerModule, MatTabsModule, MatPaginatorModule, MatSortModule, MatTableModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatComponentsModule } from './mat-components/mat-components.module';
 
 import { AppComponent } from './app-component/app.component';
 import { BannerComponent } from './homepage/components/banner/banner.component';
@@ -55,29 +54,14 @@ import {AnalyticsDirective} from './directives/analytics.directive';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    // material
-    MatSidenavModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    MatButtonModule,
-    MatCardModule,
-    MatSnackBarModule,
     HttpClientModule,
-    MatDividerModule,
-    MatTabsModule,
     AngularFirestoreModule,
     AppRoutingModule,
     FlexLayoutModule,
-    MatButtonModule,
-    MatInputModule,
-    MatTooltipModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatTableModule
+    MatComponentsModule
   ],
   providers: [UiService, Funcs],
   bootstrap: [AppComponent]
