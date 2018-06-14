@@ -4,22 +4,22 @@ export interface ILocalUser {
   email: string | null;
 }
 
-export interface email{
+export interface Email{
    value: string;
    verified: boolean;
    varificationSent: boolean;
 }
 
-export interface facebook{
+export interface Facebook{
   id: string;
   token: string;
   expires_at: date;
 }
-export interface promocode{
+export interface Promocode{
   invite: string;
   used: string;
 }
-export interface personal{
+export interface Personal{
   birthday: string;
    city: string;
    college: string;
@@ -30,7 +30,7 @@ export interface personal{
    whatsAppNumber: string;
    picture: string;
 }
-export interface campus{
+export interface Campus{
   isAmbassador: boolean;
    posts:  Array<number>;
    validPosts:  Array<number>;
@@ -44,11 +44,11 @@ export interface campus{
   exclusiveApproved: boolean;
 }
 
-export interface registration{
+export interface Registration{
   manifest: Array<number>;
 }
 
-export interface payment{
+export interface Payment{
   status: boolean;
   orders: Array<number>;
   all: Array<number>;
@@ -58,6 +58,13 @@ export class LocalUser implements ILocalUser {
   teamid:  string;
  firstUpdate: boolean;
  progress: number ;
+  email: Email;
+  facebook: Facebook;
+  promocode: Promocode;
+  personal: Personal;
+  campus: Campus;
+  registration: Registration;
+  payment: Payment;
   constructor(localUser) {
     this.levelsCurrent = localUser.levelsCurrent;
   this.levelsRequested = localUser.levelsRequested;
