@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatSnackBarModule, MatDividerModule, MatTabsModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatSnackBarModule, MatDividerModule, MatTabsModule, MatPaginatorModule, MatSortModule, MatTableModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app-component/app.component';
@@ -67,7 +67,6 @@ import {AnalyticsDirective} from './directives/analytics.directive';
     MatDividerModule,
     MatTabsModule,
     AngularFirestoreModule,
-    // other
     AppRoutingModule,
     FlexLayoutModule,
     MatButtonModule,
@@ -75,7 +74,10 @@ import {AnalyticsDirective} from './directives/analytics.directive';
     MatTooltipModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule
   ],
   providers: [UiService, Funcs],
   bootstrap: [AppComponent]

@@ -7,6 +7,7 @@ import {HomeComponent} from './dashboard/components/home/home.component';
 import {LandingComponent} from './homepage/components/landing/landing.component';
 import {IdeasComponent} from './dashboard/components/ideas/ideas.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import { RegisterComponent } from './homepage/components/register/register.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
       {path: 'leaderboard', component: LeaderboardComponent},
       {path: 'ideas', component: IdeasComponent},
       {path: 'home', component: HomeComponent},
+      {path: 'register', component: RegisterComponent}
     ]
   },
   {path: 'landing', component: LandingComponent},

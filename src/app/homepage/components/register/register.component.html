@@ -1,64 +1,69 @@
 <div class="container">
   <h1>Registration Form</h1>  
+  <form ngForm #register="ngForm" ngSubmit="onSubmit(register)"></form>
+    <div class="form">
+      <mat-form-field>
+        <input required ngModel #name="ngModel" name="name" matInput placeholder="Name">
+        <mat-error *ngIf="name.errors.required">
+          Name is required.
+        </mat-error>
+      </mat-form-field>
 
-  <div class="example-form">
-    <mat-form-field>
-      <input matInput placeholder="Name">
-    </mat-form-field>
+      <mat-form-field>
+        <input required ngModel #email="ngModel" type="email" name="email" matInput placeholder="Email ID">
+        <mat-error *ngIf="email.errors.required">Required</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <textarea required ngModel #address="ngModel" name="address" matInput placeholder="Address"
+        matTooltip="Your Address :)" [matTooltipPosition]="'left'"></textarea>
+        <mat-error *ngIf="address.errors.required">Required</mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Email ID">
-    </mat-form-field>
-    
-    <mat-form-field>
-      <textarea matInput placeholder="Address"
-      matTooltip="Your Address :)" [matTooltipPosition]="'left'"></textarea>
-    </mat-form-field>
+      <mat-form-field>
+        <input required ngModel #pincode="ngModel" name="pincode" matInput placeholder="Pincode">
+        <mat-error *ngIf="pincode.errors.required">Required</mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Pincode">
-    </mat-form-field>
-
-    <mat-form-field>
-      <textarea matInput placeholder="College"></textarea>
-    </mat-form-field>
-    <table class="example-full-width" cellspacing="0">
-      <tr>
-        <td>
-          <mat-form-field class="example-full-width">
-            <input matInput [matDatepicker]="picker" placeholder="Birthdate">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </td>        
-        <td>
-          <mat-form-field class="example-full-width">
-            <mat-select placeholder="Select Sex">
-              <mat-option value="Male">Male</mat-option>
-              <mat-option value="Female">Female</mat-option>
-              <mat-option value="Other">Other</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <mat-form-field class="example-full-width">
-            <mat-select placeholder="Select Year">
-              <mat-option value="1">1st Year</mat-option>
-              <mat-option value="2">2nd Year</mat-option>
-              <mat-option value="3">3rd Year</mat-option>
-              <mat-option value="4">4th Year</mat-option>
-              <mat-option value="5">5+ Year</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Mobile Number">
-          </mat-form-field>
-        </td>
-      </tr>
-    </table>
-  </div>
+      <mat-form-field>
+        <textarea required ngModel #college="ngModel" name="college" matInput placeholder="College"></textarea>
+        <mat-error *ngIf="college.errors.required">Required</mat-error>
+      </mat-form-field>
+      <table class="full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="full-width">
+              <input matInput [matDatepicker]="picker" placeholder="Birthdate" disabled>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker disabled="false"></mat-datepicker>
+            </mat-form-field>
+          </td>        
+          <td>
+            <mat-form-field class="full-width">
+              <mat-select required ngModel #sex="ngModel" name="sex" placeholder="Select Sex">
+                <mat-option *ngFor="let sex of sexes" [value]="sex.id">{{ sex.name }}</mat-option>
+                <mat-error *ngIf="sex.errors.required">Required</mat-error>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="full-width">
+              <mat-select required ngModel #year="ngModel" name="year" placeholder="Select Year">
+                <mat-option *ngFor="let year of collegeYear" [value]="year.id">{{ collegeYear.name }}</mat-option>
+                <mat-error *ngIf="year.errors.required">Required</mat-error>
+              </mat-select>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="full-width">
+              <input required ngModel #mobile="ngModel" name="mobile" matInput placeholder="Mobile Number">
+              <mat-error *ngIf="mobile.errors.required">Required</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <button mat-button matInput color="primary">Submit</button>
+    </div>
 </div>
