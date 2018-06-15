@@ -40,9 +40,8 @@
           </td>        
           <td>
             <mat-form-field class="full-width">
-              <mat-select required ngModel #sex="ngModel" name="sex" placeholder="Select Sex">
+              <mat-select ngModel #sex="ngModel" name="sex" placeholder="Select Sex">
                 <mat-option *ngFor="let sex of sexes" [value]="sex.id">{{ sex.name }}</mat-option>
-                <mat-error *ngIf="sex.errors.required">Required</mat-error>
               </mat-select>
             </mat-form-field>
           </td>
@@ -50,9 +49,8 @@
         <tr>
           <td>
             <mat-form-field class="full-width">
-              <mat-select required ngModel #year="ngModel" name="year" placeholder="Select Year">
-                <mat-option *ngFor="let year of collegeYear" [value]="year.id">{{ collegeYear.name }}</mat-option>
-                <mat-error *ngIf="year.errors.required">Required</mat-error>
+              <mat-select ngModel #collegeYear="ngModel" name="collegeYear" placeholder="Select Year">
+                <mat-option *ngFor="let collegeYear of collegeYears" [value]="collegeYear.id">{{ collegeYear.name }}</mat-option>
               </mat-select>
             </mat-form-field>
           </td>

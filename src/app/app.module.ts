@@ -22,7 +22,6 @@ import { UiService } from './services/ui.service';
 import { RegisterComponent } from './homepage/components/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { TncComponent } from './homepage/components/register/tnc/tnc.component';
-import { FollowPortalsComponent } from './homepage/components/register/follow-portals/follow-portals.component';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AngularFireModule} from 'angularfire2';
 import {Funcs} from './utility/function';
