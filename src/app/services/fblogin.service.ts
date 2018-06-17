@@ -45,9 +45,7 @@ isAuthenticated$: Observable<boolean>;
                       return of(null)
                     })
                   );
-                  this.$logged.subscribe((users) => this.currentUser.next(users);
-                  );
-
+                  this.$logged.subscribe((users) => this.currentUser.next(users));
                 };
 
 
