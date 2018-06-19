@@ -45,9 +45,7 @@ isAuthenticated$: Observable<boolean>;
                       return of(null)
                     })
                   );
-                  this.$logged.subscribe((users) => {this.currentUser.next(users);
-                  console.log(users);});
-
+                  this.$logged.subscribe((users) => this.currentUser.next(users));
                 };
 
 
@@ -64,11 +62,11 @@ isAuthenticated$: Observable<boolean>;
        yearOfStudy: '',
        postalAddress: '',
        zipcode: 1,
-       phoneNumber: '',
+       phoneNumber: res.user.phoneNumber,
        whatsAppNumber: '',
-       picture: '',
+       picture: res.user.photoURL,
 
     }
-      }as ILocalUser )
+  }as ILocalUser )
   )
 }
