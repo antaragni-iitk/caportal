@@ -9,7 +9,7 @@ import { BannerComponent } from './homepage/components/banner/banner.component';
 import { PropertiesComponent } from './homepage/components/properties/properties.component';
 import { HeaderComponent } from './homepage/components/header/header.component';
 import { ContactComponent } from './homepage/components/contact/contact.component';
-import { RespComponent } from './homepage/components/resp/resp.component';
+import { RespComponent } from './homepage/components/responsibilities/resp.component';
 import { AboutComponent } from './homepage/components/about/about.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';

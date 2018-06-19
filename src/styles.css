@@ -1,5 +1,5 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-
+@import "style_fonts.css";
 .mobile {
   display: block;
 }
@@ -9,3 +9,8 @@
     display: none;
   }
 }
+
+.head{
+  font-family: open-sans-800 sans-serif;
+}
+

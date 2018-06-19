@@ -1,20 +1,82 @@
-.jumbotron {
-    background: url("/assets/header-back.jpg");
-    height: 650px;
-    margin-bottom:0px;
-    background-attachment: fixed;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: yellow;
+.opening {
+  background: url("/assets/backg.jpg");
+  height: 100vh;
+  background-size: cover;
 }
 
-.btn {
-  color: orangered;
-  background-color: black;
+.overlay {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
 }
 
-hr {
-  background-color:orangered;
-  border-width:1mm
+
+.wrapper{
+  min-height: 30vh;
+  width: 100vw;
+  overflow: hidden;
+  /*background-color: red;*/
+}
+
+.wrap{
+  max-height: 8vh;
+  overflow: hidden;
+}
+
+.head2, .head1 {
+  font-family: open-sans-800;
+  font-size: 46px;
+  color: white;
+}
+
+.outinit {
+  transform: translateY(10vh);
+}
+
+.flyin {
+  transform: translateY(0px);
+}
+
+.head1 {
+  font-size: 24px;
+  transition: transform 1s ease-out;
+}
+
+.head2 {
+  transition: transform 1s ease-out 0.5s;
+}
+
+button {
+  background-color: white;
+  font-family: open-sans-400;
+}
+
+button {
+  transition: transform 1s ease-out 0.6s;
+}
+
+.login {
+  position: absolute;
+  top: 5vh;
+  right: 5vw;
+  cursor: pointer;
+  font-family: open-sans-400;
+  color: white;
+  background-color: transparent;
+  padding: 10px;
+  border-right: groove 0px rgba(0, 0, 0, 0);
+  /*border-radius: 10px;*/
+  transition: border 0.3s ease-out;
+}
+
+i {
+  font-size: 1.5rem;
+  background-color: #4267b2;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.login:hover {
+  border-right: groove 3px white;
 }

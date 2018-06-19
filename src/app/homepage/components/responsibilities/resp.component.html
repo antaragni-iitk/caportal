@@ -1,0 +1,19 @@
+<div class="main">
+  <div class="container wow fadeInUp">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="section-title">Responsibilities</h3>
+        <div class="section-title-divider"></div>
+        <p class="section-description"></p>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap="2vw" class="wrapper">
+    <div *ngFor="let title of titles; let i = index" class="boxes"
+         fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2vh">
+      <h1 [class]="icons[i]"></h1>
+      <h4>{{title}}</h4>
+      <div>{{desciption[i]}}</div>
+    </div>
+  </div>
+</div>

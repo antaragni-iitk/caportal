@@ -6,5 +6,6 @@ import {BehaviorSubject} from 'rxjs';
 })
 export class UiService {
   sidenav = new BehaviorSubject<boolean>(true);
+  scrollPos = new BehaviorSubject<number>(0);
   constructor() { }
 }

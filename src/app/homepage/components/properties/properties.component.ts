@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-properties',
@@ -6,8 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./properties.component.css']
 })
 export class PropertiesComponent implements OnInit {
+  @ViewChild('services') services;
 
-  constructor() { }
+  constructor() {
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  private onScroll($event: Event): void {
+    console.log(window.scrollY - this.services.nativeElement.offsetTop);
+  };
 
   ngOnInit() {
   }
