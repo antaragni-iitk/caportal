@@ -50,7 +50,19 @@ export class FbloginService {
         phoneNumber: res.user.phoneNumber,
         whatsAppNumber: '',
         picture: res.additionalUserInfo.profile.picture.data.url,
-
+      },
+      campus: {
+        isAmbassador: true,
+         posts:  [],
+         validPosts:  [],
+         likes: 0,
+         shares: 0,
+         otherPoints: 0,
+         ideaPoints: 0,
+         totalPoints: 0,
+         isExclusive: false,
+         rank: false,
+         exclusiveApproved: false,
       }
     }as ILocalUser).then(() =>
       this.router.navigate(['dashboard'])
