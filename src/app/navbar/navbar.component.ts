@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Link} from '../dashboard/models/link';
 import {UiService} from '../services/ui.service';
+import {FbloginService} from '../services/fblogin.service';
 
 @Component({
   selector: 'app-navbar',
@@ -17,16 +18,19 @@ export class NavbarComponent implements OnInit {
     {name: 'Home', id: 'home'},
     {name: 'Leaderboard', id: 'leaderboard'},
     {name: 'Ideas', id: 'ideas'},
-    {name: 'Logout', id: '/'}
   ];
 
   selectedLink: string = this.links[0].name;
 
-  constructor(private ui: UiService) {
+  constructor(private ui: UiService, private fblogin: FbloginService) {
   }
 
   toggleit() {
     this.ui.sidenav.next(true);
+  }
+
+  logout() {
+    this.fblogin.signOut();
   }
 
   ngOnInit() {

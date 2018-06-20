@@ -33,6 +33,7 @@ export class FbloginService {
     );
     this.$logged.subscribe((users) => this.currentUser.next(users));
   };
+
   signin = () => this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider()).then(
     (res) => this.userRef(res.user.uid).set({
       uid: res.user.uid,
@@ -55,6 +56,12 @@ export class FbloginService {
       this.router.navigate(['dashboard'])
     )
   );
+
+  signOut() {
+    this.afAuth.auth.signOut()
+      .then(() => this.router.navigate(['/']))
+      .catch(err => this.functions.handleError(err.message));
+  }
 
   constructor(private router: Router,
               private afAuth: AngularFireAuth,
