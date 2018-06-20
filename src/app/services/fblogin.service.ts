@@ -32,7 +32,7 @@ export class FbloginService {
       })
     );
     this.$logged.subscribe((users) => this.currentUser.next(users));
-  };
+  }
 
   signin = () => this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider()).then(
     (res) => this.userRef(res.user.uid).set({
@@ -67,7 +67,7 @@ export class FbloginService {
     }as ILocalUser).then(() =>
       this.router.navigate(['dashboard'])
     )
-  );
+  )
 
   signOut() {
     this.afAuth.auth.signOut()

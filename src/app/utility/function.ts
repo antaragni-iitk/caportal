@@ -5,7 +5,7 @@ import {MatSnackBar} from '@angular/material';
 @Injectable()
 export class Funcs {
   constructor(private snackbar: MatSnackBar) {
-  };
+  }
 
   handleError(error = 'check your internet Connection') {
     this.snackbar.open(error, '', {

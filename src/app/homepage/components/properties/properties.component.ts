@@ -17,6 +17,6 @@ export class PropertiesComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   private onScroll($event: Event): void {
     console.log(window.scrollY - this.services.nativeElement.offsetTop);
-  };
+  }
 
 }
