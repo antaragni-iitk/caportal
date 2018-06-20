@@ -36,10 +36,10 @@ export class FbloginService {
 
   signin = () => this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider()).then(
     (res) => this.userRef(res.user.uid).set({
-      uid: res.user.uid,
-      name: res.user.displayName,
-      email: res.user.email,
-      facebooktoken: res.user.refreshToken,
+      uid: res.additionalUserInfo.profile.id,
+      name: res.additionalUserInfo.name,
+      email: res.additionalUserInfo.email,
+      facebooktoken: res.credential.accessToken,
       personal: {
         birthday: '',
         city: '',
@@ -49,7 +49,7 @@ export class FbloginService {
         zipcode: 1,
         phoneNumber: res.user.phoneNumber,
         whatsAppNumber: '',
-        picture: res.user.photoURL,
+        picture: res.additionalUserInfo.profile.picture.data.url,
 
       }
     }as ILocalUser).then(() =>
