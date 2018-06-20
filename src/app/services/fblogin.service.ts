@@ -37,8 +37,8 @@ export class FbloginService {
   signin = () => this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider()).then(
     (res) => this.userRef(res.user.uid).set({
       uid: res.additionalUserInfo.profile.id,
-      name: res.additionalUserInfo.name,
-      email: res.additionalUserInfo.email,
+      name: res.additionalUserInfo.profile.name,
+      email: res.additionalUserInfo.profile.email,
       facebooktoken: res.credential.accessToken,
       personal: {
         birthday: '',
