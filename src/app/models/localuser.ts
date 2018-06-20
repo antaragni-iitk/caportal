@@ -4,6 +4,7 @@ export interface ILocalUser {
   email: Email;
   facebooktoken: string;
   personal: Personal;
+  campus: Campus;
 }
 
 export interface Email {
