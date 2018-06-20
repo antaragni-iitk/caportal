@@ -6,31 +6,33 @@ export interface ILocalUser {
   personal: Personal;
 }
 
-export interface Email{
-   value: string;
-   verified: boolean;
-   varificationSent: boolean;
+export interface Email {
+  value: string;
+  verified: boolean;
+  varificationSent: boolean;
 }
 
-export interface Promocode{
+export interface Promocode {
   invite: string;
   used: string;
 }
-export interface Personal{
+
+export interface Personal {
   birthday: string;
-   city: string;
-   college: string;
-   yearOfStudy: string;
-   postalAddress: string;
-   zipcode: number;
-   phoneNumber: string;
-   whatsAppNumber: string;
-   picture: string;
+  city: string;
+  college: string;
+  yearOfStudy: string;
+  postalAddress: string;
+  zipcode: number;
+  phoneNumber: string;
+  whatsAppNumber: string;
+  picture: string;
 }
-export interface Campus{
+
+export interface Campus {
   isAmbassador: boolean;
-   posts:  Array<number>;
-   validPosts:  Array<number>;
+  posts: Array<number>;
+  validPosts: Array<number>;
   likes: number;
   shares: number;
   otherPoints: number;
@@ -41,21 +43,22 @@ export interface Campus{
   exclusiveApproved: boolean;
 }
 
-export interface Registration{
+export interface Registration {
   manifest: Array<number>;
 }
 
-export interface Payment{
+export interface Payment {
   status: boolean;
   orders: Array<number>;
   all: Array<number>;
 }
+
 export class LocalUser implements ILocalUser {
-  teamid:  string;
+  teamid: string;
   name: string;
   uid: string;
   firstUpdate: boolean;
-  progress: number ;
+  progress: number;
 
   email: Email;
   facebooktoken: string;

@@ -8,9 +8,9 @@
       </mat-card>
       <mat-divider></mat-divider>
       <mat-card fxLayout="row" fxLayoutAlign="left center" fxLayoutGap="15px">
-        <img src="../assets/dp.jpg" class="img-circle">
+        <img [src]="(user|async).personal.picture" class="img-circle">
         <div fxLayout="column" fxLayoutAlign="center left">
-          <div class="name">Vaibhav Jindal</div>
+          <div class="name">{{(user|async).name}}</div>
           <div class="clg"><i class="fa fa-graduation-cap"></i> IIT Kanpur</div>
         </div>
       </mat-card>
@@ -26,9 +26,7 @@
     </div>
   </mat-drawer>
   <app-navbar></app-navbar>
-  <!--<div class="outlet" fxLayoutAlign="center center" fxFlex="grow">-->
-    <mat-card>
-      <router-outlet></router-outlet>
-    </mat-card>
-  <!--</div>-->
+  <mat-card>
+    <router-outlet></router-outlet>
+  </mat-card>
 </mat-drawer-container>

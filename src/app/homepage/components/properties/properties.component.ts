@@ -11,12 +11,12 @@ export class PropertiesComponent implements OnInit {
   constructor() {
   }
 
+  ngOnInit() {
+  }
+
   @HostListener('window:scroll', ['$event'])
   private onScroll($event: Event): void {
     console.log(window.scrollY - this.services.nativeElement.offsetTop);
   };
-
-  ngOnInit() {
-  }
 
 }

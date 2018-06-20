@@ -7,8 +7,8 @@ import {HomeComponent} from './dashboard/components/home/home.component';
 import {LandingComponent} from './homepage/components/landing/landing.component';
 import {IdeasComponent} from './dashboard/components/ideas/ideas.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import { RegisterComponent } from './homepage/components/register/register.component';
-import { TncComponent } from './homepage/components/register/tnc/tnc.component';
+import {RegisterComponent} from './homepage/components/register/register.component';
+import {TncComponent} from './homepage/components/register/tnc/tnc.component';
 
 const routes: Routes = [
   {

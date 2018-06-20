@@ -26,24 +26,23 @@ section p {
   padding: 10vh 0;
 }
 
-.about{
+.about {
   font-weight: 100;
   text-transform: uppercase;
   font-size: 2rem;
 }
 
-.about:nth-child(2){
+.about:nth-child(2) {
   font-weight: 400;
 }
 
-.about:nth-child(1){
+.about:nth-child(1) {
   border-bottom: solid 1px black;
 }
 
-.first-para{
+.first-para {
   font-weight: 300;
 }
-
 
 @media (max-width: 920px) {
   .container {

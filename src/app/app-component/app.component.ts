@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFirestore } from 'angularfire2/firestore';
+import {Component} from '@angular/core';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,5 +7,5 @@ import { AngularFirestore } from 'angularfire2/firestore';
 })
 export class AppComponent {
   constructor() {
- }
+  }
 }

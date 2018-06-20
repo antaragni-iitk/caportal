@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
@@ -7,5 +7,7 @@ import {BehaviorSubject} from 'rxjs';
 export class UiService {
   sidenav = new BehaviorSubject<boolean>(true);
   scrollPos = new BehaviorSubject<number>(0);
-  constructor() { }
+
+  constructor() {
+  }
 }

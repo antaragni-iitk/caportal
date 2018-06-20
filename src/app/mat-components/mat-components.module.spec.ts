@@ -1,4 +1,4 @@
-import { MatComponentsModule } from './mat-components.module';
+import {MatComponentsModule} from './mat-components.module';
 
 describe('MatComponentsModule', () => {
   let matComponentsModule: MatComponentsModule;

@@ -27,12 +27,12 @@ i:hover {
   color: white;
 }
 
-mat-tab-group{
+mat-tab-group {
   max-width: calc(100vw - 50px);
 }
 
 @media (max-width: 768px) {
-  i{
+  i {
     margin: 0;
   }
 }

@@ -1,16 +1,16 @@
-.container{
-    padding-top: 4%;
+.container {
+  padding-top: 4%;
 }
 
 table {
-    width: 100%;
+  width: 100%;
 }
 
 .mat-form-field {
-    font-size: 14px;
-    width: 100%;
+  font-size: 14px;
+  width: 100%;
 }
 
 td, th {
-    width: 25%;
-}  
+  width: 25%;
+}

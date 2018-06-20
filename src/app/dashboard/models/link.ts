@@ -1,4 +1,4 @@
-export class Link{
-	name: string;
-	id: string;
+export class Link {
+  name: string;
+  id: string;
 }

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {FbloginService} from '../../../services/fblogin.service';
 
@@ -10,7 +10,9 @@ import {FbloginService} from '../../../services/fblogin.service';
 export class HeaderComponent implements OnInit {
   loaded = new BehaviorSubject(false);
 
-  constructor(private loginService: FbloginService) {}
+  constructor(private loginService: FbloginService) {
+  }
+
   onhit() {
     this.loginService.signin();
   }

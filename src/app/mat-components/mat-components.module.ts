@@ -1,6 +1,9 @@
-import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCheckboxModule, MatInputModule, MatTooltipModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatSnackBarModule, MatDividerModule, MatTabsModule, MatPaginatorModule, MatSortModule, MatTableModule } from '@angular/material';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import {NgModule} from '@angular/core';
+import {
+  MatButtonModule, MatCardModule, MatDatepickerModule, MatDividerModule, MatInputModule, MatNativeDateModule, MatPaginatorModule,
+  MatSelectModule, MatSnackBarModule, MatSortModule, MatTableModule, MatTabsModule, MatTooltipModule
+} from '@angular/material';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   exports: [
@@ -21,4 +24,5 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatSidenavModule
   ]
 })
-export class MatComponentsModule { }
+export class MatComponentsModule {
+}

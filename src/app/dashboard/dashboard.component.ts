@@ -1,5 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {UiService} from '../services/ui.service';
+import {FbloginService} from '../services/fblogin.service';
+import {LocalUser} from '../models/localuser';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,6 +11,7 @@ import {UiService} from '../services/ui.service';
 })
 export class DashboardComponent implements OnInit {
   state;
+  user: Observable<LocalUser>;
   @ViewChild('drawer') drawer;
   showFiller = false;
   points = {
@@ -17,7 +21,8 @@ export class DashboardComponent implements OnInit {
   };
   pointkeys = Object.keys(this.points);
 
-  constructor(private ui: UiService) {
+  constructor(private ui: UiService, private fbloginservice: FbloginService) {
+    this.user = this.fbloginservice.currentUser;
   }
 
   ngOnInit() {

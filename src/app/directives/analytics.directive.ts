@@ -1,4 +1,4 @@
-import { Directive,HostListener,Input } from '@angular/core';
+import {Directive, HostListener, Input} from '@angular/core';
 
 
 @Directive({
@@ -6,12 +6,15 @@ import { Directive,HostListener,Input } from '@angular/core';
 })
 export class AnalyticsDirective {
 
-  @Input('eventTracker') option:any;
+  @Input('eventTracker') option: any;
 
-  @HostListener('click', ['$event']) onClick($event){
+  constructor() {
+  }
+
+  @HostListener('click', ['$event']) onClick($event) {
 
     (<any>window).ga('send', 'event', this.option.category, this.option.action, {
-      hitCallback: function() {
+      hitCallback: function () {
 
         console.log('Tracking is successful');
 
@@ -20,6 +23,5 @@ export class AnalyticsDirective {
     });
 
   }
-  constructor() { }
 
 }
