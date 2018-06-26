@@ -23,7 +23,7 @@
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 3px;
-  border-left: 4px solid #03C4EB;
+  border-left: 4px solid yellow;
 }
 
 #footer .footer-top .footer-info p {
@@ -37,8 +37,7 @@
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  /*background: #03C4EB;*/
-  /*color: rgb(10, 0, 0);*/
+  background: rgb(2, 1, 32);
   color: white;
   line-height: 1;
   border: solid 1px white;
@@ -79,7 +78,7 @@
 }
 
 #footer .footer-top h4::after {
-  background: #03C4EB;
+  background: rgb(2, 1, 32);
   width: 60px;
 }
 

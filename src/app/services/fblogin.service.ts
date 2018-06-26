@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, NgZone} from '@angular/core';
 import {Router} from '@angular/router';
 
 
@@ -35,7 +35,7 @@ export class FbloginService {
   }
 
   signin = () => this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider()).then(
-    (res) => this.userRef(res.user.uid).set({
+    (res: any) => this.userRef(res.user.uid).set({
       uid: res.additionalUserInfo.profile.id,
       name: res.additionalUserInfo.profile.name,
       email: res.additionalUserInfo.profile.email,
@@ -53,32 +53,33 @@ export class FbloginService {
       },
       campus: {
         isAmbassador: true,
-         posts:  [],
-         validPosts:  [],
-         likes: 0,
-         shares: 0,
-         otherPoints: 0,
-         ideaPoints: 0,
-         totalPoints: 0,
-         isExclusive: false,
-         rank: false,
-         exclusiveApproved: false,
+        posts: [],
+        validPosts: [],
+        likes: 0,
+        shares: 0,
+        otherPoints: 0,
+        ideaPoints: 0,
+        totalPoints: 0,
+        isExclusive: false,
+        rank: false,
+        exclusiveApproved: false,
       }
     }as ILocalUser).then(() =>
-      this.router.navigate(['dashboard'])
+      this.zone.run(() => this.router.navigate(['/dashboard']))
+      )
     )
-  )
 
   signOut() {
     this.afAuth.auth.signOut()
-      .then(() => this.router.navigate(['/']))
+      .then(() => this.zone.run(() => this.router.navigate(['/'])))
       .catch(err => this.functions.handleError(err.message));
   }
 
   constructor(private router: Router,
               private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
-              private functions: Funcs) {
+              private functions: Funcs,
+              public zone: NgZone) {
     this.init();
   }
 }
