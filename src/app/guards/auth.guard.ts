@@ -15,7 +15,7 @@ export class LocalUserGuard implements CanActivate {
     return this.localUserService.isAuthenticated$.pipe(
       map((result) => {
         if (!result) {
-          this.router.navigate(['login']);
+          this.router.navigate(['/landing']);
         }
         return !!result;
       })

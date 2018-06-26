@@ -9,12 +9,13 @@ import {IdeasComponent} from './dashboard/components/ideas/ideas.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {RegisterComponent} from './homepage/components/register/register.component';
 import {TncComponent} from './homepage/components/register/tnc/tnc.component';
+import {LocalUserGuard, LoggedInGuard} from './guards';
 
 const routes: Routes = [
-  {path: 'landing', component: LandingComponent},
+  {path: 'landing', component: LandingComponent, canActivate: [LoggedInGuard]},
   {path: '', redirectTo: 'landing', pathMatch: 'full'},
   {
-    path: 'dashboard', component: DashboardComponent, children: [
+    path: 'dashboard', component: DashboardComponent, canActivate: [LocalUserGuard], children: [
       {path: '', redirectTo: 'home', pathMatch: 'prefix'},
       {path: 'leaderboard', component: LeaderboardComponent},
       {path: 'ideas', component: IdeasComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [LocalUserGuard, LoggedInGuard],
   declarations: []
 })
 export class AppRoutingModule {
