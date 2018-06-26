@@ -37,9 +37,11 @@
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #03C4EB;
-  color: rgb(10, 0, 0);
+  /*background: #03C4EB;*/
+  /*color: rgb(10, 0, 0);*/
+  color: white;
   line-height: 1;
+  border: solid 1px white;
   padding: 8px 0;
   margin-right: 4px;
   border-radius: 50%;
@@ -50,7 +52,7 @@
 }
 
 #footer .footer-top .social-links a:hover {
-  background: rgb(223, 148, 9);
+  background: #fc7f0b;
   color: #fff;
 }
 

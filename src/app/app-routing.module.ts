@@ -11,6 +11,8 @@ import {RegisterComponent} from './homepage/components/register/register.compone
 import {TncComponent} from './homepage/components/register/tnc/tnc.component';
 
 const routes: Routes = [
+  {path: 'landing', component: LandingComponent},
+  {path: '', redirectTo: 'landing', pathMatch: 'full'},
   {
     path: 'dashboard', component: DashboardComponent, children: [
       {path: '', redirectTo: 'home', pathMatch: 'prefix'},
@@ -21,8 +23,6 @@ const routes: Routes = [
       {path: 'register/tnc', component: TncComponent},
     ]
   },
-  {path: 'landing', component: LandingComponent},
-  {path: '', redirectTo: 'landing', pathMatch: 'full'}
 ];
 
 @NgModule({
