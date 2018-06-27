@@ -9,38 +9,12 @@
     </div>
 
     <div class="row">
-      <div class="col-md-4 service-item">
-        <div class="service-icon"><i class="fas fa-user-tie"></i></div>
-        <h4 class="service-title">Be a leader</h4>
-        <p class="service-description">Represent your college as you help organize one of Asia's largest cultural
-          fests</p>
-      </div>
-      <div class="col-md-4 service-item">
-        <div class="service-icon"><i class="far fa-address-book"></i></div>
-        <h4 class="service-title">Networking</h4>
-        <p class="service-description">Get opportunities to interact with celebrities from various fields </p>
-      </div>
-      <div class="col-md-4 service-item">
-        <div class="service-icon"><i class="fas fa-cogs"></i></div>
-        <h4 class="service-title">Enhance your skills</h4>
-        <p class="service-description">Improve your communication and managerial abilities</p>
-      </div>
-      <div class="col-md-4 service-item">
-        <div class="service-icon"><i class="fas fa-trophy"></i>
+      <div class="col-md-4 service-item" *ngFor="let prop of data" [class.reveal]="!(scrolltoview|async)">
+        <div class="service-icon"><i [class]="prop.icon"></i></div>
+        <div class="wrapper">
+          <h4 class="service-title">{{prop.title}}</h4>
+          <p class="service-description">{{prop.desc}}</p>
         </div>
-        <h4 class="service-title">Certification</h4>
-        <p class="service-description">Get a ratified certificate from Antaragni, IIT Kanpur recognizing your
-          efforts</p>
-      </div>
-      <div class="col-md-4 service-item">
-        <div class="service-icon"><i class="fas fa-gift"></i></div>
-        <h4 class="service-title">Goodies & Merchandise</h4>
-        <p class="service-description">Free Antaragni merchandise and prizes for top performers</p>
-      </div>
-      <div class="col-md-4 service-item">
-        <div class="service-icon"><i class="fas fa-home"></i></div>
-        <h4 class="service-title">Accomodation</h4>
-        <p class="service-description">Free accomodation for the top performing campus ambassadors @ Antaragni 2018</p>
       </div>
     </div>
   </div>

@@ -25,7 +25,7 @@ import {TncComponent} from './homepage/components/register/tnc/tnc.component';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AngularFireModule} from 'angularfire2';
 import {Funcs} from './utility/function';
-
+import {NgsRevealModule} from 'ng2-scrollreveal';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {environment} from '../environments/environment';
 import {HttpClientModule} from '@angular/common/http';
@@ -60,6 +60,7 @@ import {AnalyticsDirective} from './directives/analytics.directive';
     AngularFirestoreModule,
     AppRoutingModule,
     FlexLayoutModule,
+    NgsRevealModule.forRoot(),
     MatComponentsModule
   ],
   providers: [UiService, Funcs],

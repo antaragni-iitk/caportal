@@ -32,6 +32,7 @@ section {
 #services .service-item {
   margin-bottom: 20px;
   cursor: pointer;
+  overflow: hidden;
 }
 
 #services .service-icon {
@@ -58,10 +59,10 @@ section {
 }
 
 #services .service-title {
-  margin-left: 80px;
   font-weight: 700;
   margin-bottom: 15px;
   text-transform: uppercase;
+  transition: all 1s ease-out;
 }
 
 #services .service-title a {
@@ -69,6 +70,17 @@ section {
 }
 
 #services .service-description {
-  margin-left: 80px;
   line-height: 24px;
+  transform: translateX(0);
+  transition: all 1s ease-out 0.5s;
+}
+
+.reveal .service-description, .reveal .service-title{
+  transform: translateX(-20vw) !important;
+}
+
+.wrapper{
+  margin: 0 0 0 80px !important;
+  overflow: hidden;
+  width: 15vw;
 }
