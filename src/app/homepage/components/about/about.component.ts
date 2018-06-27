@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {UiService} from '../../../services/ui.service';
 
 @Component({
   selector: 'app-about',
@@ -6,11 +7,16 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  @ViewChild('about') about;
 
-  constructor() {
+  constructor(private ui: UiService) {
   }
 
   ngOnInit() {
   }
 
+  @HostListener('window:scroll', ['$event'])
+  private onScroll($event: Event): void {
+    this.ui.scrollPos.next(window.scrollY > this.about.nativeElement.offsetTop);
+  }
 }

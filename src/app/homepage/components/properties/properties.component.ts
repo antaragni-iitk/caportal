@@ -57,5 +57,4 @@ export class PropertiesComponent implements OnInit {
       this.scrolltoview.next(true);
     }
   }
-
 }

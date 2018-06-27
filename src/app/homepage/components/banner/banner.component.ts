@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {FbloginService} from '../../../services/fblogin.service';
+import {BehaviorSubject} from 'rxjs';
 
 @Component({
   selector: 'app-banner',
@@ -8,7 +9,7 @@ import {FbloginService} from '../../../services/fblogin.service';
 })
 export class BannerComponent implements OnInit {
   shownavmenu = false;
-
+  scrolled = new BehaviorSubject(false);
   constructor(private loginService: FbloginService) {
   }
 
@@ -19,6 +20,4 @@ export class BannerComponent implements OnInit {
   onhit() {
     this.loginService.signin();
   }
-
-
 }
