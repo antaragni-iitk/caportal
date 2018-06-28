@@ -24,8 +24,9 @@
   width: 20vw;
   height: 40vh;
   padding: 10px 30px;
-  margin: 0 20px;
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+  margin: 0 10px;
+  box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+  /*box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);*/
   cursor: pointer;
 }
 
@@ -36,7 +37,7 @@ h1 {
 
 .boxes:hover {
   border: none;
-  box-shadow: none;
+  box-shadow: inset 5px 5px 20px 2px #ccc;
 }
 
 .boxes:hover h1 {
@@ -54,4 +55,10 @@ h4 {
 
 .wrapper {
   margin-bottom: 10vh;
+}
+
+@media (max-width: 1023px) {
+  .boxes{
+    width: 80vw;
+  }
 }

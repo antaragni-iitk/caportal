@@ -84,3 +84,9 @@ section {
   overflow: hidden;
   width: 15vw;
 }
+
+@media (max-width: 1023px) {
+  .wrapper{
+    width: 70vw;
+  }
+}

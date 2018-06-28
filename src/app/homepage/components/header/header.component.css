@@ -26,6 +26,7 @@
   font-family: open-sans-800;
   font-size: 46px;
   color: white;
+  text-align: center;
 }
 
 .outinit {
@@ -33,7 +34,7 @@
 }
 
 .flyin {
-  transform: translateY(0px);
+  transform: translateY(0px) !important;
 }
 
 .head1 {
@@ -78,4 +79,16 @@ i {
 
 .login:hover {
   border-right: groove 3px white;
+}
+
+@media (max-width: 1023px) {
+  .wrap:nth-child(2){
+    max-height: 30vh;
+    line-height: 46px;
+    padding: 15px;
+  }
+
+  .head2{
+    transform: translateY(30vh);
+  }
 }
