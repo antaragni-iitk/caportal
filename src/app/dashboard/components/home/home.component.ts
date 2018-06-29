@@ -1,16 +1,17 @@
-import { flip } from './../../../animations/flip';
-import { Component, OnInit, HostBinding } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {bounceOutLeft} from 'app/animations/bounceOutLeft';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  animations: [ flip ]
+  animations: [bounceOutLeft]
 })
 export class HomeComponent implements OnInit {
 
   constructor() {
   }
+
   ngOnInit() {
   }
 

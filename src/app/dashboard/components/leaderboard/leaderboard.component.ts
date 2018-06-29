@@ -1,8 +1,8 @@
-import { flip } from './../../../animations/flip';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
+import {bounceOutLeft} from 'app/animations/bounceOutLeft';
 
 /**
  * @title Data table with sorting, pagination, and filtering.
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   selector: 'app-leaderboard',
   templateUrl: './leaderboard.component.html',
   styleUrls: ['./leaderboard.component.css'],
-  animations: [ flip ]
+  animations: [ bounceOutLeft ]
 })
 export class LeaderboardComponent implements OnInit {
   ELEMENT_DATA: Observable<any[]>;
