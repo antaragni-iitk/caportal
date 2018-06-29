@@ -16,25 +16,22 @@ export class LeaderboardComponent implements OnInit {
   ELEMENT_DATA: Observable<any[]>;
   displayedColumns = [ 'name', 'totalPoints' ];
   dataSource;
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  coll;
 
   constructor(afs: AngularFirestore) {
-    this.dataSource = afs.collection( 'fbusers' , ref => ref.orderBy('campus.totalPoints', 'desc' ).limit(10) ).valueChanges();
+    this.coll = afs.collection( 'fbusers' , ref => ref.orderBy('campus.totalPoints', 'desc' ).limit(10) ).valueChanges();
+    this.coll.subscribe( data => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.filterPredicate = function ( data2 , filter ): boolean {
+      return ( data2.name + data2.campus.totalPoints).toLowerCase().includes(filter);
+    };
+    });
   }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
