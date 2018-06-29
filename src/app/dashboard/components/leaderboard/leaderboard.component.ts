@@ -22,7 +22,6 @@ export class LeaderboardComponent implements OnInit {
 
   constructor(afs: AngularFirestore) {
     this.dataSource = afs.collection( 'fbusers' , ref => ref.orderBy('campus.totalPoints', 'desc' ).limit(10) ).valueChanges();
-    this.dataSource.subscribe( data => console.log(data));
   }
 
   ngOnInit() {
