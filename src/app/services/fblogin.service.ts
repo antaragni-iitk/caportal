@@ -35,39 +35,39 @@ export class FbloginService {
   }
 
   signin = () => this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider()).then(
-    (res: any) => this.userRef(res.user.uid).set({
-      uid: res.additionalUserInfo.profile.id,
-      name: res.additionalUserInfo.profile.name,
-      email: res.additionalUserInfo.profile.email,
-      facebooktoken: res.credential.accessToken,
-      personal: {
-        birthday: '',
-        city: '',
-        college: '',
-        yearOfStudy: '',
-        postalAddress: '',
-        zipcode: 1,
-        phoneNumber: res.user.phoneNumber,
-        whatsAppNumber: '',
-        picture: res.additionalUserInfo.profile.picture.data.url,
-      },
-      campus: {
-        isAmbassador: true,
-        posts: [],
-        validPosts: [],
-        likes: 0,
-        shares: 0,
-        otherPoints: 0,
-        ideaPoints: 0,
-        totalPoints: 0,
-        isExclusive: false,
-        rank: false,
-        exclusiveApproved: false,
-      }
-    }as ILocalUser).then(() =>
-      this.zone.run(() => this.router.navigate(['/dashboard']))
-      )
-    )
+    (res: any) => res.additionalUserInfo.isNewUser ?
+      this.userRef(res.user.uid).set({
+        uid: res.additionalUserInfo.profile.id,
+        name: res.additionalUserInfo.profile.name,
+        email: res.additionalUserInfo.profile.email,
+        facebooktoken: res.credential.accessToken,
+        personal: {
+          birthday: '',
+          city: '',
+          college: '',
+          yearOfStudy: '',
+          postalAddress: '',
+          zipcode: 1,
+          phoneNumber: res.user.phoneNumber,
+          whatsAppNumber: '',
+          picture: res.additionalUserInfo.profile.picture.data.url,
+        },
+        campus: {
+          isAmbassador: true,
+          posts: [],
+          validPosts: [],
+          likes: 0,
+          shares: 0,
+          otherPoints: 0,
+          ideaPoints: 0,
+          totalPoints: 0,
+          isExclusive: false,
+          rank: false,
+          exclusiveApproved: false,
+        }
+      }as ILocalUser) : null).then(() =>
+    this.zone.run(() => this.router.navigate(['/dashboard']))
+  )
 
   signOut() {
     this.afAuth.auth.signOut()
