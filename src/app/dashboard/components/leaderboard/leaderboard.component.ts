@@ -1,3 +1,4 @@
+import { flip } from './../../../animations/flip';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
@@ -31,7 +32,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
 @Component({
   selector: 'app-leaderboard',
   templateUrl: './leaderboard.component.html',
-  styleUrls: ['./leaderboard.component.css']
+  styleUrls: ['./leaderboard.component.css'],
+  animations: [ flip ]
 })
 export class LeaderboardComponent implements OnInit {
   displayedColumns = ['position', 'name', 'weight', 'symbol'];
