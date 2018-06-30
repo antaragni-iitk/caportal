@@ -82,7 +82,7 @@ section {
 .wrapper{
   margin: 0 0 0 80px !important;
   overflow: hidden;
-  width: 15vw;
+  width: 70%;
 }
 
 @media (max-width: 1023px) {
