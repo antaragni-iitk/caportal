@@ -1,16 +1,16 @@
-import { routeTransition } from './../animations/routeAnimation';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {UiService} from '../services/ui.service';
 import {FbloginService} from '../services/fblogin.service';
 import {LocalUser} from '../models/localuser';
 import {Observable} from 'rxjs';
+import {bounceOutLeft} from '../animations/bounceOutLeft';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
   animations: [
-    routeTransition
+    bounceOutLeft
   ]
 })
 export class DashboardComponent implements OnInit {
