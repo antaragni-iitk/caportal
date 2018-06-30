@@ -1,13 +1,20 @@
 #footer {
-  background: rgb(2, 1, 32);
-  padding: 0 0 30px 0;
-  color: #eee;
+  background-color: #222;
+  color: #666;
   font-size: 14px;
+  text-align: center;
+}
+
+#footer>i{
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 10px 0;
 }
 
 #footer .footer-top {
   background: #333;
   padding: 60px 0 30px 0;
+  width: 100%;
 }
 
 #footer .footer-top .footer-info {
@@ -77,7 +84,7 @@
 }
 
 #footer .footer-top h4::after {
-  background: rgb(2, 1, 32);
+  background: orange;
   width: 60px;
 }
 
@@ -97,7 +104,7 @@
 }
 
 #footer .footer-top .footer-links ul li {
-  border-bottom: 1px solid rgb(233, 229, 20);
+  border-bottom: 1px solid #444;
   padding: 10px 0;
 }
 
