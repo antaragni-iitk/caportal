@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Link} from '../dashboard/models/link';
 import {UiService} from '../services/ui.service';
 import {FbloginService} from '../services/fblogin.service';
@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
     {name: 'Ideas', id: 'ideas'},
   ];
 
-  selectedLink: string = this.links[0].name;
+  @Input() selectedLink: string = this.links[0].name;
 
   constructor(private ui: UiService, private fblogin: FbloginService) {
   }
@@ -34,6 +34,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    console.log(this.selectedLink);
   }
 }

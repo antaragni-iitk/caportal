@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'landing', pathMatch: 'full'},
   {
     path: 'dashboard', component: DashboardComponent, canActivate: [LocalUserGuard], canLoad: [AuthGuard], children: [
-      {path: '', redirectTo: 'register', pathMatch: 'prefix'},
+      {path: '', redirectTo: 'home', pathMatch: 'prefix'},
       {path: 'leaderboard', component: LeaderboardComponent, canActivate: [RegisteredUserGuard]},
       {path: 'ideas', component: IdeasComponent, canActivate: [RegisteredUserGuard]},
       {path: 'home', component: HomeComponent, canActivate: [RegisteredUserGuard]},

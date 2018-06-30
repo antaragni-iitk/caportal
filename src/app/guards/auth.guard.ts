@@ -33,8 +33,8 @@ export class RegisteredUserGuard implements CanActivate {
   canActivate(): Observable<boolean> {
     return this.localUserService.currentUser.pipe(
       map((result) => {
-        if (result.personal.birthday === '') {
-          this.router.navigate(['/register']);
+        if (result && result.personal.birthday === '') {
+          this.router.navigate(['/dashboard/register']);
           return false;
         }
         return true;
@@ -66,6 +66,7 @@ export class LoggedInGuard implements CanActivate {
 export class AuthGuard implements CanLoad {
   constructor(private authService: FbloginService) {
   }
+
   canLoad(): Observable<boolean> {
     return this.authService.isAuthenticated$;
   }
