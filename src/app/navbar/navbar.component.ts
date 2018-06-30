@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Link} from '../dashboard/models/link';
 import {UiService} from '../services/ui.service';
 import {FbloginService} from '../services/fblogin.service';
@@ -9,11 +9,7 @@ import {FbloginService} from '../services/fblogin.service';
   styleUrls: ['./navbar.component.css']
 })
 
-export class NavbarComponent implements OnInit {
-  mobile = window.screen.width < 1023;
-  shownavmenu = !this.mobile;
-
-
+export class NavbarComponent {
   links: Link[] = [
     {name: 'Home', id: 'home'},
     {name: 'Leaderboard', id: 'leaderboard'},
@@ -31,9 +27,5 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.fblogin.signOut();
-  }
-
-  ngOnInit() {
-    console.log(this.selectedLink);
   }
 }

@@ -15,6 +15,7 @@ import {bounceOutLeft} from '../animations/bounceOutLeft';
 })
 export class DashboardComponent implements OnInit {
   state;
+  mobile = window.screen.width < 1023;
   user: Observable<LocalUser>;
   @ViewChild('drawer') drawer;
   showFiller = false;

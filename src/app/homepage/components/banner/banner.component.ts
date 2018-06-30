@@ -8,8 +8,6 @@ import {BehaviorSubject} from 'rxjs';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
-  shownavmenu = false;
-  scrolled = new BehaviorSubject(false);
   constructor(private loginService: FbloginService) {
   }
 
