@@ -1,8 +1,9 @@
-import { LocalUserGuard, LoggedInGuard } from './auth.guard';
+import {LocalUserGuard, LoggedInGuard, RegisteredUserGuard} from './auth.guard';
 
 export const guards: any[] = [
     LoggedInGuard,
-    LocalUserGuard
+    LocalUserGuard,
+    RegisteredUserGuard
 ];
 
 export * from './auth.guard';
