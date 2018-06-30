@@ -1,8 +1,8 @@
+import { bounceOutLeft } from 'app/animations/bounceOutLeft';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
-import {bounceOutLeft} from 'app/animations/bounceOutLeft';
 
 /**
  * @title Data table with sorting, pagination, and filtering.

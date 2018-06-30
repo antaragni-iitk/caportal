@@ -26,8 +26,8 @@
     </div>
   </mat-drawer>
   <app-navbar></app-navbar>
-  <mat-card>
-    <router-outlet></router-outlet>
-  </mat-card>
-</mat-drawer-container>
+    <div [@routerTransition]="getState(o)">
+      <router-outlet #o="outlet"></router-outlet>
+    </div>
+  </mat-drawer-container>
 

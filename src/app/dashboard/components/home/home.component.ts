@@ -1,5 +1,5 @@
+import { bounceOutLeft } from 'app/animations/bounceOutLeft';
 import {Component, OnInit} from '@angular/core';
-import {bounceOutLeft} from 'app/animations/bounceOutLeft';
 
 @Component({
   selector: 'app-home',

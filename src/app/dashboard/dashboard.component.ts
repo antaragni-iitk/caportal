@@ -1,3 +1,4 @@
+import { routeTransition } from './../animations/routeAnimation';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {UiService} from '../services/ui.service';
 import {FbloginService} from '../services/fblogin.service';
@@ -7,7 +8,10 @@ import {Observable} from 'rxjs';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  animations: [
+    routeTransition
+  ]
 })
 export class DashboardComponent implements OnInit {
   state;
@@ -23,6 +27,11 @@ export class DashboardComponent implements OnInit {
 
   constructor(private ui: UiService, private fbloginservice: FbloginService) {
     this.user = this.fbloginservice.currentUser;
+  }
+
+  getState(outlet) {
+    // Changing the activatedRouteData.state triggers the animation
+    return outlet.activatedRoute.url;
   }
 
   ngOnInit() {
