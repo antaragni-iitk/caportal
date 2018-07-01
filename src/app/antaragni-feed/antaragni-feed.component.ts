@@ -1,9 +1,8 @@
-import { Component, OnInit , HostBinding } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
-import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/debounceTime';
-import { AntaragniFeedService } from '../services/feed';
-import { trigger, state, animate, transition, style } from '@angular/animations';
+import {Component, OnInit} from '@angular/core';
+import {MatSnackBar} from '@angular/material';
+import {Subject} from 'rxjs/Subject';
+import {AntaragniFeedService} from '../services/feed';
+import {facebookfeed} from './mockfeed';
 
 interface IAlert {
   type: string;
@@ -14,21 +13,9 @@ interface IAlert {
   selector: 'app-antaragni-feed',
   templateUrl: './antaragni-feed.component.html',
   styleUrls: ['./antaragni-feed.component.css'],
-  animations: [trigger('flyInAnimation', [
-    state('*', style({opacity: 1})),
-    transition(':enter', [
-      style({opacity: 0}),
-      animate('1s .12s ease-out', style({opacity: 1}))
-    ]),
-    transition(':leave', [
-      style({opacity: 1, transform: 'translate(0,0)'}),
-      animate('.1s ease-in', style({opacity: 0, transform: 'translate(0,100vh)'}))
-    ])
-  ])],
 })
 export class AntaragniFeedComponent implements OnInit {
-  @HostBinding('@flyInAnimation') flyInAnimation = true;
-  message =  new Subject<string>();
+  message = new Subject<string>();
   feeds: any;
   alert: IAlert = {
     type: 'success',
@@ -36,18 +23,21 @@ export class AntaragniFeedComponent implements OnInit {
   };
 
   constructor(private feedService: AntaragniFeedService,
-              private snackbar: MatSnackBar) { }
+              private snackbar: MatSnackBar) {
+  }
 
   ngOnInit() {
     this.getAllFeeds();
-    this.message.subscribe((message) => this.snackbar.open(message, '', { duration: 2000 }));
+    // this.message.subscribe((message) => this.snackbar.open(message, '', {duration: 2000}));
   }
 
   getAllFeeds() {
-    this.feedService.getAllPosts()
-      .then((res) => {
-        this.feeds = res.data;
-      });
+    // this.feedService.getAllPosts()
+    //   .then((res) => {
+    //     this.feeds = res.data;
+    //   });
+    this.feeds = facebookfeed.data;
+    console.log(facebookfeed);
   }
 
   // share(post: any) {

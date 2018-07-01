@@ -10,6 +10,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {RegisterComponent} from './dashboard/components/register/register.component';
 import {TncComponent} from './dashboard/components/register/tnc/tnc.component';
 import {AuthGuard, guards, LocalUserGuard, LoggedInGuard, RegisteredGuard, RegisteredUserGuard} from './guards';
+import {AntaragniFeedComponent} from './antaragni-feed';
 
 const routes: Routes = [
   {path: 'landing', component: LandingComponent, canActivate: [LoggedInGuard]},
@@ -19,7 +20,7 @@ const routes: Routes = [
       {path: '', redirectTo: 'home', pathMatch: 'prefix', },
       {path: 'leaderboard', component: LeaderboardComponent, canActivate: [RegisteredUserGuard]},
       {path: 'ideas', component: IdeasComponent, canActivate: [RegisteredUserGuard]},
-      {path: 'home', component: HomeComponent, canActivate: [RegisteredUserGuard]},
+      {path: 'home', component: AntaragniFeedComponent, canActivate: [RegisteredUserGuard]},
       {path: 'register', component: RegisterComponent, canActivate: [RegisteredGuard]},
       {path: 'register/tnc', component: TncComponent},
     ]
