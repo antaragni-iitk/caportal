@@ -10,6 +10,7 @@ import {Funcs} from '../utility/function';
 import {catchError, switchMap} from 'rxjs/operators';
 import {distinctUntilChanged, map} from 'rxjs/internal/operators';
 import {ILocalUser, LocalUser} from '../models/localuser';
+import {UiService} from '@services/ui.service';
 
 @Injectable({
   providedIn: 'root'
@@ -72,13 +73,14 @@ export class FbloginService {
         }
       }as ILocalUser) : null)
     .then(() => this.dataFetched.pipe(distinctUntilChanged()).subscribe(
-      () => this.zone.run(() => this.router.navigate(['/dashboard']))))
+      () => this.zone.run(() => this.router.navigate(['/dashboard']))));
 
   constructor(private router: Router,
               private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
               private functions: Funcs,
-              public zone: NgZone) {
+              public zone: NgZone,
+              private ui: UiService) {
     this.init();
   }
 
@@ -92,5 +94,6 @@ export class FbloginService {
     this.afAuth.auth.signOut()
       .then(() => this.zone.run(() => this.router.navigate(['/'])))
       .catch(err => this.functions.handleError(err.message));
+    this.ui.scrollPos.next(false);
   }
 }
