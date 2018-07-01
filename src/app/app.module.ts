@@ -30,7 +30,9 @@ import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {environment} from '../environments/environment';
 import {HttpClientModule} from '@angular/common/http';
 import {AnalyticsDirective} from './directives/analytics.directive';
+import {AntaragniFeedService} from './services/feed';
 import {AntaragniFeedComponent} from './antaragni-feed';
+import {FacebookModule, FacebookService} from 'ngx-facebook';
 
 @NgModule({
   declarations: [
@@ -63,9 +65,10 @@ import {AntaragniFeedComponent} from './antaragni-feed';
     AppRoutingModule,
     FlexLayoutModule,
     NgsRevealModule.forRoot(),
-    MatComponentsModule
+    MatComponentsModule,
+    FacebookModule.forRoot(),
   ],
-  providers: [UiService, Funcs],
+  providers: [UiService, Funcs, AntaragniFeedService, FacebookService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
