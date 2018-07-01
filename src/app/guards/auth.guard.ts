@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {CanActivate, CanLoad, Router} from '@angular/router';
+import {CanActivate, CanActivateChild, Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/internal/operators';
 import {FbloginService} from '@services/fblogin.service';
@@ -33,8 +33,28 @@ export class RegisteredUserGuard implements CanActivate {
   canActivate(): Observable<boolean> {
     return this.localUserService.currentUser.pipe(
       map((result) => {
-        if (result && result.personal.birthday === '') {
+        if (!result.firstUpdate) {
           this.router.navigate(['/dashboard/register']);
+          return false;
+        }
+        return true;
+      })
+    );
+  }
+}
+
+@Injectable()
+export class RegisteredGuard implements CanActivate {
+
+  constructor(private localUserService: FbloginService, private router: Router) {
+
+  }
+
+  canActivate(): Observable<boolean> {
+    return this.localUserService.currentUser.pipe(
+      map((result) => {
+        if (result.firstUpdate) {
+          this.router.navigate(['/dashboard/home']);
           return false;
         }
         return true;
@@ -63,11 +83,18 @@ export class LoggedInGuard implements CanActivate {
 }
 
 @Injectable()
-export class AuthGuard implements CanLoad {
-  constructor(private authService: FbloginService) {
+export class AuthGuard implements CanActivateChild {
+  constructor(private authService: FbloginService, private router: Router) {
   }
 
-  canLoad(): Observable<boolean> {
-    return this.authService.isAuthenticated$;
+  canActivateChild(): Observable<boolean> {
+    return this.authService.currentUser.pipe(
+      map((user) => {
+        if (!user) {
+          this.router.navigate(['/']);
+        }
+        return !!user;
+      })
+    );
   }
 }

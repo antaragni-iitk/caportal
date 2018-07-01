@@ -37,7 +37,8 @@ export class FbloginService {
   signin = () => this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider()).then(
     (res: any) => res.additionalUserInfo.isNewUser ?
       this.userRef(res.user.uid).set({
-        uid: res.additionalUserInfo.profile.id,
+        facebookID: res.additionalUserInfo.profile.id,
+        uid: res.user.uid,
         name: res.additionalUserInfo.profile.name,
         email: res.additionalUserInfo.profile.email,
         facebooktoken: res.credential.accessToken,
@@ -65,9 +66,15 @@ export class FbloginService {
           rank: false,
           exclusiveApproved: false,
         }
-      }as ILocalUser) : null).then(() =>
-    this.zone.run(() => this.router.navigate(['/dashboard']))
-  )
+      }as ILocalUser) : null)
+    .then(() => this.zone.run(() => this.router.navigate(['/dashboard'])))
+
+  update(user: LocalUser) {
+    this.userRef(user.uid).set({...user} as ILocalUser)
+      .then(() => this.router.navigate['/dashboard/home'])
+      .catch((err) => this.functions.handleError(err));
+  }
+
 
   signOut() {
     this.afAuth.auth.signOut()

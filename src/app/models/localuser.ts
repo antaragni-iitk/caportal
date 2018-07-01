@@ -3,6 +3,7 @@ export interface ILocalUser {
   name: string;
   email: Email;
   facebooktoken: string;
+  facebookID: string;
   personal: Personal;
   campus: Campus;
 }
@@ -60,7 +61,7 @@ export class LocalUser implements ILocalUser {
   uid: string;
   firstUpdate: boolean;
   progress: number;
-
+  facebookID: string;
   email: Email;
   facebooktoken: string;
   promocode: Promocode;
