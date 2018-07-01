@@ -37,7 +37,7 @@ export class FbloginService {
       this.currentUser.next(users);
       this.dataFetched.next(!!users);
     });
-  }
+  };
 
   signin = () => this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider())
     .then(
@@ -72,8 +72,8 @@ export class FbloginService {
             rank: false,
             exclusiveApproved: false,
           }
-        }as ILocalUser) : res)
-    .catch((err) => this.functions.handleError(err.message))
+        }as ILocalUser)
+          .catch((err) => this.functions.handleError(err.message)) : console.log())
 
   constructor(private router: Router,
               private afAuth: AngularFireAuth,
@@ -81,15 +81,17 @@ export class FbloginService {
               private functions: Funcs,
               public zone: NgZone,
               private ui: UiService) {
-    this.init();
     this.dataFetched.pipe(distinctUntilChanged()).subscribe(
-      () => this.zone.run(() => this.router.navigate(['/dashboard'])));
-
+      (val) => val ? this.zone.run(() => this.router.navigate(['/dashboard'])) : false
+  )
+    ;
+    this.init();
   }
 
   update(user: LocalUser) {
     this.userRef(user.uid).set({...user} as ILocalUser)
-      .then(() => this.router.navigate['/dashboard/home'])
+      .then(() => this.currentUser.next(user))
+      .then(() => this.zone.run(() => this.router.navigate(['/dashboard/home'])))
       .catch((err) => this.functions.handleError(err));
   }
 
