@@ -1,9 +1,10 @@
 <div class="container">
   <h1>Registration Form</h1>
-  <form #register="ngForm" (ngSubmit)="onSubmit('asd')">
+  <form #register="ngForm" (ngSubmit)="onSubmit()">
     <div class="form">
       <mat-form-field>
-        <input required ngModel #name="ngModel" name="name" matInput placeholder="Name">
+        <input required #name="ngModel" name="name" matInput placeholder="Name"
+               [(ngModel)]="newuser.name" [disabled]="newuser.name != ''">
         <mat-error *ngIf="name.errors">
           Name is required.
         </mat-error>

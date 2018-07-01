@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {FbloginService} from '@services/fblogin.service';
+import {LocalUser} from '@models/localuser';
 
 @Component({
   selector: 'app-register',
@@ -19,15 +21,17 @@ export class RegisterComponent implements OnInit {
     {id: 4, name: '4th Year'},
     {id: 5, name: '5+ Year'}
   ];
+  newuser: LocalUser;
 
-  constructor() {
+  constructor(private fblogin: FbloginService) {
   }
 
   ngOnInit() {
+    this.fblogin.currentUser.subscribe((user) => this.newuser = user ? user : new LocalUser());
   }
 
-  onSubmit(str) {
-    //   send form data
-    console.log(str);
+  onSubmit() {
+    this.newuser.firstUpdate = true;
+    this.fblogin.update(this.newuser);
   }
 }
