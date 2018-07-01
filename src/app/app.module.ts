@@ -30,6 +30,7 @@ import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {environment} from '../environments/environment';
 import {HttpClientModule} from '@angular/common/http';
 import {AnalyticsDirective} from './directives/analytics.directive';
+import {AntaragniFeedComponent} from './antaragni-feed';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import {AnalyticsDirective} from './directives/analytics.directive';
     RegisterComponent,
     TncComponent,
     AnalyticsDirective,
+    AntaragniFeedComponent,
   ],
   imports: [
     BrowserModule,

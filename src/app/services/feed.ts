@@ -1,15 +1,14 @@
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import {Injectable} from '@angular/core';
 
-import { FacebookService, UIParams, UIResponse } from 'ngx-facebook';
-import { FbloginService } from './fblogin.service';
+import {FacebookService} from 'ngx-facebook';
+import {FbloginService} from './fblogin.service';
 
 @Injectable()
 export class AntaragniFeedService {
 
   constructor(private fb: FacebookService,
-              private loginService: FbloginService
-              ) { }
+              private loginService: FbloginService) {
+  }
 
   getAllPosts(): Promise<any> {
     // return this.fb.api('antaragni.iitk?fields=posts{message,full_picture,link,permalink_url}', 'get');
