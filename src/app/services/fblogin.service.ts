@@ -2,13 +2,13 @@ import {Injectable, NgZone} from '@angular/core';
 import {Router} from '@angular/router';
 
 
-import {BehaviorSubject, Observable, of} from 'rxjs';
+import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 import {auth} from 'firebase/app';
 import {AngularFirestore, AngularFirestoreDocument} from 'angularfire2/firestore';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {Funcs} from '../utility/function';
 import {catchError, switchMap} from 'rxjs/operators';
-import {map} from 'rxjs/internal/operators';
+import {distinctUntilChanged, map} from 'rxjs/internal/operators';
 import {ILocalUser, LocalUser} from '../models/localuser';
 
 @Injectable({
@@ -18,6 +18,7 @@ export class FbloginService {
   currentUser: BehaviorSubject<LocalUser>;
   $logged: Observable<LocalUser>;
   isAuthenticated$: Observable<boolean>;
+  dataFetched = new Subject<boolean>();
   public userRef = (id: string): AngularFirestoreDocument<ILocalUser> => this.afs.doc(`fbusers/${id}`);
   init = (): void => {
     this.currentUser = new BehaviorSubject<LocalUser>(null);
@@ -31,8 +32,11 @@ export class FbloginService {
         return of(null);
       })
     );
-    this.$logged.subscribe((users) => this.currentUser.next(users));
-  }
+    this.$logged.subscribe((users) => {
+      this.currentUser.next(users);
+      this.dataFetched.next(true);
+    });
+  };
 
   signin = () => this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider()).then(
     (res: any) => res.additionalUserInfo.isNewUser ?
@@ -67,20 +71,8 @@ export class FbloginService {
           exclusiveApproved: false,
         }
       }as ILocalUser) : null)
-    .then(() => this.zone.run(() => this.router.navigate(['/dashboard'])))
-
-  update(user: LocalUser) {
-    this.userRef(user.uid).set({...user} as ILocalUser)
-      .then(() => this.router.navigate['/dashboard/home'])
-      .catch((err) => this.functions.handleError(err));
-  }
-
-
-  signOut() {
-    this.afAuth.auth.signOut()
-      .then(() => this.zone.run(() => this.router.navigate(['/'])))
-      .catch(err => this.functions.handleError(err.message));
-  }
+    .then(() => this.dataFetched.pipe(distinctUntilChanged()).subscribe(
+      () => this.zone.run(() => this.router.navigate(['/dashboard']))))
 
   constructor(private router: Router,
               private afAuth: AngularFireAuth,
@@ -88,5 +80,17 @@ export class FbloginService {
               private functions: Funcs,
               public zone: NgZone) {
     this.init();
+  }
+
+  update(user: LocalUser) {
+    this.userRef(user.uid).set({...user} as ILocalUser)
+      .then(() => this.router.navigate['/dashboard/home'])
+      .catch((err) => this.functions.handleError(err));
+  }
+
+  signOut() {
+    this.afAuth.auth.signOut()
+      .then(() => this.zone.run(() => this.router.navigate(['/'])))
+      .catch(err => this.functions.handleError(err.message));
   }
 }

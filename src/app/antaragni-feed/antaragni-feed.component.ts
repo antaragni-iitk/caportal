@@ -37,7 +37,6 @@ export class AntaragniFeedComponent implements OnInit {
     //     this.feeds = res.data;
     //   });
     this.feeds = facebookfeed.data;
-    console.log(facebookfeed);
   }
 
   // share(post: any) {
