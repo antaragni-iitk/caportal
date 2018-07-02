@@ -1,4 +1,3 @@
-import { bounceOutLeft } from 'app/animations/bounceOutLeft';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { AngularFirestore } from 'angularfire2/firestore';
@@ -11,8 +10,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-leaderboard',
   templateUrl: './leaderboard.component.html',
-  styleUrls: ['./leaderboard.component.css'],
-  animations: [ bounceOutLeft ]
+  styleUrls: ['./leaderboard.component.css']
 })
 export class LeaderboardComponent implements OnInit {
   ELEMENT_DATA: Observable<any[]>;
