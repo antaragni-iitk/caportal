@@ -20,9 +20,11 @@ export class DashboardComponent implements OnInit {
   @ViewChild('drawer') drawer;
   showFiller = false;
   points = {
-    'Total Points': 32,
-    'Idea Points': 31,
-    'Other Points': 89,
+    'Idea Points': 'otherPoints',
+    'Likes': 'likes',
+    'Shares': 'shares',
+    'Other Points': 'ideaPoints',
+    'Total Points': 'totalPoints',
   };
   pointkeys = Object.keys(this.points);
 

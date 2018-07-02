@@ -22,12 +22,14 @@ export class RegisterComponent implements OnInit {
     {id: 5, name: '5+ Year'}
   ];
   newuser: LocalUser;
+  newuser$ = new LocalUser();
 
   constructor(private fblogin: FbloginService) {
   }
 
   ngOnInit() {
     this.fblogin.currentUser.subscribe((user) => this.newuser = user ? user : new LocalUser());
+    this.newuser$ = JSON.parse(JSON.stringify(this.newuser));
   }
 
   onSubmit() {

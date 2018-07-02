@@ -9,7 +9,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import {Funcs} from '../utility/function';
 import {catchError, switchMap} from 'rxjs/operators';
 import {distinctUntilChanged, map} from 'rxjs/internal/operators';
-import {ILocalUser, LocalUser} from '../models/localuser';
+import {Facebook, ILocalUser, LocalUser} from '../models/localuser';
 import {UiService} from '@services/ui.service';
 
 @Injectable({
@@ -37,26 +37,26 @@ export class FbloginService {
       this.currentUser.next(users);
       this.dataFetched.next(!!users);
     });
-  };
+  }
 
   signin = () => this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider())
     .then(
       (res: any) => res.additionalUserInfo.isNewUser ?
         this.userRef(res.user.uid).set({
-          facebookID: res.additionalUserInfo.profile.id,
           uid: res.user.uid,
           name: res.additionalUserInfo.profile.name,
-          email: res.additionalUserInfo.profile.email,
-          facebooktoken: res.credential.accessToken,
+          email: {
+            value: res.additionalUserInfo.profile.email,
+            verified: res.user.emailVerified,
+          },
+          facebook: {
+            Token: res.credential.accessToken,
+            facebookID: res.additionalUserInfo.profile.id,
+            facebookLink: res.additionalUserInfo.profile.link,
+          },
           personal: {
-            birthday: '',
-            city: '',
-            college: '',
-            yearOfStudy: '',
-            postalAddress: '',
-            zipcode: 1,
+            gender: res.additionalUserInfo.profile.gender,
             phoneNumber: res.user.phoneNumber,
-            whatsAppNumber: '',
             picture: res.additionalUserInfo.profile.picture.data.url,
           },
           campus: {
@@ -73,7 +73,15 @@ export class FbloginService {
             exclusiveApproved: false,
           }
         }as ILocalUser)
-          .catch((err) => this.functions.handleError(err.message)) : console.log())
+          .catch((err) => this.functions.handleError(err.message)) :
+        this.userRef(res.user.uid).update({
+          facebook: {
+            Token: res.credential.accessToken,
+            facebookID: res.additionalUserInfo.profile.id,
+            facebookLink: res.additionalUserInfo.profile.link,
+          } as Facebook
+        })
+    )
 
   constructor(private router: Router,
               private afAuth: AngularFireAuth,
@@ -83,7 +91,7 @@ export class FbloginService {
               private ui: UiService) {
     this.dataFetched.pipe(distinctUntilChanged()).subscribe(
       (val) => val ? this.zone.run(() => this.router.navigate(['/dashboard'])) : false
-  )
+    )
     ;
     this.init();
   }
