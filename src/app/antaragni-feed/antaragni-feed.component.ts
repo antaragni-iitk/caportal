@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {MatSnackBar} from '@angular/material';
 import {Subject} from 'rxjs/Subject';
 import {AntaragniFeedService} from '../services/feed';
 import {facebookfeed} from './mockfeed';
+import {HttpClient} from '@angular/common/http';
 
 interface IAlert {
   type: string;
@@ -23,7 +23,7 @@ export class AntaragniFeedComponent implements OnInit {
   };
 
   constructor(private feedService: AntaragniFeedService,
-              private snackbar: MatSnackBar) {
+              private http: HttpClient) {
   }
 
   ngOnInit() {
@@ -39,9 +39,9 @@ export class AntaragniFeedComponent implements OnInit {
     this.feeds = facebookfeed.data;
   }
 
-  sharePost(id: string) {
+  sharePost(post) {
     this.feedService.loginWithOptions().then(() =>
-      this.feedService.sharePost(id)
+      this.feedService.sharePost(post.permalink_url, post.id)
     );
   }
 

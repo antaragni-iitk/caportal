@@ -3,13 +3,24 @@ import {Injectable} from '@angular/core';
 import {FacebookService, LoginOptions, LoginResponse, UIParams, UIResponse} from 'ngx-facebook';
 import {FbloginService} from './fblogin.service';
 import {Funcs} from '../utility/function';
+import {HttpClient} from '@angular/common/http';
+import {catchError} from 'rxjs/internal/operators';
+
+export interface FbPostResponse {
+  data: Array<{
+    created_time: string
+    id: string
+  }>;
+  next: string;
+}
 
 @Injectable()
 export class AntaragniFeedService {
 
   constructor(private fb: FacebookService,
               private loginService: FbloginService,
-              private fun: Funcs) {
+              private fun: Funcs,
+              private http: HttpClient) {
     fb.init({
       appId: '1799522573643704',
       version: 'v3.0'
@@ -38,7 +49,7 @@ export class AntaragniFeedService {
 
   }
 
-  sharePost(link: string): Promise<boolean> {
+  sharePost(link: string, id: string): Promise<boolean> {
     console.log(link);
     const params: UIParams = {
       href: link,
@@ -46,12 +57,17 @@ export class AntaragniFeedService {
     };
     return this.fb.ui(params)
       .then((res: UIResponse) => {
-        console.log(res);
         if (res.error_message) {
+          this.fun.handleError(res.error_message);
           return false;
-        } else if (res.post_id) {
-          console.log(res.post_id);
-          return true
+        } else {
+          this.http.get('https://graph.facebook.com/v3.0/' + id + '/sharedposts?' +
+            'access_token=EAAZAkpZCZCEb7gBAGRO4ZAtm3xJHxhONGTjY8F9ZBmZBaew4BTv2adc19HCSlyctMS00hAs5xnCCjz4MsJ8meBe4gZAZA0ICJhdYKxcbik3kEVTZBDKCHPHmSqlIbFk2uP3ZCZB2wYFBxWcyLvPiCcJBjmIIvLKXFUOHSTlAvBQFAVojydoCJHTCz2HajTjj8WSTVwQ1VsZCiCuwNQZDZD'
+          ).pipe(
+            catchError(err => this.fun.handleError(err))
+          ).subscribe(
+            (posts: FbPostResponse) => console.log(posts.data)
+          );
         }
         return false;
       }).catch(err => {
