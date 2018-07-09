@@ -39,23 +39,10 @@ export class AntaragniFeedComponent implements OnInit {
     this.feeds = facebookfeed.data;
   }
 
-  // share(post: any) {
-  //   this.feedService.sharePost(post.permalink_url)
-  //     .then((success) => {
-  //       if (success) {
-  //         this.alert.type = 'success';
-  //         console.log('Sent message');
-  //         this.message.next('The Post has been shared on Facebook');
-  //       } else {
-  //         this.alert.type = 'danger';
-  //         this.message.next('Some Error occurred. The Post was not shared');
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       this.alert.type = 'danger';
-  //       this.message.next('Some Error occurred. The Post was not shared');
-  //     });
-  // }
+  sharePost(id: string) {
+    this.feedService.loginWithOptions().then(() =>
+      this.feedService.sharePost(id)
+    );
+  }
 
 }

@@ -32,7 +32,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AnalyticsDirective} from './directives/analytics.directive';
 import {AntaragniFeedService} from './services/feed';
 import {AntaragniFeedComponent} from './antaragni-feed';
-import {FacebookModule, FacebookService} from 'ngx-facebook';
+import {FacebookModule} from 'ngx-facebook';
 
 @NgModule({
   declarations: [
@@ -68,7 +68,7 @@ import {FacebookModule, FacebookService} from 'ngx-facebook';
     MatComponentsModule,
     FacebookModule.forRoot(),
   ],
-  providers: [UiService, Funcs, AntaragniFeedService, FacebookService],
+  providers: [UiService, Funcs, AntaragniFeedService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
