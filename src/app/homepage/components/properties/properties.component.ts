@@ -59,10 +59,10 @@ export class PropertiesComponent implements OnInit {
   ngOnInit() {
   }
 
-  @HostListener('window:scroll', ['$event'])
-  private onScroll($event: Event): void {
-    if (window.scrollY + window.screen.height - 200 > this.services.nativeElement.offsetTop) {
-      this.scrolltoview.next(true);
-    }
-  }
+  // @HostListener('window:scroll', ['$event'])
+  // private onScroll($event: Event): void {
+  //   if (window.scrollY + window.screen.height - 200 > this.services.nativeElement.offsetTop) {
+  //     this.scrolltoview.next(true);
+  //   }
+  // }
 }
