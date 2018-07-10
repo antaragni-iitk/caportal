@@ -1,21 +1,32 @@
-<section id="services" #services>
-  <div class="container wow fadeInUp">
-    <div class="row">
-      <div class="col-md-12">
-        <h3 class="section-title">Why become a Campus Ambassador?</h3>
-        <div class="section-title-divider"></div>
-        <p class="section-description"></p>
+<div fxLayout="column" class="full-width grid">
+  <div fxLayout="row" class="incentive full-width">
+    <div class="half-width pad3" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+      <h1>Why ?</h1>
+      <div fxLayout="row wrap" fxLayoutAlign="left center" fxLayoutGap="20px">
+        <div fxLayout="row" *ngFor="let prop of data[0]" fxLayoutAlign="left center" fxLayoutGap="20px" class="incent">
+          <div class="icon" fxLayoutAlign="center center"><i [class]="prop.icon"></i></div>
+          <div fxLayout="column">
+            <h6>{{prop.title}}</h6>
+            <p>{{prop.desc}}</p>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-md-4 service-item" *ngFor="let prop of data" [class.reveal]="!(scrolltoview|async)">
-        <div class="service-icon"><i [class]="prop.icon"></i></div>
-        <div class="wrapper">
-          <h4 class="service-title">{{prop.title}}</h4>
-          <p class="service-description">{{prop.desc}}</p>
+    <div class="half-width image1"></div>
+  </div>
+  <div fxLayout="row" class="incentive full-width">
+    <div class="half-width image2"></div>
+    <div class="half-width pad3" fxLayout="column" fxLayoutAlign="center center">
+      <h1>Incentives</h1>
+      <div fxLayout="row wrap" fxLayoutAlign="left center" fxLayoutGap="20px">
+        <div fxLayout="row" *ngFor="let prop of data[1]" fxLayoutAlign="left center" fxLayoutGap="20px" class="incent">
+          <div class="icon" fxLayoutAlign="center center"><i [class]="prop.icon"></i></div>
+          <div fxLayout="column">
+            <h6>{{prop.title}}</h6>
+            <p>{{prop.desc}}</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
