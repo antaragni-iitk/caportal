@@ -10,7 +10,8 @@ export class RespComponent implements OnInit {
   titles = [
     'Advertise',
     'Organize',
-    'Conduct'
+    'Conduct',
+    'Conduct',
   ];
 
   desciption = [
@@ -19,13 +20,22 @@ export class RespComponent implements OnInit {
     `Organize events, workshops and sessions regarding Antaragni and what it has to offer with assistance
      from mentors`,
     `Help in management of elimination rounds in your college and city to select participants for the main
-     event`
+     event`,
+     `Help in management of elimination rounds in your college and city to select participants for the main
+     event`,
   ];
 
   icons = [
     'fas fa-bullhorn',
     'fas fa-globe',
-    'fas fa-user-cog media-object'
+    'fas fa-user-cog media-object',
+    'fas fa-user-cog media-object',
+  ];
+  bcolor= [
+    'orange',
+     'yellow',
+     'pink',
+     'blue',
   ];
 
 
