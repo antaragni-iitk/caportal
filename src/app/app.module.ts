@@ -33,6 +33,7 @@ import {AnalyticsDirective} from './directives/analytics.directive';
 import {AntaragniFeedService} from './services/feed';
 import {AntaragniFeedComponent} from './antaragni-feed';
 import {FacebookModule} from 'ngx-facebook';
+import {FaqComponent} from './homepage/components/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import {FacebookModule} from 'ngx-facebook';
     TncComponent,
     AnalyticsDirective,
     AntaragniFeedComponent,
+    FaqComponent,
   ],
   imports: [
     BrowserModule,
