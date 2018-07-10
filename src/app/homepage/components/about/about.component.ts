@@ -1,5 +1,6 @@
 import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {UiService} from '../../../services/ui.service';
+import {ContentService} from '../../../services/content.service';
 
 @Component({
   selector: 'app-about',
@@ -9,10 +10,13 @@ import {UiService} from '../../../services/ui.service';
 export class AboutComponent implements OnInit {
   @ViewChild('about') about;
 
-  constructor(private ui: UiService) {
-  }
+  private contents;
+  constructor(private ui: UiService, private ares: ContentService) {}
 
   ngOnInit() {
+    this.ares.getArray('ca_about').subscribe((content) => {
+      this.contents = content['data'];
+    });
   }
 
   @HostListener('window:scroll', ['$event'])

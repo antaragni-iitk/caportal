@@ -19,6 +19,7 @@ import {IdeasComponent} from './dashboard/components/ideas/ideas.component';
 import {AppRoutingModule} from './app-routing.module';
 import {LandingComponent} from './homepage/components/landing/landing.component';
 import {UiService} from './services/ui.service';
+import {ContentService} from './services/content.service';
 import {RegisterComponent} from './dashboard/components/register/register.component';
 import {FormsModule} from '@angular/forms';
 import {TncComponent} from './dashboard/components/register/tnc/tnc.component';
@@ -68,7 +69,7 @@ import {FacebookModule} from 'ngx-facebook';
     MatComponentsModule,
     FacebookModule.forRoot(),
   ],
-  providers: [UiService, Funcs, AntaragniFeedService],
+  providers: [UiService, Funcs, AntaragniFeedService, ContentService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
