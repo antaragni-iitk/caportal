@@ -37,7 +37,7 @@ export class FbloginService {
       this.currentUser.next(users);
       this.dataFetched.next(!!users);
     });
-  };
+  }
 
   signin = () => this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider())
     .then(
@@ -81,7 +81,7 @@ export class FbloginService {
             facebookLink: res.additionalUserInfo.profile.link,
           } as Facebook
         })
-    );
+    )
 
   updateUser = (user: LocalUser) => this.userRef(user.uid).set({...user} as ILocalUser)
     .then(() => this.currentUser.next(user))
@@ -111,3 +111,4 @@ export class FbloginService {
     this.ui.scrollPos.next(false);
   }
 }
+
