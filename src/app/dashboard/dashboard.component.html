@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Luckiest+Guy|Questrial" rel="stylesheet">
 
 <mat-drawer-container class="example-container">
-  <mat-drawer #drawer class="example-sidenav" mode="side" opened="true">
+  <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="!mobile">
     <div fxLayout="column" fxLayoutAlign="start center" class="full" [class.show]="state">
       <mat-card fxLayoutAlign="center center">
         Antaragni
@@ -19,15 +19,15 @@
         <mat-card-content>
           <div *ngFor="let point of pointkeys" fxLayout="row" fxLayoutAlign="space-between center">
             <div>{{point}}</div>
-            <div>: {{points[point]}}</div>
+            <div>: {{(user|async).campus[points[point]]}}</div>
           </div>
         </mat-card-content>
       </mat-card>
     </div>
   </mat-drawer>
-  <app-navbar></app-navbar>
-  <mat-card>
-    <router-outlet></router-outlet>
-  </mat-card>
-</mat-drawer-container>
+  <app-navbar [selectedLink]="(getState(o)|async)[0].path"></app-navbar>
+    <div [@bounceOutLeft]="getState(o)">
+      <router-outlet #o="outlet"></router-outlet>
+    </div>
+  </mat-drawer-container>
 

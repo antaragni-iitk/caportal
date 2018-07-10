@@ -4765,6 +4765,10 @@ ng2-scrollreveal@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ng2-scrollreveal/-/ng2-scrollreveal-1.0.1.tgz#4872f55de90b7618b3b3c87db604fc1c768b81b8"
 
+ngx-facebook@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/ngx-facebook/-/ngx-facebook-2.4.0.tgz#454141ce41118c1956d9db896c956f3891f8bbd7"
+
 no-case@^2.2.0:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"

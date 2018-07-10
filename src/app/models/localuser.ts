@@ -2,9 +2,15 @@ export interface ILocalUser {
   uid: string;
   name: string;
   email: Email;
-  facebooktoken: string;
+  facebook: Facebook;
   personal: Personal;
   campus: Campus;
+}
+
+export interface Facebook {
+  Token: string;
+  facebookID: string;
+  facebookLink: string;
 }
 
 export interface Email {
@@ -28,12 +34,13 @@ export interface Personal {
   phoneNumber: string;
   whatsAppNumber: string;
   picture: string;
+  gender: string;
 }
 
 export interface Campus {
   isAmbassador: boolean;
-  posts: Array<number>;
-  validPosts: Array<number>;
+  posts: Array<string>;
+  validPosts: Array<string>;
   likes: number;
   shares: number;
   otherPoints: number;
@@ -60,9 +67,8 @@ export class LocalUser implements ILocalUser {
   uid: string;
   firstUpdate: boolean;
   progress: number;
-
   email: Email;
-  facebooktoken: string;
+  facebook: Facebook;
   promocode: Promocode;
   personal: Personal;
   campus: Campus;

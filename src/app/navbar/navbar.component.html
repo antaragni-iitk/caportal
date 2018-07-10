@@ -8,7 +8,7 @@
     <a mat-tab-link
        *ngFor="let link of links"
        [routerLink]="link.id"
-       [class.selected]="selectedLink === link.name"
+       [class.selected]="selectedLink === link.id"
        (click)="selectedLink = link.name"
        routerLinkActive #rla="routerLinkActive">
       {{link.name}}

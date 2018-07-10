@@ -1,68 +1,98 @@
 <div class="container">
   <h1>Registration Form</h1>
-  <form ngForm #register="ngForm" (ngSubmit)="onSubmit()"></form>
-  <div class="form">
-    <mat-form-field>
-      <input required ngModel #name="ngModel" name="name" matInput placeholder="Name">
-      <mat-error *ngIf="name.errors?.required">
-        Name is required.
-      </mat-error>
-    </mat-form-field>
+  <form #register="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form">
+      <mat-form-field>
+        <input required #name="ngModel" name="name" matInput placeholder="Name"
+               [(ngModel)]="newuser.name" [disabled]="newuser$.name">
+        <mat-error *ngIf="name.errors">
+          Name is required.
+        </mat-error>
+        {{newuser$.personal.whatsAppNumber}}
+      </mat-form-field>
 
-    <mat-form-field>
-      <input required ngModel #email="ngModel" type="email" name="email" matInput placeholder="Email ID">
-      <mat-error *ngIf="email.errors?.required">Required</mat-error>
-    </mat-form-field>
+      <mat-form-field>
+        <input required ngModel #email="ngModel" type="email" name="email" matInput placeholder="Email ID"
+               [(ngModel)]="newuser.email.value" [disabled]="newuser$.email.value">
+        <mat-error *ngIf="email.errors">valid email Required</mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-        <textarea required ngModel #address="ngModel" name="address" matInput placeholder="Address"
-                  matTooltip="Your Address" [matTooltipPosition]="'left'"></textarea>
-      <mat-error *ngIf="address.errors?.required">Required</mat-error>
-    </mat-form-field>
+      <mat-form-field>
+        <textarea required ngModel #address="ngModel" name="address" matInput placeholder="Postal Address"
+                  [(ngModel)]="newuser.personal.postalAddress" [disabled]="newuser$.personal.postalAddress"></textarea>
+        <mat-error *ngIf="address.errors">Required</mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <input required ngModel #pincode="ngModel" name="pincode" matInput placeholder="Pincode">
-      <mat-error *ngIf="pincode.errors?.required">Required</mat-error>
-    </mat-form-field>
+      <mat-form-field>
+        <input required #pincode="ngModel" name="pincode" type="number" matInput placeholder="Pincode" minlength="6" maxlength="6"
+               [(ngModel)]="newuser.personal.zipcode"
+               matTooltip="6 digits" [matTooltipPosition]="'left'" >
+        <mat-error *ngIf="pincode.errors">Required</mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <textarea required ngModel #college="ngModel" name="college" matInput placeholder="College"></textarea>
-      <mat-error *ngIf="college.errors?.required">Required</mat-error>
-    </mat-form-field>
-    <table class="full-width" cellspacing="0">
-      <tr>
-        <td>
-          <mat-form-field class="full-width">
-            <input matInput [matDatepicker]="picker" placeholder="Birthdate" disabled>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker disabled="false"></mat-datepicker>
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="full-width">
-            <mat-select ngModel #sex="ngModel" name="sex" placeholder="Select Sex">
-              <mat-option *ngFor="let sex of sexes" [value]="sex.id">{{ sex.name }}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <mat-form-field class="full-width">
-            <mat-select ngModel #collegeYear="ngModel" name="collegeYear" placeholder="Select Year">
-              <mat-option *ngFor="let collegeYear of collegeYears" [value]="collegeYear.id">{{ collegeYear.name }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="full-width">
-            <input required ngModel #mobile="ngModel" name="mobile" matInput placeholder="Mobile Number">
-            <mat-error *ngIf="mobile.errors?.required">Required</mat-error>
-          </mat-form-field>
-        </td>
-      </tr>
-    </table>
-    <button mat-button matInput color="primary">Submit</button>
-  </div>
+
+      <table class="full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="point9-width">
+              <input required #college="ngModel" name="college" matInput placeholder="College"
+                        [(ngModel)]="newuser.personal.college" [disabled]="newuser$.personal.college">
+              <mat-error *ngIf="college.errors">Required</mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="full-width">
+              <input required #collegeCity="ngModel" name="collegeCity" matInput placeholder="City of College"
+                      [(ngModel)]="newuser.personal.city" [disabled]="newuser$.personal.city">
+              <mat-error *ngIf="collegeCity.errors">Required</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="point9-width">
+              <input matInput required #birthdate="ngModel" name="birthdate" [matDatepicker]="picker"
+                     placeholder="Birthdate"
+                     [(ngModel)]="newuser.personal.birthday" [disabled]="newuser$.personal.birthday"
+                     (click)="picker.open()" (focus)="picker.open()">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker disabled="false"></mat-datepicker>
+              <mat-error *ngIf="birthdate.errors">Date Required</mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="full-width">
+              <mat-select #collegeYear="ngModel" name="collegeYear" placeholder="Select Year Of Study"
+                          [(ngModel)]="newuser.personal.yearOfStudy" [disabled]="newuser$.personal.yearOfStudy">
+                <mat-option *ngFor="let collegeYear of collegeYears" [value]="collegeYear.id">{{ collegeYear.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="collegeYear.errors">Required</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="point9-width">
+              <input required #mobile="ngModel" name="mobile" matInput minlength="10" maxlength="10"
+                     placeholder="Mobile Number" type="tel"
+                     [(ngModel)]="newuser.personal.phoneNumber"
+                     matTooltip="10 digits" [matTooltipPosition]="'left'" [disabled]="newuser$.personal.phoneNumber">
+              <mat-error *ngIf="mobile.errors">Required 10 digits</mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="full-width">
+              <input required #whatsApp="ngModel" name="whatsApp" matInput minlength="10" maxlength="10"
+                     placeholder="WhatsApp Number" type="tel"
+                     [(ngModel)]="newuser.personal.whatsAppNumber" matTooltip="10 digits" [matTooltipPosition]="'left'"
+                     [disabled]="newuser$.personal.whatsAppNumber">
+              <mat-error *ngIf="whatsApp.errors">Required 10 digits</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <button mat-button color="primary" type="submit" [disabled]="!register.valid">Submit</button>
+    </div>
+  </form>
 </div>

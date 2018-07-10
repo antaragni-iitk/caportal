@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "deploy": "ng build --aot --prod&&firebase deploy --project ca",
     "precommit": "ng lint app2"
   },
   "private": true,
@@ -29,6 +30,7 @@
     "firebase": "^5.0.4",
     "hammerjs": "^2.0.8",
     "ng2-scrollreveal": "^1.0.1",
+    "ngx-facebook": "^2.4.0",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.2.0",
     "scrollreveal": "^3.4.0",

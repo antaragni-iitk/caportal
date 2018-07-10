@@ -2,14 +2,15 @@ import {Injectable, NgZone} from '@angular/core';
 import {Router} from '@angular/router';
 
 
-import {BehaviorSubject, Observable, of} from 'rxjs';
+import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 import {auth} from 'firebase/app';
 import {AngularFirestore, AngularFirestoreDocument} from 'angularfire2/firestore';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {Funcs} from '../utility/function';
 import {catchError, switchMap} from 'rxjs/operators';
-import {map} from 'rxjs/internal/operators';
-import {ILocalUser, LocalUser} from '../models/localuser';
+import {distinctUntilChanged, map} from 'rxjs/internal/operators';
+import {Facebook, ILocalUser, LocalUser} from '../models/localuser';
+import {UiService} from '@services/ui.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class FbloginService {
   currentUser: BehaviorSubject<LocalUser>;
   $logged: Observable<LocalUser>;
   isAuthenticated$: Observable<boolean>;
+  dataFetched = new Subject<boolean>();
   public userRef = (id: string): AngularFirestoreDocument<ILocalUser> => this.afs.doc(`fbusers/${id}`);
   init = (): void => {
     this.currentUser = new BehaviorSubject<LocalUser>(null);
@@ -31,55 +33,81 @@ export class FbloginService {
         return of(null);
       })
     );
-    this.$logged.subscribe((users) => this.currentUser.next(users));
-  }
+    this.$logged.subscribe((users) => {
+      this.currentUser.next(users);
+      this.dataFetched.next(!!users);
+    });
+  };
 
-  signin = () => this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider()).then(
-    (res: any) => this.userRef(res.user.uid).set({
-      uid: res.additionalUserInfo.profile.id,
-      name: res.additionalUserInfo.profile.name,
-      email: res.additionalUserInfo.profile.email,
-      facebooktoken: res.credential.accessToken,
-      personal: {
-        birthday: '',
-        city: '',
-        college: '',
-        yearOfStudy: '',
-        postalAddress: '',
-        zipcode: 1,
-        phoneNumber: res.user.phoneNumber,
-        whatsAppNumber: '',
-        picture: res.additionalUserInfo.profile.picture.data.url,
-      },
-      campus: {
-        isAmbassador: true,
-        posts: [],
-        validPosts: [],
-        likes: 0,
-        shares: 0,
-        otherPoints: 0,
-        ideaPoints: 0,
-        totalPoints: 0,
-        isExclusive: false,
-        rank: false,
-        exclusiveApproved: false,
-      }
-    }as ILocalUser).then(() =>
-      this.zone.run(() => this.router.navigate(['/dashboard']))
-      )
-    )
+  signin = () => this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider())
+    .then(
+      (res: any) => res.additionalUserInfo.isNewUser ?
+        this.userRef(res.user.uid).set({
+          uid: res.user.uid,
+          name: res.additionalUserInfo.profile.name,
+          email: {
+            value: res.additionalUserInfo.profile.email,
+            verified: res.user.emailVerified,
+          },
+          facebook: {
+            Token: res.credential.accessToken,
+            facebookID: res.additionalUserInfo.profile.id,
+            facebookLink: res.additionalUserInfo.profile.link,
+          },
+          personal: {
+            gender: res.additionalUserInfo.profile.gender,
+            phoneNumber: res.user.phoneNumber,
+            picture: res.additionalUserInfo.profile.picture.data.url,
+          },
+          campus: {
+            isAmbassador: true,
+            posts: [],
+            validPosts: [],
+            likes: 0,
+            shares: 0,
+            otherPoints: 0,
+            ideaPoints: 0,
+            totalPoints: 0,
+            isExclusive: false,
+            rank: false,
+            exclusiveApproved: false,
+          }
+        }as ILocalUser)
+          .catch((err) => this.functions.handleError(err.message)) :
+        this.userRef(res.user.uid).update({
+          facebook: {
+            Token: res.credential.accessToken,
+            facebookID: res.additionalUserInfo.profile.id,
+            facebookLink: res.additionalUserInfo.profile.link,
+          } as Facebook
+        })
+    );
 
-  signOut() {
-    this.afAuth.auth.signOut()
-      .then(() => this.zone.run(() => this.router.navigate(['/'])))
-      .catch(err => this.functions.handleError(err.message));
-  }
+  updateUser = (user: LocalUser) => this.userRef(user.uid).set({...user} as ILocalUser)
+    .then(() => this.currentUser.next(user))
 
   constructor(private router: Router,
               private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
               private functions: Funcs,
-              public zone: NgZone) {
+              public zone: NgZone,
+              private ui: UiService) {
+    this.dataFetched.pipe(distinctUntilChanged()).subscribe(
+      (val) => val ? this.zone.run(() => this.router.navigate(['/dashboard'])) : false
+    );
     this.init();
+  }
+
+  updateRegistration(user: LocalUser) {
+    this.updateUser(user)
+      .then(() => this.zone.run(() => this.router.navigate(['/dashboard/home'])))
+      .catch((err) => this.functions.handleError(err));
+  }
+
+  signOut() {
+    this.afAuth.auth.signOut()
+      .then(() => this.zone.run(() => this.router.navigate(['/'])))
+      .catch(err => this.functions.handleError(err.message));
+    this.ui.scrollPos.next(false);
   }
 }

@@ -9,18 +9,19 @@ import {IdeasComponent} from './dashboard/components/ideas/ideas.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {RegisterComponent} from './dashboard/components/register/register.component';
 import {TncComponent} from './dashboard/components/register/tnc/tnc.component';
-import {LocalUserGuard, LoggedInGuard} from './guards';
+import {AuthGuard, guards, LocalUserGuard, LoggedInGuard, RegisteredGuard, RegisteredUserGuard} from './guards';
+import {AntaragniFeedComponent} from './antaragni-feed';
 
 const routes: Routes = [
   {path: 'landing', component: LandingComponent, canActivate: [LoggedInGuard]},
   {path: '', redirectTo: 'landing', pathMatch: 'full'},
   {
-    path: 'dashboard', component: DashboardComponent, canActivate: [LocalUserGuard], children: [
-      {path: '', redirectTo: 'home', pathMatch: 'prefix'},
-      {path: 'leaderboard', component: LeaderboardComponent},
-      {path: 'ideas', component: IdeasComponent},
-      {path: 'home', component: HomeComponent},
-      {path: 'register', component: RegisterComponent},
+    path: 'dashboard', component: DashboardComponent, canActivate: [LocalUserGuard], canActivateChild: [AuthGuard], children: [
+      {path: '', redirectTo: 'home', pathMatch: 'prefix', },
+      {path: 'leaderboard', component: LeaderboardComponent, canActivate: [RegisteredUserGuard]},
+      {path: 'ideas', component: IdeasComponent, canActivate: [RegisteredUserGuard]},
+      {path: 'home', component: AntaragniFeedComponent, canActivate: [RegisteredUserGuard]},
+      {path: 'register', component: RegisterComponent, canActivate: [RegisteredGuard]},
       {path: 'register/tnc', component: TncComponent},
     ]
   },
@@ -29,7 +30,7 @@ const routes: Routes = [
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [LocalUserGuard, LoggedInGuard],
+  providers: [guards],
   declarations: []
 })
 export class AppRoutingModule {

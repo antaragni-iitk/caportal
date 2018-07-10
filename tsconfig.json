@@ -1,8 +1,17 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "baseUrl": "src",
+    "outDir": "./dist",
+    "paths": {
+      "@services/*": ["app/services/*"],
+      "@components/*": ["app/components/*"],
+      "@environments/*": ["environments/*"],
+      "@animations/*": ["animations/*"],
+      "@models/*": ["app/models/*"],
+      "@shared/*": ["app/shared/*"],
+      "@utils": ["app/utility"]
+    },
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -16,5 +25,8 @@
       "es2017",
       "dom"
     ]
-  }
+  },
+  "include": [
+    "./src/**/*"
+  ]
 }

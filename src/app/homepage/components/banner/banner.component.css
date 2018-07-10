@@ -2,13 +2,13 @@
   margin-top: 0;
   margin-bottom: 0;
   font-family: 'Lato';
+  max-width: 100vw !important;
 }
 
 .navbar-custom {
   padding-top: 1rem;
   padding-bottom: 1rem;
   background-color: rgba(0, 0, 0, 0.8);
-  /*background-color: black;*/
 }
 
 .navbar-custom .navbar-brand {
@@ -21,7 +21,9 @@
 .login {
   cursor: pointer;
 }
-
+.fixed-top{
+  position: fixed;
+}
 .navbar-custom .navbar-nav .nav-item .nav-link {
   text-transform: uppercase;
   font-size: 0.8rem;
@@ -37,4 +39,21 @@
 
 img {
   width: 30px;
+}
+
+.login {
+  float: right;
+  cursor: pointer;
+  font-family: open-sans-400;
+  background-color: transparent;
+  padding: 10px;
+  color: #aaa;
+  border-right: groove 0px rgba(0, 0, 0, 0);
+  /*border-radius: 10px;*/
+  transition: all 0.3s ease-out;
+}
+
+.login:hover {
+  border-right: groove 3px white;
+  color: white;
 }
