@@ -6,6 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./resp.component.css']
 })
 export class RespComponent implements OnInit {
+  public hov=false;
 
   titles = [
     'Advertise',
@@ -43,6 +44,10 @@ export class RespComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+  hovered(){
+    console.log(this.hov);
+    this.hov=!this.hov;
   }
 
 }
