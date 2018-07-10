@@ -39,8 +39,8 @@ export interface Personal {
 
 export interface Campus {
   isAmbassador: boolean;
-  posts: Array<number>;
-  validPosts: Array<number>;
+  posts: Array<string>;
+  validPosts: Array<string>;
   likes: number;
   shares: number;
   otherPoints: number;

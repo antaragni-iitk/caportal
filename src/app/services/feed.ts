@@ -3,8 +3,9 @@ import {Injectable} from '@angular/core';
 import {FacebookService, LoginOptions, LoginResponse, UIParams, UIResponse} from 'ngx-facebook';
 import {FbloginService} from './fblogin.service';
 import {Funcs} from '../utility/function';
-import {HttpClient} from '@angular/common/http';
-import {catchError} from 'rxjs/internal/operators';
+import {LocalUser} from '@models/localuser';
+import {AngularFirestore} from 'angularfire2/firestore';
+import {Observable} from 'rxjs';
 
 export interface FbPostResponse {
   data: Array<{
@@ -17,19 +18,20 @@ export interface FbPostResponse {
 @Injectable()
 export class AntaragniFeedService {
 
+  accessToken: string;
+
   constructor(private fb: FacebookService,
               private loginService: FbloginService,
               private fun: Funcs,
-              private http: HttpClient) {
+              private afs: AngularFirestore) {
     fb.init({
       appId: '1799522573643704',
       version: 'v3.0'
     });
   }
 
-  getAllPosts(): Promise<any> {
-    // return this.fb.api('antaragni.iitk?fields=posts{message,full_picture,link,permalink_url}', 'get');
-    return this.fb.api('antaragni.iitk/posts?since=1493856000&limit=100&fields=message,full_picture,link,permalink_url', 'get');
+  getAllPosts(): Observable<any> {
+    return this.afs.collection('fbpage', ref => ref.orderBy('created_time', 'desc')).valueChanges();
   }
 
   loginWithOptions() {
@@ -44,13 +46,19 @@ export class AntaragniFeedService {
     return this.fb.login(loginOptions)
       .then((res: LoginResponse) => {
         console.log('Logged in', res);
+        this.accessToken = res.authResponse.accessToken;
       })
       .catch((err) => this.fun.handleError(err));
+
+    // this.loginService.currentUser.subscribe(user =>
+    //   this.fb.api(user.facebook.facebookID + '/permissions?access_Token=' + this.accessToken, 'get').then(
+    //     log => console.log(log)
+    //   ).catch(err => console.log(err))
+    // );
 
   }
 
   sharePost(link: string, id: string): Promise<boolean> {
-    console.log(link);
     const params: UIParams = {
       href: link,
       method: 'share'
@@ -61,17 +69,17 @@ export class AntaragniFeedService {
           this.fun.handleError(res.error_message);
           return false;
         } else {
-          this.http.get('https://graph.facebook.com/v3.0/' + id + '/sharedposts?' +
-            'access_token=EAAZAkpZCZCEb7gBAGRO4ZAtm3xJHxhONGTjY8F9ZBmZBaew4BTv2adc19HCSlyctMS00hAs5xnCCjz4MsJ8meBe4gZAZA0ICJhdYKxcbik3kEVTZBDKCHPHmSqlIbFk2uP3ZCZB2wYFBxWcyLvPiCcJBjmIIvLKXFUOHSTlAvBQFAVojydoCJHTCz2HajTjj8WSTVwQ1VsZCiCuwNQZDZD'
-          ).pipe(
-            catchError(err => this.fun.handleError(err))
-          ).subscribe(
-            (posts: FbPostResponse) => console.log(posts.data)
-          );
+          this.loginService.currentUser.subscribe((user: LocalUser) =>
+            this.fb.api(id + '/sharedposts', 'get', {accessToken: this.accessToken})
+              .then((posts: FbPostResponse) => {
+                user.campus.posts.push(posts.data[0].id);
+                return this.loginService.updateUser(user);
+              })
+              .catch(err => this.fun.handleError(err.message)));
         }
-        return false;
+        return true;
       }).catch(err => {
-        console.log(err);
+        this.fun.handleError(err.message);
         return false;
       });
   }

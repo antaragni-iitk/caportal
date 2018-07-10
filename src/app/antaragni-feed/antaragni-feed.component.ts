@@ -27,16 +27,7 @@ export class AntaragniFeedComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAllFeeds();
-    // this.message.subscribe((message) => this.snackbar.open(message, '', {duration: 2000}));
-  }
-
-  getAllFeeds() {
-    // this.feedService.getAllPosts()
-    //   .then((res) => {
-    //     this.feeds = res.data;
-    //   });
-    this.feeds = facebookfeed.data;
+    this.feeds = this.feedService.getAllPosts();
   }
 
   sharePost(post) {
