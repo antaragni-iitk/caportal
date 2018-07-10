@@ -32,17 +32,17 @@
 }
 
 .orange {
-  background-color:#ff984f !important;
+  background:linear-gradient(45deg, #fd6900 1%,#ff984f 100%);
 }
 
 .yellow {
-  background-color: #ffef71;
+  background:linear-gradient(45deg, #f2d701 2%,#ffef71 100%);
 }
 .pink {
-  background-color:#ff7aa7;
+  background:linear-gradient(45deg, #ec407a 2%,#ff7aa7 100%);
 }
 .blue{
-  background-color:#5fcdff
+  background:linear-gradient(45deg, #03a9f4 2%,#5fcdff 100%);
 }
 h1 {
   color: #666;
