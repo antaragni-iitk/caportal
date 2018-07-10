@@ -1,92 +1,51 @@
-.section-title {
-  font-size: 32px;
-  color: #fff;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: 700;
+.grid{
+  height: 140vh;
 }
 
-section {
-  color: #fff;
+.incentive{
+  height: 50%;
 }
 
-.section-description {
-  text-align: center;
-  margin-bottom: 40px;
+.half-width{
+  width: 50%;
 }
 
-.section-title-divider {
-  width: 50px;
-  height: 3px;
-  background: yellow;
-  margin: 0 auto;
-  margin-bottom: 20px;
+.pad3{
+  padding: 5vh 5vw;
 }
 
-#services {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/assets/oat.jpg") fixed center center;
+.image2{
+  background: url("https://jd-host.ru/themeforest/html/lester/img/assets/mockup-digital-services2.jpg") no-repeat center;
+}
+
+.image1{
+  background: url("https://jd-host.ru/themeforest/html/lester/img/assets/mockup-digital-services.jpg") no-repeat center;
+}
+
+.image1,.image2{
   background-size: cover;
-  padding: 80px 0 60px 0;
+  background-attachment: fixed;
 }
 
-#services .service-item {
-  margin-bottom: 20px;
-  cursor: pointer;
-  overflow: hidden;
+p{
+  font-size: 0.8rem;
 }
 
-#services .service-icon {
-  float: left;
-  background: rgb(2, 1, 32);
-  padding: 16px;
+.incent{
+  width: 16vw;
+}
+
+.icon{
+  font-size: 1.3rem;
+  min-width: 40px;
+  height: 40px;
+  background: #ee3158;
   border-radius: 50%;
-  transition: 0.5s;
-  border: 1px solid rgb(2, 1, 32);
-
+  color: white;
 }
-
-#services .service-icon i {
-  color: #fff;
-  font-size: 24px;
-}
-
-#services .service-item:hover .service-icon {
-  background: #fff;
-}
-
-#services .service-item:hover .service-icon i {
-  color: rgb(2, 1, 32)
-}
-
-#services .service-title {
-  font-weight: 700;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  transition: all 1s ease-out;
-}
-
-#services .service-title a {
-  color: #fff;
-}
-
-#services .service-description {
-  line-height: 24px;
-  transform: translateX(0);
-  transition: all 1s ease-out 0.5s;
-}
-
-.reveal .service-description, .reveal .service-title{
-  transform: translateX(-20vw) !important;
-}
-
-.wrapper{
-  margin: 0 0 0 80px !important;
-  overflow: hidden;
-  width: 70%;
-}
-
-@media (max-width: 1023px) {
-  .wrapper{
-    width: 70vw;
-  }
-}
+ h1{
+   font-family: poppins;
+   color: #666;
+   width: 100%;
+   padding-left: 3vw;
+ }
