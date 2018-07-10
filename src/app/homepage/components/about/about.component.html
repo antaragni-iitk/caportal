@@ -3,11 +3,14 @@
     <div class="row">
       <div class="col-md-12">
         <span class="about">ABOUT</span><span class="about"> US</span>
-        <p class="first-para"><b>Antaragni</b> is the annual cultfest of IIT Kanpur, and one of Asia's largest college
+        <div *ngFor="let content of contents">
+          {{content.about.content}}
+        </div>
+        <!-- <p class="first-para"><b>Antaragni</b> is the annual cultfest of IIT Kanpur, and one of Asia's largest college
           festivals, inviting
           participation from hundreds of colleges across India.</p>
         <p>With artists like KSHMR, Vishal-Shekhar, and Mike Candys having graced the occasion in the past, we look
-          forward to seeing you this year from <b>25th - 28th October!</b></p>
+          forward to seeing you this year from <b>25th - 28th October!</b></p> -->
       </div>
     </div>
     <img [ngsReveal]="{delay: 200}" class="about-img" src="/assets/card-back5.jpg"/>
