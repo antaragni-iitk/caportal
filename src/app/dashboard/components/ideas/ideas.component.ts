@@ -10,7 +10,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 })
 export class IdeasComponent implements OnInit {
   model;
-  user: Observable<LocalUser>;
+  user: Observable<any>;
   submitted = false;
   _state = true;
   constructor(private fbloginservice: FbloginService,
