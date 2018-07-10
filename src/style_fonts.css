@@ -18,6 +18,11 @@
   src: url("/assets/fonts/Poppins-SemiBold.ttf");
 }
 
+@font-face {
+  font-family: Yanone_Kaffeesatz;
+  src: url("/assets/fonts/YanoneKaffeesatz-Regular.ttf");
+}
+
 html,body{
   font-family: open-sans;
 }
