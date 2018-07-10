@@ -44,7 +44,7 @@ label{
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.55);
-    padding: 1.99em 3em;
+    padding: 0 3em 0 3em;
     width: 100%;
 }
 .group{
@@ -153,6 +153,7 @@ background: transparent;
 ._group{
     border-left: 6px solid rgb(43, 175, 254);
     border-right: 6px solid rgb(43, 175, 254);
+    padding: 1.99em 0 1.99em 0;
 }
 
 .banner-top-w3-agile {
