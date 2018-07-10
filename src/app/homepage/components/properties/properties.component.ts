@@ -9,11 +9,7 @@ import {BehaviorSubject} from 'rxjs';
 export class PropertiesComponent implements OnInit {
   @ViewChild('services') services;
   scrolltoview = new BehaviorSubject(false);
-
-  constructor() {
-  }
-
-  data = [
+  data = [[
     {
       icon: 'fas fa-user-tie',
       title: 'Be a leader',
@@ -30,6 +26,11 @@ export class PropertiesComponent implements OnInit {
       desc: 'Improve your communication and managerial abilities'
     },
     {
+      icon: 'fas fa-home',
+      title: 'Accomodation',
+      desc: 'Free accomodation for the top performing campus ambassadors @ Antaragni 2018'
+    }],
+    [{
       icon: 'fas fa-trophy',
       title: 'Certification',
       desc: 'Get a ratified certificate from Antaragni, IIT Kanpur recognizing your efforts'
@@ -39,14 +40,21 @@ export class PropertiesComponent implements OnInit {
       title: 'Goodies & Merchandise',
       desc: 'Free Antaragni merchandise and prizes for top performers'
     },
-    {
-      icon: 'fas fa-home',
-      title: 'Accomodation',
-      desc: 'Free accomodation for the top performing campus ambassadors @ Antaragni 2018'
-    },
+      {
+        icon: 'fas fa-home',
+        title: 'Accomodation',
+        desc: 'Free accomodation for the top performing campus ambassadors @ Antaragni 2018'
+      },
+      {
+        icon: 'fas fa-cogs',
+        title: 'Enhance your skills',
+        desc: 'Improve your communication and managerial abilities'
+      }],
 
   ];
 
+  constructor() {
+  }
 
   ngOnInit() {
   }
