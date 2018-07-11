@@ -3,6 +3,14 @@ import {BehaviorSubject} from 'rxjs';
 import {ContentService} from '@services/content.service';
 import {map} from 'rxjs/internal/operators';
 
+export interface AresCounterData {
+  data: Array<{
+    title: string
+    limit: number
+    time: number
+  }>;
+}
+
 @Component({
   selector: 'app-counter',
   templateUrl: './counter.component.html',
@@ -33,9 +41,9 @@ export class CounterComponent implements OnInit {
   ngOnInit() {
     const source = this.ares.getArray('ca_counter');
     this.titles = source.pipe(
-      map((val) => val.data.map(prop => prop.title))
+      map((val: AresCounterData) => val.data.map(prop => prop.title))
     );
-    source.subscribe((res) => {
+    source.subscribe((res: AresCounterData) => {
       const data = res.data;
       for (const i in res.data) {
         console.log(i);
