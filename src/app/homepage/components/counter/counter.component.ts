@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import {Component, HostListener, OnInit} from '@angular/core';
+import {BehaviorSubject, Subject} from 'rxjs';
 import {ContentService} from '@services/content.service';
-import {map} from 'rxjs/internal/operators';
+import {map, take} from 'rxjs/internal/operators';
 
 export interface AresCounterData {
   data: Array<{
@@ -22,7 +22,9 @@ export class CounterComponent implements OnInit {
     new BehaviorSubject(0),
     new BehaviorSubject(0),
   ];
+  startCount$ = new Subject();
   titles;
+  data;
 
   constructor(private ares: ContentService) {
   }
@@ -44,12 +46,23 @@ export class CounterComponent implements OnInit {
       map((val: AresCounterData) => val.data.map(prop => prop.title))
     );
     source.subscribe((res: AresCounterData) => {
-      const data = res.data;
-      for (const i in res.data) {
-        console.log(i);
-        this.counter(data[i].limit, this.counters$[i], data[i].time / data[i].limit);
-      }
+      this.data = res.data;
     });
+    this.startCount$.pipe(take(1)).subscribe(() => {
+        for (const i in this.data) {
+          if (this.data.hasOwnProperty(i)) {
+            this.counter(this.data[i].limit, this.counters$[i], this.data[i].time / this.data[i].limit);
+          }
+        }
+      }
+    );
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  private onScroll($event: Event): void {
+    if (window.scrollY > 100) {
+      this.startCount$.next(0);
+    }
   }
 
 }

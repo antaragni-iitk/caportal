@@ -1,0 +1,11 @@
+.footer{
+  background-color: #333;
+  color: white;
+  font-family: open-sans;
+  height: 8vh;
+  letter-spacing: 2px;
+}
+
+span{
+  color: yellow;
+}
