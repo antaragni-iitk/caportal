@@ -10,7 +10,7 @@ import {ContentService} from '../../../services/content.service';
 export class AboutComponent implements OnInit {
   @ViewChild('about') about;
 
-  private contents;
+  contents;
   constructor(private ui: UiService, private ares: ContentService) {}
 
   ngOnInit() {

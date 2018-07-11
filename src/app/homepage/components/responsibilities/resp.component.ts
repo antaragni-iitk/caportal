@@ -9,7 +9,7 @@ import {ContentService} from '../../../services/content.service';
 export class RespComponent implements OnInit {
   public hov = false;
 
-  private contents;
+  contents;
   // titles = [
   //   'Advertise',
   //   'Organize',

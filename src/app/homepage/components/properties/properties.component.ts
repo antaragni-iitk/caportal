@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {ContentService} from '../../../services/content.service';
 import {UiService} from '@services/ui.service';
@@ -9,22 +9,19 @@ import {UiService} from '@services/ui.service';
   styleUrls: ['./properties.component.css']
 })
 export class PropertiesComponent implements OnInit {
-  @ViewChild('services') 
+  @ViewChild('services')
   public services;
   scrolltoview = new BehaviorSubject(false);
-
-  constructor(private ares: ContentService) {}
-
-  private data;
   @ViewChild('why') why: ElementRef;
+  data;
 
-  constructor(private ui: UiService) {
+  constructor(private ui: UiService, private ares: ContentService) {
   }
 
   ngOnInit() {
     this.ares.getArray('ca_why').subscribe((content) => {
       this.data = content['data'];
-     });
+    });
     this.ui.goWhy.subscribe(() => this.why.nativeElement.scrollIntoView({behavior: 'smooth', block: 'start'}));
   }
 }
