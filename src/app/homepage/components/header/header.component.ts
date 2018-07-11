@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {FbloginService} from '../../../services/fblogin.service';
 import {UiService} from '@services/ui.service';
@@ -10,6 +10,7 @@ import {UiService} from '@services/ui.service';
 })
 export class HeaderComponent implements OnInit {
   loaded = new BehaviorSubject(false);
+  @ViewChild('top') top: ElementRef;
   links = [
     {
       id: 'why',
@@ -59,5 +60,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => this.loaded.next(true), 1000);
+    this.ui.goTop.subscribe(() => this.top.nativeElement.scrollIntoView({behavior: 'smooth'}));
   }
 }

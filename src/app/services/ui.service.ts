@@ -12,6 +12,7 @@ export class UiService {
   goWhy = new Subject();
   goTeam = new Subject();
   goFaq = new Subject();
+  goTop = new Subject();
 
   constructor() {
   }
