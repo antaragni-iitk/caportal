@@ -1,5 +1,7 @@
 .grid{
   height: 160vh;
+  background-color: #fcfcfc;
+  border: solid 1px #eee;
 }
 
 .incentive{

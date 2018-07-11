@@ -51,7 +51,7 @@ export class HeaderComponent implements OnInit {
       case 'why':
         this.ui.goWhy.next(true);
         break;
-      case 'why':
+      case 'faq':
         this.ui.goFaq.next(true);
         break;
     }

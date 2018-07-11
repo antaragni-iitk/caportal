@@ -1,32 +1,35 @@
-<div class="banner-agileits">
+<div class="header">
+  <div class="banner-agileits">
     <div class="banner-top-w3-agile">
-        <ul>
-          <li *ngFor="let link of links" (click)="gonow(link.id)"><p>{{link.title}}</p><span>{{link.Desc}}</span></li>
-          <li (click)="onhit()"><p>Login</p><span>Mohit</span></li>
-        </ul>
-      </div>
-  <div class="slider" >
+      <ul>
+        <li *ngFor="let link of links" (click)="gonow(link.id)"><p>{{link.title}}</p><span>{{link.Desc}}</span></li>
+        <li (click)="onhit()"><p>Login</p><span>Mohit</span></li>
+      </ul>
+    </div>
+    <div class="slider">
 
-  <ul class="rslides" >
-      <li>
-        <div class="layer slide-2"  style="background-image: url(https://drive.google.com/uc?export=view&id=1GoIcDpGtWkHocriWgnlNmMgU4muY6CXE)">
-          <div class="banner-info-w3layouts">
-            <div class="group">
-              <div class="_group">
-                <h3>Campus Ambassador</h3>
-                <p>Antaragni, 2018</p>
-                <div class="bnr-butn-w3ls">
-                  <!--<h6><a class="scroll"><i class="fa fa-angle-right" aria-hidden="true"></i>About Us</a></h6>-->
-                  <div class="login" (click)="onhit()">
-                    <i class="fab fa-facebook-f"></i>
-                    <span> facebook login</span>
+      <ul class="rslides">
+        <li>
+          <div class="layer slide-2"
+               style="background-image: url(https://drive.google.com/uc?export=view&id=1GoIcDpGtWkHocriWgnlNmMgU4muY6CXE)">
+            <div class="banner-info-w3layouts">
+              <div class="group">
+                <div class="_group">
+                  <h3>Campus Ambassador</h3>
+                  <p>Antaragni, 2018</p>
+                  <div class="bnr-butn-w3ls">
+                    <div class="login" (click)="onhit()">
+                      <i class="fab fa-facebook-f"></i>
+                      <span> facebook login</span>
+                    </div>
                   </div>
                 </div>
               </div>
-           </div>
+            </div>
           </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
+
 </div>
