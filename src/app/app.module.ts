@@ -36,6 +36,7 @@ import {AntaragniFeedComponent} from './antaragni-feed';
 import {FacebookModule} from 'ngx-facebook';
 import {FaqComponent} from './homepage/components/faq/faq.component';
 import {CounterComponent} from './homepage/components/counter/counter.component';
+import { FooterComponent } from './homepage/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import {CounterComponent} from './homepage/components/counter/counter.component'
     AnalyticsDirective,
     AntaragniFeedComponent,
     FaqComponent,
-    CounterComponent
+    CounterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

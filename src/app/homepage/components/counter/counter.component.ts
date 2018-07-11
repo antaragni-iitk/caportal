@@ -1,7 +1,7 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {ContentService} from '@services/content.service';
-import {map, take} from 'rxjs/internal/operators';
+import {map, skipUntil, take} from 'rxjs/internal/operators';
 
 export interface AresCounterData {
   data: Array<{
@@ -48,7 +48,7 @@ export class CounterComponent implements OnInit {
     source.subscribe((res: AresCounterData) => {
       this.data = res.data;
     });
-    this.startCount$.pipe(take(1)).subscribe(() => {
+    this.startCount$.pipe(skipUntil(source), take(1)).subscribe(() => {
         for (const i in this.data) {
           if (this.data.hasOwnProperty(i)) {
             this.counter(this.data[i].limit, this.counters$[i], this.data[i].time / this.data[i].limit);
