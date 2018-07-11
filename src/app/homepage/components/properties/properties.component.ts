@@ -8,7 +8,8 @@ import {ContentService} from '../../../services/content.service';
   styleUrls: ['./properties.component.css']
 })
 export class PropertiesComponent implements OnInit {
-  @ViewChild('services') services;
+  @ViewChild('services') 
+  public services;
   scrolltoview = new BehaviorSubject(false);
 
   constructor(private ares: ContentService) {}
