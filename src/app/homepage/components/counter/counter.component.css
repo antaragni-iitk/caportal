@@ -1,13 +1,24 @@
-.content-section-type-2 {
-  border-bottom: 1px solid var(--default-border);
-  background-repeat: repeat;
-}
+@media (max-width: 767px) {
+  .counters-section-type-2 {
+    width: 100%;
+    max-width: 100%;
+  }
+  .counters-section-type-2 .counters-wrapper {
+    border-top: 1px solid var(--default-border);
+    border-bottom: 1px solid var(--default-border); } }
 
 .counters-section-type-2 .counters-wrapper .counter-box {
   padding: 120px 20px;
   border-top: 1px solid var(--default-border);
   border-bottom: 1px solid var(--default-border);
   position: relative;
+}
+
+@media (max-width: 767px) {
+  .counters-section-type-2 .counters-wrapper .counter-box {
+    padding: 50px 15px;
+    min-width: 100%;
+  }
 }
 
 .counters-section-type-2 .counters-wrapper .counter-box .title-counter {
@@ -22,6 +33,12 @@
   font-weight: 600;
 }
 
+@media (max-width: 767px) {
+  .counters-section-type-2 .counters-wrapper .counter-box .title-counter {
+    margin-bottom: 5px;
+  }
+}
+
 .counters-section-type-2 .counters-wrapper .counter-box .prop-obj {
   font-size: 80px;
   font-weight: 700;
@@ -31,6 +48,12 @@
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
   letter-spacing: 2px;
+}
+
+@media (max-width: 767px) {
+  .counters-section-type-2 .counters-wrapper .counter-box .prop-obj {
+    font-size: 48px;
+  }
 }
 
 .counters-section-type-2 .counters-wrapper .counter-box:hover .title-counter {
@@ -76,6 +99,17 @@
   z-index: 10;
 }
 
+@media (max-width: 767px) {
+  .counters-section-type-3 .counters-wrapper .counter-box .content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 50px 15px;
+  }
+}
+
+
 .counters-section-type-3 .counters-wrapper .counter-box .content .prop-obj {
   line-height: 1;
   font-size: 40px;
@@ -83,6 +117,14 @@
   font-weight: 600;
   width: 90px;
 }
+
+@media (max-width: 767px) {
+  .counters-section-type-3 .counters-wrapper .counter-box .content .prop-obj {
+    width: auto;
+    margin-bottom: 10px;
+  }
+}
+
 
 .counters-section-type-3 .counters-wrapper .counter-box .content .title-counter {
   -webkit-transition: all .3s ease-in-out;
