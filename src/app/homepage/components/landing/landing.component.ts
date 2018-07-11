@@ -26,6 +26,8 @@ export class LandingComponent implements OnInit {
   private onScroll($event: Event): void {
     if (window.scrollY > window.screen.height) {
       this.visible$.next(false);
+    } else {
+      this.visible$.next(true);
     }
   }
 
