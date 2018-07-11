@@ -1,10 +1,10 @@
 .section-title {
   font-size: 32px;
   color: #111;
-  text-transform: uppercase;
   text-align: center;
-  font-weight: 700;
   margin-top: 50px;
+  font-family: Yanone_Kaffeesatz;
+  font-weight: 600;
 }
 
 .section-title-divider {
@@ -21,36 +21,71 @@
 }
 
 .boxes {
-  width: 20vw;
-  height: 40vh;
-  padding: 10px 30px;
-  margin: 0 10px;
-  box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
-  /*box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);*/
+  padding-top: 10px;
+  margin: 0 20px;
   cursor: pointer;
+  font-size: 0.8rem;
+  z-index: 1;
+  height: 30vh;
 }
 
+.clipper{
+  position: relative;
+  overflow: hidden;
+  width: 16vw;
+  height: 30vh;
+  box-shadow: -10px 12px 20px rgba(158, 156, 156, 0.59);
+  z-index: 3;
+}
+
+.overlayed{
+  position: absolute;
+  width: 16vw;
+  height: 30vh;
+  background: red;
+  z-index: 2;
+  transition: all 0.5s ease-out;
+  color: white;
+}
+
+.overlayed h1{
+  color: white;
+}
+
+.clipper:hover .overlayed{
+  transform: translateY(30vh);
+}
+
+.orange {
+  background:linear-gradient(45deg, #fd6900 1%,#ff984f 100%);
+}
+
+.yellow {
+  background:linear-gradient(45deg, #f2d701 2%,#ffef71 100%);
+}
+.pink {
+  background:linear-gradient(45deg, #ec407a 2%,#ff7aa7 100%);
+}
+.blue{
+  background:linear-gradient(45deg, #03a9f4 2%,#5fcdff 100%);
+}
 h1 {
   color: #666;
   transition: all 0.5s ease-in-out;
 }
 
-.boxes:hover {
-  border: none;
-  box-shadow: inset 5px 5px 20px 2px #ccc;
-}
-
-.boxes:hover h1 {
-  color: #111111;
-}
 
 .boxes div {
   text-align: center;
+  line-height: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 100;
+  letter-spacing: 1.5px;
 }
 
 h4 {
-  font-weight: 100;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-family: Yanone_Kaffeesatz;
 }
 
 .wrapper {

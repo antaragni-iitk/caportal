@@ -1,5 +1,5 @@
 .grid{
-  height: 140vh;
+  height: 160vh;
 }
 
 .incentive{
@@ -15,15 +15,15 @@
 }
 
 .image2{
-  background: url("https://jd-host.ru/themeforest/html/lester/img/assets/mockup-digital-services2.jpg") no-repeat center;
+  background: url("https://jd-host.ru/themeforest/html/lester/img/assets/mockup-digital-services2.jpg") no-repeat left;
 }
 
 .image1{
-  background: url("https://jd-host.ru/themeforest/html/lester/img/assets/mockup-digital-services.jpg") no-repeat center;
+  background: url("https://drive.google.com/uc?export=view&id=1PAQNimPkWcDtfPBUfMYZVh6lVR3a7guL") no-repeat right;
 }
 
 .image1,.image2{
-  background-size: cover;
+  background-size: 50vw;
   background-attachment: fixed;
 }
 
