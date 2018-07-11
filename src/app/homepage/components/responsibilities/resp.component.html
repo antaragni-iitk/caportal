@@ -3,26 +3,12 @@
         <h3 class="section-title">Responsibilities</h3>
     </div>
   </div>
-<<<<<<< HEAD
   <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap="20px" class="wrapper">
     <div *ngFor="let content of contents; let i = index" class="boxes" [ngsReveal]="{delay: 100*i, scale: 0.5, viewFactor: 0.5}"
          fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2vh">
       <h1 [class]="content.icon"></h1>
       <h4 [innerHtml]=content.title></h4>
       <div [innerHtml]=content.desc.content></div>
-=======
-  <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap="30px" class="wrapper">
-    <div *ngFor="let title of titles; let i = index" class="clipper">
-      <div [class]="'overlayed '+bcolor[i]" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2vh">
-        <h1 [class]="icons[i]"></h1>
-        <h4>{{title}}</h4>
-      </div>
-      <div class="boxes" [ngsReveal]="{delay: 100*i, scale: 0.5, viewFactor: 0.5}"
-           fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2vh">
-        <h4>{{title}}</h4>
-        <div>{{desciption[i]}}</div>
-      </div>
->>>>>>> c443b16c283cdb2b4cc4a6e83767c8f5611fcca4
     </div>
   </div>
 
