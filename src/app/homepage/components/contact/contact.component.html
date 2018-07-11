@@ -1,40 +1,29 @@
-<footer id="footer">
-  <div class="footer-top">
-    <div class="container">
-      <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around start" fxLayoutGap.xs="5vh">
-        <div class="col-lg-3 col-md-6 footer-info">
-          <h3>FOR MORE...</h3>
-          <p>For further details, please do contact us through one of the channels mentioned here.</p>
-          <br>
-          <p>Don't miss this invaluable opportunity that has come your way!</p>
-        </div>
-        <!--<div class="col-lg-1 col-md-3 footer-info"></div>-->
-        <div class="col-lg-3 col-md-6 footer-contact">
-          <h4>Contact Us</h4>
-          <p>
-            Name <br>
-            <strong>Phone:</strong> +91 00000 00000<br>
-            <strong>Email:</strong> email@example.com<br>
-          </p>
-          <div class="social-links">
+<div #contact class="_container" fxLayout="row" fxLayoutAlign="center center">
+  <div fxLayout="column" fxLayoutAlign="center center" class="team_info" fxLayoutGap="20px">
+    <h1>Our Team</h1>
+    <p>Lorem Impsu Lorem Impsu Lorem Impsu Lorem Impsu Lorem Impsu Lorem Impsu Lorem Impsu
+      Lorem Impsu Lorem Impsu Lorem Impsu Lorem Impsu Lorem Impsu Lorem Impsu </p>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <div fxLayout="column" fxLayoutAlign="start center" *ngFor="let img of [1,2,3]" fxLayoutGap="20px" class="person">
+      <div class="profile_pic">
+        <div class="overlayed" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5px">
+          <span class="phone">+91 00000 00000</span>
+          <span>email@example.com</span>
+          <div class="social-links" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
             <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
             <a href="#" class="google-plus"><i class="fab fa-youtube"></i></a>
             <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
-        <!--<div class="col-lg-1 col-md-3 footer-info"></div>-->
-        <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><i class="ion-ios-arrow-right"></i> <a href="https://antaragni.in">Main Site</a></li>
-            <li><i class="ion-ios-arrow-right"></i> <a href="#">Roadtrips</a></li>
-            <li><i class="ion-ios-arrow-right"></i> <a href="#">Antaragni 17</a></li>
-            <li><i class="ion-ios-arrow-right"></i> <a href="#">Back to Top</a></li>
-          </ul>
-        </div>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpiN6J7TTW3M84RMh5ND6FXtrIa5gTfrvlfcFT67rLcaCgpiHB"
+          class="pic">
       </div>
+      <h3>Sessy Gal</h3>
+      <div class="rule"></div>
+      <div class="post">Hospitality, Coordinator</div>
     </div>
   </div>
-  <i class="far fa-copyright"> antaragni '18</i>
-</footer>
+</div>

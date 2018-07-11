@@ -1,18 +1,21 @@
-<section class="aboutus" #about>
-  <div class="container" fxLayout="row" fxLayoutAlign="center center" fxLayout.xs="column">
-    <div class="row">
-      <div class="col-md-12">
-        <span class="about">ABOUT</span><span class="about"> US</span>
-        <div *ngFor="let content of contents"
-          [innerHtml]="content.about.content">
-        </div>
-        <!-- <p class="first-para"><b>Antaragni</b> is the annual cultfest of IIT Kanpur, and one of Asia's largest college
-          festivals, inviting
-          participation from hundreds of colleges across India.</p>
-        <p>With artists like KSHMR, Vishal-Shekhar, and Mike Candys having graced the occasion in the past, we look
-          forward to seeing you this year from <b>25th - 28th October!</b></p> -->
+<div class="body row" #about>
+  <div class="col-md-8 about_text ml-auto" fxLayoutAlign="center">
+     <tr>
+      <h3 class="heading">About
+          <span>Us</span>
+      </h3>
+    </tr>
+    <tr>
+      <span class="description"  *ngFor="let content of contents"
+         [innerHtml]="content.about.content">
+         </span>
+    </tr>
+    <tr>
+      <div class="client">
+        <h5>Some Person</h5>
       </div>
-    </div>
-    <img [ngsReveal]="{delay: 200}" class="about-img" src="/assets/card-back5.jpg"/>
+    </tr>
   </div>
-</section>
+  <div class="col-md-4 about_img mr-auto about_image" fxLayoutAlign="center">
+  </div>
+</div>

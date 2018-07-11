@@ -17,6 +17,7 @@ export class AboutComponent implements OnInit {
     this.ares.getArray('ca_about').subscribe((content) => {
       this.contents = content['data'];
     });
+    this.ui.goAbout.subscribe(() => this.about.nativeElement.scrollIntoView({behavior: 'smooth', block: 'end'}));
   }
 
   @HostListener('window:scroll', ['$event'])

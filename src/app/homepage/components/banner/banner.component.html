@@ -1,12 +1,25 @@
-<nav class="navbarlinks navbar-expand-lg navbar-dark navbar-custom fixed-top">
-  <div class="container">
-    <img src="/assets/logo.png">
-    <a class="navbar-brand" href="https://antaragni.in">Antaragni</a>
-    <div>
-      <div class="login" (click)="onhit()">
-        <i class="fab fa-facebook-f"></i>
-        <span> facebook login</span>
+<!--<div class="login" (click)="onhit()">-->
+<!--<i class="fab fa-facebook-f"></i>-->
+<!--<span> facebook login</span>-->
+<!--</div>-->
+<div class="banner">
+  <div fxLayout="row" fxLayoutAlign="start center" class="login_container">
+    <h1>login With facebook</h1>
+    <div class="login" (click)="onhit()">
+      <i class="fab fa-facebook-f"></i>
+      <span> facebook login</span>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center start">
+    <div *ngFor="let dat of data; let i=index" fxLayout="row" fxLayoutAlign="center start" class="dash"
+         fxLayoutGap="10px">
+      <div class="index">0{{i+1}}.</div>
+      <div fxLayout="column" class="content">
+        <div class="title">{{dat.title}}</div>
+        <div>{{dat.desc}}</div>
       </div>
     </div>
   </div>
-</nav>
+
+</div>

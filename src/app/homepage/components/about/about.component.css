@@ -1,52 +1,44 @@
-section {
-  padding: 20px;
+.body{
+	width:100%;
+	min-width:100%;
+	margin: 0;
+	height: 60%;
+	min-height: 60%;
+	color: #ffffff;
 }
 
-section p {
-  font-size: 17px;
-  padding: 0px 20px 0px 0px;
-  color: rgb(107, 48, 13);
-  line-height: 1.8em;
-  margin: 1em 0 0 0;
-  margin-bottom: 20px;
+.description{
+	margin-top: 2.5em;
+	line-height: 2em;
+	letter-spacing: 2px;
+	font-family: 'Open Sans', sans-serif;
 }
 
-.aboutus {
-  background-color: rgb(255, 255, 255);
+.about_text{
+	width:100%;
+	padding: 5em 13em 5em 13em;
+	background: #00affe;
 }
 
-.about-img {
-  border-radius: 20px;
-  margin-bottom: 30px;
-  filter: saturate(150%) grayscale(90%);
+.client{
+	padding: 2em;
 }
 
-.container {
-  margin-top: 10px;
-  padding: 10vh 0;
+.heading{
+	letter-spacing: 2px;
+	word-spacing: 1px;
+	font-size: 3.2em;
+	font-family: 'Yanone_Kaffeesatz', sans-serif;
+	font-weight: 600;
+	display: block;
+
 }
 
-.about {
-  font-weight: 100;
-  text-transform: uppercase;
-  font-size: 2rem;
+.heading span{
+	font-weight: 300;
 }
 
-.about:nth-child(2) {
-  font-weight: 400;
-}
-
-.about:nth-child(1) {
-  border-bottom: solid 1px black;
-}
-
-.first-para {
-  font-weight: 300;
-}
-
-@media (max-width: 920px) {
-  .container {
-    display: flex;
-    flex-direction: column;
-  }
+.about_image{
+  background: url("https://drive.google.com/uc?export=view&id=1-r2z8HOhXGxKbdGmdWpcHiqe8FeaWEu_") no-repeat left top;
+  background-size: cover;
 }

@@ -1,24 +1,24 @@
-.container{
-    padding: 6%;
-    width: 80%!important;
-    
+.container {
+  padding: 6%;
+  width: 80% !important;
+  height: 100vh;
+
 }
 
-h1{
-    margin-bottom: 56px;
-    margin-right: 10px;
-    font-family: Playfair Display,serif!important;
+h2, p {
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
 }
 
-h2, p{
-    font-family: Roboto,sans-serif;
-    font-size: 18px;
+h2 {
+  font-weight: 700;
 }
 
-h2{
-    font-weight: 700;
+p {
+  font-weight: 400;
 }
 
-p{
-    font-weight: 400;
+.container h1{
+  font-family: Yanone_Kaffeesatz;
+  font-weight: 500;
 }

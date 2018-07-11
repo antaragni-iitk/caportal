@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {UiService} from '@services/ui.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,10 +8,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() {
+  @ViewChild('contact') contact: ElementRef;
+
+  constructor(private ui: UiService) {
   }
 
   ngOnInit() {
+    this.ui.goTeam.subscribe(() => this.contact.nativeElement.scrollIntoView({behavior: 'smooth', block: 'start'}));
   }
-
 }
