@@ -56,4 +56,16 @@ p{
    .half-width{
      width: 100%;
    }
+
+   .incent{
+     width: 70vw;
+   }
+
+   .incentive,.grid{
+     height: auto;
+   }
+
+   .image1,.image2{
+     display: none;
+   }
  }

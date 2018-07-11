@@ -1,9 +1,9 @@
 <div fxLayout="column" class="grid" #why>
-  <div fxLayout="row" class="incentive full-width">
+  <div fxLayout="row" fxLayout.xs="column" class="incentive full-width">
     <div class="half-width pad3" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5vh">
       <h1>Why ?</h1>
       <div fxLayout="row wrap" fxLayoutAlign="left center" fxLayoutGap="20px" fxLayout.xs="column">
-        <div fxLayout="row" *ngFor="let prop of data" fxLayoutAlign="left center" fxLayoutGap="20px" class="incent">
+        <div fxLayout="row" *ngFor="let prop of data?.slice(0,3)" fxLayoutAlign="left center" fxLayoutGap="20px" class="incent">
           <div class="icon" fxLayoutAlign="center center"><i [class]="prop.icon"></i></div>
           <div fxLayout="column">
             <h6 [innerHtml]="prop.title"></h6>
@@ -14,12 +14,12 @@
     </div>
     <div class="half-width image1"></div>
   </div>
-  <div fxLayout="row" class="incentive full-width">
+  <div fxLayout="row" class="incentive full-width" fxLayout.xs="column">
     <div class="half-width image2"></div>
     <div class="half-width pad3" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5vh" fxLayout.xs="column">
       <h1>Incentives</h1>
       <div fxLayout="row wrap" fxLayoutAlign="left center" fxLayoutGap="20px">
-        <div fxLayout="row" *ngFor="let prop of data" fxLayoutAlign="left center" [class.reveal]="!(scrolltoview|async)"
+        <div fxLayout="row" *ngFor="let prop of data?.slice(3,6)" fxLayoutAlign="left center" [class.reveal]="!(scrolltoview|async)"
              fxLayoutGap="20px" class="incent">
           <div class="icon" fxLayoutAlign="center center"><i [class]="prop.icon"></i></div>
           <div fxLayout="column">
