@@ -21,7 +21,7 @@ export class CounterComponent implements OnInit {
 
   counter(limit: number, point: BehaviorSubject<number>, time: number) {
     let counter = 0;
-    let counting = setInterval(() => {
+    const counting = setInterval(() => {
       counter++;
       if (counter >= limit) {
         clearInterval(counting);
@@ -31,13 +31,13 @@ export class CounterComponent implements OnInit {
   }
 
   ngOnInit() {
-    let source = this.ares.getArray('ca_counter');
+    const source = this.ares.getArray('ca_counter');
     this.titles = source.pipe(
       map((val) => val.data.map(prop => prop.title))
     );
     source.subscribe((res) => {
-      let data = res.data;
-      for (let i in res.data) {
+      const data = res.data;
+      for (const i in res.data) {
         console.log(i);
         this.counter(data[i].limit, this.counters$[i], data[i].time / data[i].limit);
       }
