@@ -1,5 +1,6 @@
-import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
+import {UiService} from '@services/ui.service';
 
 @Component({
   selector: 'app-properties',
@@ -53,16 +54,12 @@ export class PropertiesComponent implements OnInit {
 
   ];
 
-  constructor() {
+  @ViewChild('why') why: ElementRef;
+
+  constructor(private ui: UiService) {
   }
 
   ngOnInit() {
+    this.ui.goWhy.subscribe(() => this.why.nativeElement.scrollIntoView({behavior: 'smooth', block: 'start'}));
   }
-
-  // @HostListener('window:scroll', ['$event'])
-  // private onScroll($event: Event): void {
-  //   if (window.scrollY + window.screen.height - 200 > this.services.nativeElement.offsetTop) {
-  //     this.scrolltoview.next(true);
-  //   }
-  // }
 }

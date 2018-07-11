@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {UiService} from '../../../services/ui.service';
 
 @Component({
@@ -7,11 +7,14 @@ import {UiService} from '../../../services/ui.service';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
+  @ViewChild('contact') el: ElementRef;
 
   constructor(public ui: UiService) {
   }
 
   ngOnInit() {
+
   }
+
 
 }

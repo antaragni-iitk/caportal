@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {FbloginService} from '../../../services/fblogin.service';
+import {UiService} from '@services/ui.service';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +10,51 @@ import {FbloginService} from '../../../services/fblogin.service';
 })
 export class HeaderComponent implements OnInit {
   loaded = new BehaviorSubject(false);
+  links = [
+    {
+      id: 'why',
+      title: 'Why ?',
+      Desc: 'Incentives'
+    },
+    {
+      id: 'about',
+      title: 'About Us',
+      Desc: 'Who we are'
+    },
+    {
+      id: 'team',
+      title: 'The Team',
+      Desc: 'Contact us'
+    },
+    {
+      id: 'faq',
+      title: 'FAQ',
+      Desc: 'Doubts?'
+    },
+  ];
 
-  constructor(private loginService: FbloginService) {
+  constructor(private loginService: FbloginService, private ui: UiService) {
   }
 
   onhit() {
     this.loginService.signin();
+  }
+
+  gonow(cases: string) {
+    switch (cases) {
+      case 'about':
+        this.ui.goAbout.next(true);
+        break;
+      case 'team':
+        this.ui.goTeam.next(true);
+        break;
+      case 'why':
+        this.ui.goWhy.next(true);
+        break;
+      case 'why':
+        this.ui.goFaq.next(true);
+        break;
+    }
   }
 
   ngOnInit() {

@@ -1,10 +1,8 @@
 <div class="banner-agileits">
     <div class="banner-top-w3-agile">
         <ul>
-          <li><p>Vivamus</p><span>Lorem Ipsum</span></li>
-          <li><p>Aenean</p><span>Lorem Ipsum</span></li>
-          <li><p>dignissim</p><span>Lorem Ipsum</span></li>
-          <li><p>vitae</p><span>Lorem Ipsum</span></li>
+          <li *ngFor="let link of links" (click)="gonow(link.id)"><p>{{link.title}}</p><span>{{link.Desc}}</span></li>
+          <li (click)="onhit()"><p>Login</p><span>Mohit</span></li>
         </ul>
       </div>
   <div class="slider" >
@@ -15,16 +13,19 @@
           <div class="banner-info-w3layouts">
             <div class="group">
               <div class="_group">
-                <h3>Mergers &amp; Acquisitions</h3>
-                <p>Proficient overview</p>
+                <h3>Campus Ambassador</h3>
+                <p>Antaragni, 2018</p>
                 <div class="bnr-butn-w3ls">
-                  <h6><a class="scroll"><i class="fa fa-angle-right" aria-hidden="true"></i>About Us</a></h6>
-                  <h6><a class="scroll"><i class="fa fa-angle-right" aria-hidden="true"></i>Contact Us</a></h6>
+                  <!--<h6><a class="scroll"><i class="fa fa-angle-right" aria-hidden="true"></i>About Us</a></h6>-->
+                  <div class="login" (click)="onhit()">
+                    <i class="fab fa-facebook-f"></i>
+                    <span> facebook login</span>
+                  </div>
                 </div>
               </div>
            </div>
           </div>
-        </div>        
+        </div>
       </li>
     </ul>
   </div>
