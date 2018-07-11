@@ -1,5 +1,6 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
+import {ContentService} from '../../../services/content.service';
 import {UiService} from '@services/ui.service';
 
 @Component({
@@ -8,58 +9,22 @@ import {UiService} from '@services/ui.service';
   styleUrls: ['./properties.component.css']
 })
 export class PropertiesComponent implements OnInit {
-  @ViewChild('services') services;
+  @ViewChild('services') 
+  public services;
   scrolltoview = new BehaviorSubject(false);
-  data = [[
-    {
-      icon: 'fas fa-user-tie',
-      title: 'Be a leader',
-      desc: 'Represent your college as you help organize one of Asia\'s largest cultural fests'
-    },
-    {
-      icon: 'far fa-address-book',
-      title: 'Networking',
-      desc: 'Get opportunities to interact with celebrities from various fields'
-    },
-    {
-      icon: 'fas fa-cogs',
-      title: 'Enhance your skills',
-      desc: 'Improve your communication and managerial abilities'
-    },
-    {
-      icon: 'fas fa-home',
-      title: 'Accomodation',
-      desc: 'Free accomodation for the top performing campus ambassadors @ Antaragni 2018'
-    }],
-    [{
-      icon: 'fas fa-trophy',
-      title: 'Certification',
-      desc: 'Get a ratified certificate from Antaragni, IIT Kanpur recognizing your efforts'
-    },
-    {
-      icon: 'fas fa-gift',
-      title: 'Goodies & Merchandise',
-      desc: 'Free Antaragni merchandise and prizes for top performers'
-    },
-      {
-        icon: 'fas fa-home',
-        title: 'Accomodation',
-        desc: 'Free accomodation for the top performing campus ambassadors @ Antaragni 2018'
-      },
-      {
-        icon: 'fas fa-cogs',
-        title: 'Enhance your skills',
-        desc: 'Improve your communication and managerial abilities'
-      }],
 
-  ];
+  constructor(private ares: ContentService) {}
 
+  private data;
   @ViewChild('why') why: ElementRef;
 
   constructor(private ui: UiService) {
   }
 
   ngOnInit() {
+    this.ares.getArray('ca_why').subscribe((content) => {
+      this.data = content['data'];
+     });
     this.ui.goWhy.subscribe(() => this.why.nativeElement.scrollIntoView({behavior: 'smooth', block: 'start'}));
   }
 }

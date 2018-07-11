@@ -8,4 +8,5 @@ export const environment = {
     storageBucket: 'gs://espalda-fin.appspot.com/',
     messagingSenderId: '74163403274'
   },
+  contentCollectionName: '_contents_'
 };

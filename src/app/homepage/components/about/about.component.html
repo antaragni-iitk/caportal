@@ -6,9 +6,9 @@
       </h3>
     </tr>
     <tr>
-      <p class="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-      </p>
+      <span class="description"  *ngFor="let content of contents"
+         [innerHtml]="content.about.content">
+         </span>
     </tr>
     <tr>
       <div class="client">
