@@ -25,12 +25,17 @@ export class RespComponent implements OnInit {
   //    event`
   // ];
 
-  // icons = [
-  //   'fas fa-bullhorn',
-  //   'fas fa-globe',
-  //   'fas fa-user-cog media-object'
-  // ];
-
+  icons = [
+    'fas fa-bullhorn',
+    'fas fa-globe',
+    'fas fa-user-cog media-object'
+  ];
+  bcolor = [
+    'orange',
+    'yellow',
+    'pink',
+    'blue',
+];
 
   constructor(private ares: ContentService) {
   }
