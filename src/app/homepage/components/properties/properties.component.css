@@ -51,3 +51,9 @@ p{
    width: 100%;
    padding-left: 3vw;
  }
+
+ @media (max-width: 768px) {
+   .half-width{
+     width: 100%;
+   }
+ }

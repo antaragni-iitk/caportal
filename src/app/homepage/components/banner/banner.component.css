@@ -57,3 +57,27 @@ h1{
   border-radius: 3px;
   margin-left: 20px;
 }
+
+@media (max-width: 1023px) {
+  .banner{
+    height: auto;
+    padding-bottom: 10vh;
+  }
+
+  .content{
+    width: 60vw;
+  }
+
+  .index{
+    width: 30vw;
+    padding-left: 20px;
+  }
+
+  .login i {
+    margin-left: 0;
+  }
+
+  .login_container{
+    padding: 10vh 2vh;
+  }
+}
