@@ -22,3 +22,9 @@ p {
   font-family: Yanone_Kaffeesatz;
   font-weight: 500;
 }
+
+@media (max-width: 1023px) {
+  .container{
+    height: auto;
+  }
+}
