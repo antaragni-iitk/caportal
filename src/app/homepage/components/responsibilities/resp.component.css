@@ -76,7 +76,13 @@ h4 {
 }
 
 @media (max-width: 1023px) {
-  .boxes{
+  .boxes,.clipper,.overlayed{
     width: 80vw;
+    height: 50vh;
+    margin: 0;
+  }
+
+  .clipper:hover .overlayed{
+    transform: translateY(60vh);
   }
 }
