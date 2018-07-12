@@ -1,23 +1,8 @@
 <div class="social-links">
   <div class="d-flex justify-content-end">
-    <div class="p-2">
-      <a target="_blank" href="https://www.facebook.com/antaragni.iitk/">
-        <img src="./assets/images/fb.png"/>
-      </a>
-    </div>
-    <div class="p-2">
-      <a target="_blank" href="https://www.youtube.com/user/antaragniiitkanpur">
-        <img src="./assets/images/youtube.png"/>
-      </a>
-    </div>
-    <div class="p-2">
-      <a target="_blank" href="https://www.instagram.com/antaragni/">
-        <img src="./assets/images/instagram.png"/>
-      </a>
-    </div>
-    <div class="p-2">
-      <a target="_blank" href="https://www.linkedin.com/company/antaragni-iit-kanpur">
-        <img src="./assets/images/linkedin.png"/>
+    <div class="p-2" *ngFor="let img_data of img_datas">
+      <a target="_blank" [href]="img_data.url">
+        <img [src]="img_data.path"/>
       </a>
     </div>
   </div>
