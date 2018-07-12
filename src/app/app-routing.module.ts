@@ -18,7 +18,7 @@ const routes: Routes = [
     path: 'dashboard', component: DashboardComponent,
     // canActivate: [LocalUserGuard], canActivateChild: [AuthGuard],
     children: [
-      {path: '', redirectTo: 'ideas', pathMatch: 'prefix',},
+      {path: '', redirectTo: 'ideas', pathMatch: 'prefix', },
       {path: 'leaderboard', component: LeaderboardComponent, canActivate: [RegisteredUserGuard]},
       {
         path: 'ideas', component: IdeasComponent,

@@ -1,3 +1,4 @@
+import { SocialLinksComponent } from './homepage/components/social-links/social-links.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -38,6 +39,7 @@ import {FaqComponent} from './homepage/components/faq/faq.component';
 import {CounterComponent} from './homepage/components/counter/counter.component';
 import { FooterComponent } from './homepage/components/footer/footer.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +61,8 @@ import { FooterComponent } from './homepage/components/footer/footer.component';
     AntaragniFeedComponent,
     FaqComponent,
     CounterComponent,
-    FooterComponent
+    FooterComponent,
+    SocialLinksComponent
   ],
   imports: [
     BrowserModule,
