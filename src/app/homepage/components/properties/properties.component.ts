@@ -14,6 +14,7 @@ export class PropertiesComponent implements OnInit {
   scrolltoview = new BehaviorSubject(false);
   @ViewChild('why') why: ElementRef;
   data;
+  len: number;
 
   constructor(private ui: UiService, private ares: ContentService) {
   }
@@ -21,6 +22,7 @@ export class PropertiesComponent implements OnInit {
   ngOnInit() {
     this.ares.getArray('ca_why').subscribe((content) => {
       this.data = content['data'];
+      this.len = this.data.length;
     });
     this.ui.goWhy.subscribe(() => this.why.nativeElement.scrollIntoView({behavior: 'smooth', block: 'start'}));
   }

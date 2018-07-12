@@ -10,6 +10,11 @@ span{
   color: yellow;
 }
 
+div{
+  filter: grayscale(50%);
+  margin: 0 10px;
+}
+
 @media (max-width: 768px) {
   .not-mobile{
     display: none;
