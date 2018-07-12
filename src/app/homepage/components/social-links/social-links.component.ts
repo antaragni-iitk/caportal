@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-social-links',
@@ -12,7 +12,11 @@ export class SocialLinksComponent implements OnInit {
     {path: './assets/images/instagram.png', url: 'https://www.instagram.com/antaragni/'},
     {path: './assets/images/linkedin.png', url: 'https://www.linkedin.com/company/antaragni-iit-kanpur/'},
   ];
-  constructor() { }
+
+  @Input() links: Array<number> = [0, 1, 2, 3];
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

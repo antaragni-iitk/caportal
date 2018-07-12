@@ -14,37 +14,37 @@
   color: #666;
 }
 
-.login_container{
+.login_container {
   width: 100%;
   background-color: white;
   padding: 10vh;
 }
 
-h1{
+h1 {
   font-family: Yanone_Kaffeesatz;
 }
 
-.banner{
+.banner {
   height: 50vh;
 }
 
-.dash{
+.dash {
   font-family: poppins;
 }
 
-.index{
+.index {
   font-size: 3.5rem;
   font-weight: 600;
   line-height: 3rem;
   color: #333;
 }
 
-.content{
+.content {
   width: 20vw;
   color: #999;
 }
 
-.title{
+.title {
   color: #ee3158;
   text-transform: uppercase;
 }
@@ -58,17 +58,21 @@ h1{
   margin-left: 20px;
 }
 
+.soc-links {
+  margin: 0 10vw;
+}
+
 @media (max-width: 1023px) {
-  .banner{
+  .banner {
     height: auto;
     padding-bottom: 10vh;
   }
 
-  .content{
+  .content {
     width: 60vw;
   }
 
-  .index{
+  .index {
     width: 30vw;
     padding-left: 20px;
   }
@@ -77,7 +81,7 @@ h1{
     margin-left: 0;
   }
 
-  .login_container{
+  .login_container {
     padding: 10vh 2vh;
   }
 }
