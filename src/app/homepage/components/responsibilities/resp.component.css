@@ -4,12 +4,15 @@
 }
 
 .boxes {
-  padding-top: 10px;
   margin: 0 20px;
   cursor: pointer;
   font-size: 0.8rem;
   z-index: 1;
   height: 30vh;
+}
+
+.responsibilities {
+  padding: 5em 0em;
 }
 
 .clipper{
@@ -66,13 +69,19 @@ h1 {
   letter-spacing: 1.5px;
 }
 
-h4,h2 {
+h2 {
   font-weight: 600;
   font-family: Yanone_Kaffeesatz;
+  font-size :3.2em;
+  letter-spacing: 2px;
+  word-spacing: 1px;
 }
 
-.wrapper {
-  margin-bottom: 10vh;
+h4 {
+  letter-spacing: 0.8px;
+  font-family: Yanone_Kaffeesatz;
+  font-size: 1.7em;
+  font-weight: 600;
 }
 
 @media (max-width: 1023px) {

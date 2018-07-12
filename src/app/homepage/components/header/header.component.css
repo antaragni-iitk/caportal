@@ -10,6 +10,10 @@
   text-shadow: 2px 2px #000;
 }
 
+.headlinks li{
+  cursor: pointer;
+}
+
 .login {
   cursor: pointer;
   font-family: open-sans-400;
@@ -165,7 +169,7 @@ label {
 .banner-top-w3-agile {
   position: absolute;
   z-index: 999;
-  left: 12.9%;
+  width: 100vw;
 }
 
 .banner-top-w3-agile ul li {
