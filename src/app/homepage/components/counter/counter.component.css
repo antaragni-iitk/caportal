@@ -1,4 +1,7 @@
 @media (max-width: 767px) {
+  .container-fluid{
+    position: relative;
+  }
   .counters-section-type-2 {
     width: 100%;
     max-width: 100%;
