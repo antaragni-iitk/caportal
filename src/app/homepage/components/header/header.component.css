@@ -165,6 +165,7 @@ label {
 .banner-top-w3-agile {
   position: absolute;
   z-index: 999;
+  max-width: 100%;
   left: 12.9%;
 }
 

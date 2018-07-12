@@ -16,13 +16,18 @@ h1 {
   width: 15vmax;
   height: 15vmax;
   border-radius: 50%;
-  transition: all 0.3s cubic-bezier(0.1, 0.2, 0.3, 0.1);
+  transition: all 0.3s ease-in-out;
   background: rgba(0, 0, 0, 0.1);
+}
+
+.pic {
+  opacity: 1;
 }
 
 .overlayed {
   position: absolute;
-  transform: translateY(40vh) scale(0.8);
+  transform: translateY(15vh) scale(0.8);
+  opacity: 0;
 }
 
 .team_info {
@@ -49,10 +54,12 @@ p {
 
 .person:hover .pic {
   transform: translateY(-13vh) scale(0.5);
+  opacity: 0.85;
 }
 
 .person:hover .overlayed {
   transform: translateY(0);
+  opacity: 1;
 }
 
 .profile_pic {
@@ -76,8 +83,18 @@ p {
   transition: 0.3s;
 }
 
-.social-links a:hover {
+.social-links .facebook:hover {
   background: #4267b2;
+  color: #fff;
+}
+
+.social-links .google-plus:hover {
+  background: #dd4e40;
+  color: #fff;
+}
+
+.social-links .linkedin:hover {
+  background: #1b7bb6;
   color: #fff;
 }
 

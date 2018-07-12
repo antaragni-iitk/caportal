@@ -66,9 +66,19 @@ h1 {
   letter-spacing: 1.5px;
 }
 
-h4,h2 {
+h2 {
   font-weight: 600;
   font-family: Yanone_Kaffeesatz;
+  font-size :3.2em;
+  letter-spacing: 2px;
+  word-spacing: 1px;
+}
+
+h4 {
+  letter-spacing: 0.8px;
+  font-family: Yanone_Kaffeesatz;
+  font-size: 1.7em;
+  font-weight: 600;
 }
 
 .wrapper {
