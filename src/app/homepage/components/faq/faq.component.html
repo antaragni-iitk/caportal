@@ -4,21 +4,15 @@
   </h1>
   <div fxLayout="row wrap" fxLayoutAlign="center center">
     <div class="col-md-6">
-      <div class="question" *ngFor="let i of [1,2,3]">
-        <h2>Q. Who is a College Ambassador?</h2>
-        <p>
-          A person who is the link between Techfest and your college. He/She will be the first point of contact for the
-          aforementioned responsibilities.
-        </p>
+      <div class="question" *ngFor="let i of (data | async)?.slice(0,len/2)">
+        <h2 [innerHTML]="i?.question.content"></h2>
+        <p [innerHTML]="i?.answer.content"></p>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="question" *ngFor="let i of [1,2,3]">
-        <h2>Q. Who is a College Ambassador?</h2>
-        <p>
-          A person who is the link between Techfest and your college. He/She will be the first point of contact for the
-          aforementioned responsibilities.
-        </p>
+      <div class="question" *ngFor="let i of (data | async)?.slice(len/2,len)">
+        <h2 [innerHTML]="i?.question.content"></h2>
+        <p [innerHTML]="i?.answer.content"></p>
       </div>
     </div>
   </div>
