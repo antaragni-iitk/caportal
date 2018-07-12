@@ -21,6 +21,7 @@ p {
 .container h1{
   font-family: Yanone_Kaffeesatz;
   font-weight: 500;
+  padding: 1em 0em;
 }
 
 @media (max-width: 1023px) {
