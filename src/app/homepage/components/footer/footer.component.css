@@ -9,3 +9,9 @@
 span{
   color: yellow;
 }
+
+@media (max-width: 768px) {
+  .not-mobile{
+    display: none;
+  }
+}
