@@ -90,6 +90,14 @@ span {
   padding-top: 10px;
 }
 
+small{
+  font-size: 2px;
+}
+
+i.fa,small{
+  color: #777;
+}
+
 @media (max-width: 1023px) {
   ._container {
     height: auto;
