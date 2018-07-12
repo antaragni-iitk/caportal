@@ -1,7 +1,7 @@
 <div class="header backg" #top>
   <div class="banner-agileits">
       <div class="banner-top-w3-agile row">
-        <ul>
+        <ul class="headlinks">
           <li *ngFor="let link of links" (click)="gonow(link.id)"><p>{{link.title}}</p><span>{{link.Desc}}</span></li>
           <li (click)="onhit()"><p>Login</p><span>Now</span></li>
         </ul>
