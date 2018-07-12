@@ -13,6 +13,6 @@ export class FaqComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ui.goFaq.subscribe(() => this.faq.nativeElement.scrollIntoView({behavior: 'smooth', block: 'end'}));
+    this.ui.goFaq.subscribe(() => this.faq.nativeElement.scrollIntoView({behavior: 'smooth', block: 'center'}));
   }
 }

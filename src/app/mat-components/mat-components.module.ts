@@ -21,7 +21,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatButtonModule,
     MatCardModule,
     MatSnackBarModule,
-    MatSidenavModule
+    MatSidenavModule,
   ]
 })
 export class MatComponentsModule {

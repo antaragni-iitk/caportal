@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {FbloginService} from '../../../services/fblogin.service';
-import { AngularFirestore } from 'angularfire2/firestore';
+import {AngularFirestore} from 'angularfire2/firestore';
 
 @Component({
   selector: 'app-ideas',
@@ -13,6 +13,7 @@ export class IdeasComponent implements OnInit {
   user: Observable<any>;
   submitted = false;
   _state = true;
+
   constructor(private fbloginservice: FbloginService,
               private afs: AngularFirestore) {
   }
@@ -31,11 +32,12 @@ export class IdeasComponent implements OnInit {
 
   _clicked2() {
     this._state = false;
+    setTimeout(() => this._state = true, 3000);
   }
 
   evaluate() {
-    this.user.subscribe((u) => {
-      this.afs.collection('ideas').add({uid: u.uid, name: u.name, model: this.model});
+    this.user.subscribe((user) => {
+      this.afs.collection('ideas').add({uid: user.uid, name: user.name, idea: this.model});
     });
   }
 }
