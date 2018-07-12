@@ -18,7 +18,7 @@ export class FaqComponent implements OnInit {
 
   ngOnInit() {
     this.data = this.ares.getArray('ca_faq').pipe(
-      tap((val) => this.len = val.data.length),
+      tap((val: {data: any}) => this.len = val.data.length),
       map((res) => Object.keys(res.data).map(val => res.data[val]))
     )
     ;

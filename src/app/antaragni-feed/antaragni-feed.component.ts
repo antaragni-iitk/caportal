@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {AntaragniFeedService} from '../services/feed';
-import {facebookfeed} from './mockfeed';
 import {HttpClient} from '@angular/common/http';
 
 interface IAlert {
@@ -31,9 +30,7 @@ export class AntaragniFeedComponent implements OnInit {
   }
 
   sharePost(post) {
-    this.feedService.loginWithOptions().then(() =>
-      this.feedService.sharePost(post.permalink_url, post.id)
-    );
+    this.feedService.sharePost(post.permalink_url, post.id);
   }
 
 }
