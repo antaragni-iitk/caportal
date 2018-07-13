@@ -7,8 +7,8 @@
     <div fxLayout="column" fxLayoutAlign="start center" *ngFor="let data of team" fxLayoutGap="20px" class="person">
       <div class="profile_pic">
         <div class="overlayed" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5px">
-          <span class="phone" [innerHtml]="data.number"></span>
-          <span ><i class="fa fa-envelope"></i> <span [innerHtml]="data.mail"></span><i class="fa fa-at"></i>antaragni<small><i class="fa fa-circle"></i></small>in</span>
+          <span><i class="fas fa-mobile-alt"></i>&nbsp;<span class="phone" [innerHtml]="data.number"></span></span>
+          <span ><i class="fa fa-envelope"></i>&nbsp;<span [innerHtml]="data.mail"></span><i class="fa fa-at"></i>antaragni<small><i class="fa fa-circle"></i></small>in</span>
           <div class="social-links" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
             <a [href]="data.fb" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="google-plus" target="_blank"><i class="fab fa-google"></i></a>

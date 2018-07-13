@@ -19,7 +19,7 @@ const routes: Routes = [
     canActivate: [LocalUserGuard],
     canActivateChild: [AuthGuard],
     children: [
-      {path: '', redirectTo: 'home', pathMatch: 'prefix',},
+      {path: '', redirectTo: 'home', pathMatch: 'prefix', },
       {path: 'leaderboard', component: LeaderboardComponent, canActivate: [RegisteredUserGuard]},
       {
         path: 'ideas', component: IdeasComponent,

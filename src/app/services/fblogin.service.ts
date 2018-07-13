@@ -37,10 +37,10 @@ export class FbloginService {
       this.currentUser.next(users);
       this.dataFetched.next(!!users);
     });
-  };
+  }
 
   signin = () => {
-    let provider = new auth.FacebookAuthProvider();
+    const provider = new auth.FacebookAuthProvider();
     provider.addScope('user_posts,user_link,user_birthday');
     return this.afAuth.auth.signInWithPopup(provider)
       .then(
@@ -86,10 +86,10 @@ export class FbloginService {
             } as Facebook
           })
       );
-  };
+  }
 
   updateUser = (user: LocalUser) => this.userRef(user.uid).set({...user} as ILocalUser)
-    .then(() => this.currentUser.next(user));
+    .then(() => this.currentUser.next(user))
 
   constructor(private router: Router,
               private afAuth: AngularFireAuth,
