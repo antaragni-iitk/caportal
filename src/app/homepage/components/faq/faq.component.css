@@ -1,7 +1,7 @@
 .container {
   padding: 6%;
-  width: 80% !important;
-  height: 85vh;
+  width: 90% !important;
+  min-height: 85vh;
   background: url("https://drive.google.com/uc?export=view&id=1pY9otTrIDQGDMXk2lE-hPWN3Ff0plYki");
 }
 
