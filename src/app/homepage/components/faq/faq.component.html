@@ -5,14 +5,14 @@
   <div fxLayout="row wrap" fxLayoutAlign="center center">
     <div class="col-md-6">
       <div class="question" *ngFor="let i of (data | async)?.slice(0,len/2)">
-        <h2 [innerHTML]="i?.question.content"></h2>
-        <p [innerHTML]="i?.answer.content"></p>
+        <h2 [innerHTML]="i?.questions?.content"></h2>
+        <p [innerHTML]="i?.answers?.content"></p>
       </div>
     </div>
     <div class="col-md-6">
       <div class="question" *ngFor="let i of (data | async)?.slice(len/2,len)">
-        <h2 [innerHTML]="i?.question.content"></h2>
-        <p [innerHTML]="i?.answer.content"></p>
+        <h2 [innerHTML]="i?.questions?.content"></h2>
+        <p [innerHTML]="i?.answers?.content"></p>
       </div>
     </div>
   </div>

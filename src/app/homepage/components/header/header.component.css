@@ -17,8 +17,6 @@
 .login {
   cursor: pointer;
   font-family: open-sans-400;
-  /*background-color: #4267b2;*/
-  max-width: 11vw;
   padding: 2px;
   color: #aaa;
   border-right: groove 0px rgba(0, 0, 0, 0);
@@ -184,7 +182,8 @@ label {
 
 .banner-top-w3-agile ul li {
   display: block;
-  padding: 1em 5.2em 1em 3em;
+  padding: 1em 0;
+  min-width: 15vw;
   transition: all 0.5s ease-in-out;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
