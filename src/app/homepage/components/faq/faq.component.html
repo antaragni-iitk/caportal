@@ -1,8 +1,8 @@
-<div class="container" #faq>
+<div class="_container" #faq>
   <h1>
     FAQs
   </h1>
-  <div fxLayout="row wrap" fxLayoutAlign="center center">
+  <div class="questions" fxLayout="row wrap">
     <div class="col-md-6">
       <div class="question" *ngFor="let i of (data | async)?.slice(0,len/2)">
         <h2 [innerHTML]="i?.questions?.content"></h2>
