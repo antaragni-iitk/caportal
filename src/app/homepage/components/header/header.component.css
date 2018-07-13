@@ -108,7 +108,7 @@ label {
 }
 
 .slide-2 {
-
+  height: 100vh;
   min-height: 795px;
   background: transparent;
 
