@@ -8,7 +8,6 @@
         <mat-error *ngIf="name.errors">
           Name is required.
         </mat-error>
-        {{newuser$.personal.whatsAppNumber}}
       </mat-form-field>
 
       <mat-form-field>
@@ -23,15 +22,24 @@
         <mat-error *ngIf="address.errors">Required</mat-error>
       </mat-form-field>
 
-      <mat-form-field>
-        <input required #pincode="ngModel" name="pincode" type="number" matInput placeholder="Pincode" minlength="6" maxlength="6"
-               [(ngModel)]="newuser.personal.zipcode"
-               matTooltip="6 digits" [matTooltipPosition]="'left'" >
-        <mat-error *ngIf="pincode.errors">Required</mat-error>
-      </mat-form-field>
-
-
       <table class="full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="point9-width">
+              <input required #pincode="ngModel" name="pincode" type="number" matInput placeholder="Pincode" minlength="6" maxlength="6"
+                     [(ngModel)]="newuser.personal.zipcode" [disabled]="newuser$.personal.zipcode"
+                     matTooltip="6 digits" [matTooltipPosition]="'left'" >
+              <mat-error *ngIf="pincode.errors">Required</mat-error>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="full-width">
+              <input required #fbLink="ngModel" name="facebook Link" matInput placeholder="facebook link to your profile"
+                     [(ngModel)]="newuser.facebook.facebookLink" [disabled]="newuser$.facebook.facebookLink">
+              <mat-error *ngIf="fbLink.errors">Required</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
         <tr>
           <td>
             <mat-form-field class="point9-width">
@@ -56,7 +64,7 @@
                      [(ngModel)]="newuser.personal.birthday" [disabled]="newuser$.personal.birthday"
                      (click)="picker.open()" (focus)="picker.open()">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker disabled="false"></mat-datepicker>
+              <mat-datepicker #picker [disabled]="newuser$.personal.birthday"></mat-datepicker>
               <mat-error *ngIf="birthdate.errors">Date Required</mat-error>
             </mat-form-field>
           </td>

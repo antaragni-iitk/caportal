@@ -61,6 +61,7 @@ export class FbloginService {
               gender: res.additionalUserInfo.profile.gender,
               phoneNumber: res.user.phoneNumber,
               picture: res.additionalUserInfo.profile.picture.data.url,
+              birthday: res.additionalUserInfo.profile.birthday
             },
             campus: {
               isAmbassador: true,

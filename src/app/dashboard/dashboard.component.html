@@ -19,13 +19,13 @@
         <mat-card-content>
           <div *ngFor="let point of pointkeys" fxLayout="row" fxLayoutAlign="space-between center">
             <div>{{point}}</div>
-            <div>: {{(user|async).campus[points[point]]}}</div>
+            <div>: {{(user|async)?.campus[points[point]]}}</div>
           </div>
         </mat-card-content>
       </mat-card>
     </div>
   </mat-drawer>
-  <app-navbar [selectedLink]="(getState(o)|async)[0].path"></app-navbar>
+  <app-navbar [selectedLink]="(getState(o)|async)[0]?.path"></app-navbar>
     <div [@bounceOutLeft]="getState(o)">
       <router-outlet #o="outlet"></router-outlet>
     </div>
