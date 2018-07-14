@@ -13,7 +13,7 @@ export const environment = {
     messagingSenderId: '74163403274'
   },
   contentCollectionName: '_contents_',
-  fbAppID: '1799522573643704',
+  fbAppID: '266808170392437',
 };
 
 

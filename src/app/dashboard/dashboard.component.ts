@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {UiService} from '../services/ui.service';
 import {FbloginService} from '../services/fblogin.service';
 import {LocalUser} from '../models/localuser';
@@ -15,6 +15,7 @@ import {bounceOutLeft} from '../animations/bounceOutLeft';
 })
 export class DashboardComponent implements OnInit {
   state;
+  @ViewChild('refcode') ref: ElementRef;
   mobile = window.screen.width < 1023;
   user: Observable<LocalUser>;
   @ViewChild('drawer') drawer;
@@ -35,6 +36,12 @@ export class DashboardComponent implements OnInit {
   getState(outlet) {
     // Changing the activatedRouteData.state triggers the animation
     return outlet.activatedRoute.url;
+  }
+
+  copyit() {
+    this.ref.nativeElement.select();
+    document.execCommand('copy');
+    this.ref.nativeElement.blur();
   }
 
   ngOnInit() {

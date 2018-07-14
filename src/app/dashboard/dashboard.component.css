@@ -42,11 +42,36 @@ mat-divider {
   background-color: white;
 }
 
+.ref{
+  text-transform: uppercase;
+  position: relative;
+  max-width: 100%;
+}
+
+.copy{
+  /*position: absolute;*/
+  color: white;
+  font-size: 0.7rem;
+}
+
 mat-card-title, .name {
   font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 5px;
   font-weight: 100;
+}
+
+input{
+  background: transparent;
+  width: 6vw;
+  min-width: 100px;
+  padding: 10px;
+  margin-left: 10px;
+  text-align: right;
+  border-radius: 5px;
+  border: 1px solid #666;
+  color: white;
+
 }
 
 .name {

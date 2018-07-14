@@ -40,6 +40,7 @@ export interface Personal {
 export interface Campus {
   isAmbassador: boolean;
   posts: Array<string>;
+  referralCode: string;
   validPosts: Array<string>;
   likes: number;
   shares: number;
@@ -66,7 +67,6 @@ export class LocalUser implements ILocalUser {
   name: string;
   uid: string;
   firstUpdate: boolean;
-  progress: number;
   email: Email;
   facebook: Facebook;
   promocode: Promocode;

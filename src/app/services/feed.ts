@@ -7,6 +7,7 @@ import {LocalUser} from '@models/localuser';
 import {AngularFirestore} from 'angularfire2/firestore';
 import {Observable} from 'rxjs';
 import {take} from 'rxjs/internal/operators';
+import {environment} from '@environments/environment';
 
 export interface FbPostResponse {
   data: Array<{
@@ -24,7 +25,7 @@ export class AntaragniFeedService {
               private fun: Funcs,
               private afs: AngularFirestore) {
     fb.init({
-      appId: '1799522573643704',
+      appId: environment.fbAppID,
       version: 'v3.0'
     });
   }
@@ -45,12 +46,11 @@ export class AntaragniFeedService {
           return false;
         } else {
           this.loginService.currentUser.pipe(take(1)).subscribe((user: LocalUser) =>
-            this.fb.api(id + '/sharedposts', 'get', {access_token: user.facebook.Token})
+            this.fb.api(user.facebook.facebookID + '/feed', 'get', {fields: 'id', since: '-20 seconds', access_token: user.facebook.Token})
               .then((posts: FbPostResponse) => {
                 user.campus.posts.push(posts.data[0].id);
                 return this.loginService.updateUser(user);
-              })
-              .catch(err => this.fun.handleError(err.message)));
+              }));
         }
         return true;
       }).catch(err => {
