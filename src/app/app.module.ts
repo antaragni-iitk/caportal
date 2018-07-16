@@ -38,6 +38,7 @@ import {FacebookModule} from 'ngx-facebook';
 import {FaqComponent} from './homepage/components/faq/faq.component';
 import {CounterComponent} from './homepage/components/counter/counter.component';
 import { FooterComponent } from './homepage/components/footer/footer.component';
+import { SponsorsComponent } from './homepage/components/sponsors/sponsors.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { FooterComponent } from './homepage/components/footer/footer.component';
     FaqComponent,
     CounterComponent,
     FooterComponent,
-    SocialLinksComponent
+    SocialLinksComponent,
+    SponsorsComponent
   ],
   imports: [
     BrowserModule,

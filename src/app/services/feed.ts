@@ -52,6 +52,7 @@ export class AntaragniFeedService {
                 return this.loginService.updateUser(user);
               }));
         }
+        this.fun.handleError('successfully shared');
         return true;
       }).catch(err => {
         this.fun.handleError(err.message);
