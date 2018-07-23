@@ -15,6 +15,12 @@ h1{
 }
 
 img{
-  height: 20vh;
+  width: 20vw;
   cursor: pointer;
+}
+
+@media (max-width: 1023px) {
+  img{
+    width: 70vw;
+  }
 }

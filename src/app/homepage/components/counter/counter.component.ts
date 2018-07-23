@@ -18,9 +18,9 @@ export interface AresCounterData {
 })
 export class CounterComponent implements OnInit {
   counters$ = [
-    new BehaviorSubject(0),
-    new BehaviorSubject(0),
-    new BehaviorSubject(0),
+    new BehaviorSubject(70),
+    new BehaviorSubject(350),
+    new BehaviorSubject(10),
   ];
   startCount$ = new Subject();
   titles;
@@ -51,7 +51,7 @@ export class CounterComponent implements OnInit {
     this.startCount$.pipe(skipUntil(source), take(1)).subscribe(() => {
         for (const i in this.data) {
           if (this.data.hasOwnProperty(i)) {
-            this.counter(this.data[i].limit, this.counters$[i], this.data[i].time / this.data[i].limit);
+            this.counter(this.data[i].limit, this.counters$[i], Math.floor(this.data[i].time / this.data[i].limit));
           }
         }
       }
@@ -59,8 +59,9 @@ export class CounterComponent implements OnInit {
   }
 
   @HostListener('window:scroll', ['$event'])
+  @HostListener('touchmove', ['$event'])
   private onScroll($event: Event): void {
-    if (window.scrollY > 100) {
+    if (window.scrollY > window.screen.height / 10) {
       this.startCount$.next(0);
     }
   }
