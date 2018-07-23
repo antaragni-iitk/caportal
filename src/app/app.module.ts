@@ -39,6 +39,7 @@ import {FaqComponent} from './homepage/components/faq/faq.component';
 import {CounterComponent} from './homepage/components/counter/counter.component';
 import { FooterComponent } from './homepage/components/footer/footer.component';
 import { SponsorsComponent } from './homepage/components/sponsors/sponsors.component';
+import {DialogMessageComponent} from '@services/fblogin.service';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { SponsorsComponent } from './homepage/components/sponsors/sponsors.compo
     CounterComponent,
     FooterComponent,
     SocialLinksComponent,
-    SponsorsComponent
+    SponsorsComponent,
+    DialogMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +83,8 @@ import { SponsorsComponent } from './homepage/components/sponsors/sponsors.compo
     FacebookModule.forRoot(),
   ],
   providers: [UiService, Funcs, AntaragniFeedService, ContentService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogMessageComponent]
 })
 export class AppModule {
 }

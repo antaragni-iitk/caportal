@@ -15,8 +15,8 @@
 }
 
 .about_text{
-	width:100%;
-	padding: 5em 13em 5em 13em;
+	width:55%;
+	padding: 5em;
 	background: #00affe;
 }
 
@@ -41,14 +41,20 @@
 .about_image{
   background: url("https://drive.google.com/uc?export=view&id=1-r2z8HOhXGxKbdGmdWpcHiqe8FeaWEu_") no-repeat left top;
   background-size: cover;
+  width: 45%;
 }
 
 @media (max-width: 1023px) {
   .about_text{
+    width: 100%;
     padding: 10px;
   }
 
   .body{
     height: auto;
+  }
+
+  .about_image{
+    display: none;
   }
 }

@@ -13,6 +13,8 @@ import {UiService} from '@services/ui.service';
 import {auth} from 'firebase';
 import {FacebookService} from 'ngx-facebook';
 import {environment} from '@environments/environment';
+import {MatDialog} from '@angular/material';
+import {Component} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -52,7 +54,9 @@ export class FbloginService {
         ) : this.setUser(res, res)
       ).catch(err => {
         this.functions.handleError(err.message);
-        console.log(err);
+        if (err.message === 'FB is not defined') {
+          this.dialogRef.open(DialogMessageComponent);
+        }
       });
   };
 
@@ -104,7 +108,8 @@ export class FbloginService {
               private functions: Funcs,
               public zone: NgZone,
               private ui: UiService,
-              private fb: FacebookService,) {
+              private fb: FacebookService,
+              private dialogRef: MatDialog) {
     fb.init({
       appId: environment.fbAppID,
       version: 'v3.0'
@@ -129,3 +134,8 @@ export class FbloginService {
   }
 }
 
+@Component({
+  selector: 'app-message',
+  template: '<p>Some functions are not supported in firefox with tracking protection.<br>Please try other browser or switch off tracking</p>',
+})
+export class DialogMessageComponent {}

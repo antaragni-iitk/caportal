@@ -134,4 +134,10 @@ i.fa,small{
   p{
     text-align: center;
   }
+
+  .person:hover .pic {
+    transform: translateY(-17vh) scale(0.5);
+    opacity: 0.85;
+  }
+
 }

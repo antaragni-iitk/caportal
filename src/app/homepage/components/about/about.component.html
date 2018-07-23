@@ -1,5 +1,5 @@
-<div class="body row" #about>
-  <div class="col-md-8 about_text ml-auto" fxLayoutAlign="center">
+<div class="body row" #about fxLayout="row wrap" fxLayoutAlign="center stretch">
+  <div class="about_text" fxLayoutAlign="center">
     <tr>
       <h3 class="heading">About
         <span>Us</span>
@@ -10,12 +10,7 @@
             [innerHtml]="content.about.content">
          </span>
     </tr>
-    <!--<tr>-->
-      <!--<div class="client">-->
-        <!--<h5> Antaragni </h5>-->
-      <!--</div>-->
-    <!--</tr>-->
   </div>
-  <div class="col-md-4 about_img mr-auto about_image" fxLayoutAlign="center">
+  <div class="about_image" fxLayoutAlign="center">
   </div>
 </div>
