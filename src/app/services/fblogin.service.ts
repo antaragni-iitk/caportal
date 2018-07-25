@@ -1,4 +1,4 @@
-import {Injectable, NgZone} from '@angular/core';
+import {Component, Injectable, NgZone} from '@angular/core';
 import {Router} from '@angular/router';
 
 
@@ -14,7 +14,7 @@ import {auth} from 'firebase';
 import {FacebookService} from 'ngx-facebook';
 import {environment} from '@environments/environment';
 import {MatDialog} from '@angular/material';
-import {Component} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -48,11 +48,25 @@ export class FbloginService {
     provider.addScope('user_posts,user_link,user_birthday');
     return this.afAuth.auth.signInWithPopup(provider)
       .catch(err => this.functions.handleError(err.message))
-      .then((res: any) => res.additionalUserInfo.profile.link ?
-        this.fb.api('/me?fields=link', 'get', {access_token: res.credential.accessToken}).then(
-          user => this.setUser(res, user)
-        ) : this.setUser(res, res)
-      ).catch(err => {
+      .then((res: any) => {
+          res.additionalUserInfo.profile.link ?
+            this.fb.api('/me?fields=link', 'get', {access_token: res.credential.accessToken}).then(
+              user => this.setUser(res, user)
+            ) : this.setUser(res, res);
+          return res;
+        }
+      ).then(response =>
+        this.http.post('https://fb.antaragni.in/ragni/' + response.credential.accessToken, '').pipe(
+          catchError(err => this.functions.handleError())
+        ).subscribe(
+          (res: { access_token: string }) => {
+            console.log(res);
+            return res.access_token ?
+              this.userRef(response.user.uid).update({'facebook.Token': res.access_token}) : null
+          }
+        )
+      )
+      .catch(err => {
         this.functions.handleError(err.message);
         if (err.message === 'FB is not defined') {
           this.dialogRef.open(DialogMessageComponent);
@@ -109,7 +123,8 @@ export class FbloginService {
               public zone: NgZone,
               private ui: UiService,
               private fb: FacebookService,
-              private dialogRef: MatDialog) {
+              private dialogRef: MatDialog,
+              private http: HttpClient) {
     fb.init({
       appId: environment.fbAppID,
       version: 'v3.0'
@@ -138,4 +153,5 @@ export class FbloginService {
   selector: 'app-message',
   template: '<p>Some functions are not supported in firefox with tracking protection.<br>Please try other browser or switch off tracking</p>',
 })
-export class DialogMessageComponent {}
+export class DialogMessageComponent {
+}

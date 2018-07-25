@@ -11,7 +11,7 @@
           <span ><i class="fa fa-envelope"></i>&nbsp;<span [innerHtml]="data.mail"></span><i class="fa fa-at"></i>antaragni<small><i class="fa fa-circle"></i></small>in</span>
           <div class="social-links" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
             <a [href]="data.fb" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="google-plus" target="_blank"><i class="fab fa-google"></i></a>
+            <a [href]="'mailto:'+data.gmail" class="google-plus" target="_blank"><i class="fab fa-google"></i></a>
             <a [href]="data.linked_in" class="linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
