@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {FbloginService} from '../../../services/fblogin.service';
 import {AngularFirestore} from 'angularfire2/firestore';
+import {Funcs} from '../../../utility/function';
+import {first} from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-ideas',
@@ -15,7 +17,7 @@ export class IdeasComponent implements OnInit {
   _state = true;
 
   constructor(private fbloginservice: FbloginService,
-              private afs: AngularFirestore) {
+              private afs: AngularFirestore, private fun: Funcs) {
   }
 
   ngOnInit() {
@@ -36,8 +38,14 @@ export class IdeasComponent implements OnInit {
   }
 
   evaluate() {
-    this.user.subscribe((user) => {
-      this.afs.collection('ideas').add({uid: user.uid, name: user.name, idea: this.model});
+    this.submitted = true;
+    this.user.pipe(first()).subscribe((user) => {
+      this.afs.collection('ideas').add({uid: user.uid, name: user.name, idea: this.model, status: -1}).then(() =>
+        this.fun.handleError('successfully shared')
+      ).catch(() => {
+        this.submitted = false;
+        this.fun.handleError('oops please try again');
+      });
     });
   }
 }

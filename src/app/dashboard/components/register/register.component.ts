@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FbloginService} from '@services/fblogin.service';
 import {LocalUser} from '@models/localuser';
 import {AngularFirestore} from 'angularfire2/firestore';
+import {take} from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,7 @@ import {AngularFirestore} from 'angularfire2/firestore';
 })
 export class RegisterComponent implements OnInit {
   refCode: string;
+  count: number;
   sexes = [
     {id: 1, name: 'Male'},
     {id: 2, name: 'Female'},
@@ -34,10 +36,10 @@ export class RegisterComponent implements OnInit {
       this.newuser = user;
       this.newuser$ = JSON.parse(JSON.stringify(user));
     });
-    this.afs.doc('/config/counter').valueChanges().subscribe((res: { data: number }) => {
+    this.afs.doc('/config/counter').valueChanges().pipe(take(2)).subscribe((res: { data: number }) => {
       const count = (res.data + 1000).toString();
+      this.count = res.data;
       this.refCode = 'CA' + count[0] + count[3] + count[1] + count[2];
-      console.log(res, this.refCode);
     });
   }
 
@@ -45,5 +47,6 @@ export class RegisterComponent implements OnInit {
     this.newuser.firstUpdate = true;
     this.newuser.campus.referralCode = this.refCode;
     this.fblogin.updateRegistration(this.newuser);
+    this.afs.doc('/config/counter').set({data: this.count + 1});
   }
 }

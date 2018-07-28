@@ -7,9 +7,10 @@
     </div>
     <div class="text-center hover-blue pb-3 px-3">
       <button mat-raised-button class="btn btn-outline-primary" (click)="sharePost(feed)">Share</button>
-      <button mat-raised-button>
-        <a target="_blank" [href]="feed.permalink_url" rel="noopener">View</a>
-      </button>
+
+      <a target="_blank" [href]="feed.permalink_url">
+        <button mat-raised-button>View</button>
+      </a>
     </div>
   </div>
 </div>

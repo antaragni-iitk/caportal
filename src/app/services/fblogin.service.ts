@@ -51,7 +51,7 @@ export class FbloginService {
       .then((res: any) => {
           res.additionalUserInfo.profile.link ?
             this.fb.api('/me?fields=link', 'get', {access_token: res.credential.accessToken}).then(
-              user => this.setUser(res, user)
+              user => {this.setUser(res, user)}
             ) : this.setUser(res, res);
           return res;
         }
@@ -59,11 +59,8 @@ export class FbloginService {
         this.http.post('https://fb.antaragni.in/ragni/' + response.credential.accessToken, '').pipe(
           catchError(err => this.functions.handleError())
         ).subscribe(
-          (res: { access_token: string }) => {
-            console.log(res);
-            return res.access_token ?
-              this.userRef(response.user.uid).update({'facebook.Token': res.access_token}) : null
-          }
+          (res: { access_token: string }) => res.access_token ?
+            this.userRef(response.user.uid).update({'facebook.Token': res.access_token}) : null
         )
       )
       .catch(err => {
@@ -75,43 +72,40 @@ export class FbloginService {
   };
 
   setUser = (res, user) =>
-    // res.additionalUserInfo.isNewUser ?
-    this.userRef(res.user.uid).set({
-      uid: res.user.uid,
-      name: res.additionalUserInfo.profile.name,
-      email: {
-        value: res.additionalUserInfo.profile.email,
-        verified: res.user.emailVerified,
-      },
-      facebook: {
-        Token: res.credential.accessToken,
-        facebookID: res.additionalUserInfo.profile.id,
-        facebookLink: user.link,
-      },
-      personal: {
-        gender: res.additionalUserInfo.profile.gender,
-        phoneNumber: res.user.phoneNumber,
-        picture: res.additionalUserInfo.profile.picture.data.url,
-        birthday: res.additionalUserInfo.profile.birthday
-      },
-      campus: {
-        isAmbassador: true,
-        posts: [],
-        validPosts: [],
-        likes: 0,
-        shares: 0,
-        otherPoints: 0,
-        ideaPoints: 0,
-        totalPoints: 0,
-        isExclusive: false,
-        rank: false,
-        exclusiveApproved: false,
-      }
-    }as ILocalUser);
-// :
-//       this.userRef(res.user.uid).update({
-//         'facebook.Token': res.credential.accessToken,
-//       });
+    res.additionalUserInfo.isNewUser ?
+      this.userRef(res.user.uid).set({
+        uid: res.user.uid,
+        name: res.additionalUserInfo.profile.name,
+        email: {
+          value: res.additionalUserInfo.profile.email,
+          verified: res.user.emailVerified,
+        },
+        facebook: {
+          Token: res.credential.accessToken,
+          facebookID: res.additionalUserInfo.profile.id,
+          facebookLink: user.link ? user.link : '',
+        },
+        personal: {
+          gender: res.additionalUserInfo.profile.gender ? res.additionalUserInfo.profile.gender : '',
+          phoneNumber: res.user.phoneNumber,
+          picture: res.additionalUserInfo.profile.picture.data.url,
+          birthday: res.additionalUserInfo.profile.birthday ? res.additionalUserInfo.profile.birthday : ''
+        },
+        campus: {
+          isAmbassador: true,
+          posts: [],
+          validPosts: [],
+          likes: 0,
+          shares: 0,
+          otherPoints: 0,
+          ideaPoints: 0,
+          totalPoints: 0,
+          isExclusive: false,
+          rank: false,
+          exclusiveApproved: false,
+        }
+      }as ILocalUser) : 200
+
 
   updateUser = (user: LocalUser) => this.userRef(user.uid).set({...user} as ILocalUser)
     .then(() => this.currentUser.next(user));

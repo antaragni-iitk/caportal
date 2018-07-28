@@ -57,3 +57,13 @@ masonry {
   margin: 0 auto;
   width: 80%;
 }
+
+a:hover{
+  /*text-decoration: none;*/
+  background: inherit;
+}
+
+a{
+  background: inherit;
+  height: 100%;
+}

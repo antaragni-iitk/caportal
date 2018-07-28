@@ -1,6 +1,6 @@
 <mat-card>
   <div class="container" align="center">
-    <div class="col-10 mx-auto" [hidden]="submitted" fxLayout="column" fxLayoutAlign="center center">
+    <div class="col-10 mx-auto" fxLayout="column" fxLayoutAlign="center center">
       <div class="_caption">Contribute to the fest!</div>
       <div class="_benefits">be a part <span>|</span> Earn points <span>|</span> Innovate</div>
       <div class="page" fxLayoutAlign="start start" fxLayout="column">
@@ -14,7 +14,7 @@
         </div>
         <img src="/assets/page.jpg"/>
       </div>
-      <form (ngSubmit)="evaluate()" class="_form" #ideasForm="ngForm">
+      <form (ngSubmit)="evaluate(); ideasForm.reset()" class="_form" #ideasForm="ngForm">
         <div class="form-group">
           <!--<label for="subject"><b>Subject</b></label>-->
           <input type="text" class="form-control" id="subject" [(ngModel)]="model.subject" placeholder="Awesome Subject"
@@ -28,7 +28,7 @@
             Submit Brief and multiple information cards for more points. Each card counts!
           </div>
         </div>
-        <button type="submit" mat-raised-button color="primary" [disabled]="!ideasForm.form.valid" (click)="evaluate()">
+        <button type="submit" mat-raised-button color="primary" [disabled]="!ideasForm.form.valid||submitted" (click)="evaluate()">
           Submit
         </button>
       </form>

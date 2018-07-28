@@ -48,7 +48,12 @@ export class AntaragniFeedService {
           this.loginService.currentUser.pipe(take(1)).subscribe((user: LocalUser) =>
             this.fb.api(user.facebook.facebookID + '/feed', 'get', {fields: 'id', since: '-20 seconds', access_token: user.facebook.Token})
               .then((posts: FbPostResponse) => {
-                user.campus.posts.push(posts.data[0].id);
+                if (posts.data.length !== 0) {
+                  user.campus.validPosts.push(posts.data[0].id);
+                }
+                user.campus.posts.push(id);
+                user.campus.shares += 5;
+                user.campus.totalPoints += 5;
                 return this.loginService.updateUser(user);
               }));
         }
