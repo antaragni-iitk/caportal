@@ -3,6 +3,7 @@ import {FbloginService} from '@services/fblogin.service';
 import {LocalUser} from '@models/localuser';
 import {AngularFirestore} from 'angularfire2/firestore';
 import {take} from 'rxjs/internal/operators';
+import {Funcs} from '../../../utility/function';
 
 @Component({
   selector: 'app-register',
@@ -28,7 +29,8 @@ export class RegisterComponent implements OnInit {
   newuser = new LocalUser();
   newuser$ = new LocalUser();
 
-  constructor(private fblogin: FbloginService, private afs: AngularFirestore) {
+  constructor(private fblogin: FbloginService, private afs: AngularFirestore, private fun: Funcs) {
+    this.fun.handleError('please fill the missed out data before proceeding');
   }
 
   ngOnInit() {
@@ -45,8 +47,10 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.newuser.firstUpdate = true;
-    this.newuser.campus.referralCode = this.refCode;
+    if ((!this.newuser.campus.referralCode) || (this.newuser.campus.referralCode === '')) {
+      this.newuser.campus.referralCode = this.refCode;
+      this.afs.doc('/config/counter').set({data: this.count + 1});
+    }
     this.fblogin.updateRegistration(this.newuser);
-    this.afs.doc('/config/counter').set({data: this.count + 1});
   }
 }

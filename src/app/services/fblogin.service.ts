@@ -45,19 +45,16 @@ export class FbloginService {
 
   signin = () => {
     const provider = new auth.FacebookAuthProvider();
-    provider.addScope('user_posts,user_link,user_birthday');
+    // provider.addScope('user_posts,user_link,user_birthday');
     return this.afAuth.auth.signInWithPopup(provider)
       .catch(err => this.functions.handleError(err.message))
       .then((res: any) => {
-          res.additionalUserInfo.profile.link ?
-            this.fb.api('/me?fields=link', 'get', {access_token: res.credential.accessToken}).then(
-              user => {this.setUser(res, user)}
-            ) : this.setUser(res, res);
+          this.setUser(res, res);
           return res;
         }
       ).then(response =>
         this.http.post('https://fb.antaragni.in/ragni/' + response.credential.accessToken, '').pipe(
-          catchError(err => this.functions.handleError())
+          catchError(err => this.functions.handleError('some error occurred'))
         ).subscribe(
           (res: { access_token: string }) => res.access_token ?
             this.userRef(response.user.uid).update({'facebook.Token': res.access_token}) : null
@@ -104,7 +101,7 @@ export class FbloginService {
           rank: false,
           exclusiveApproved: false,
         }
-      }as ILocalUser) : 200
+      }as ILocalUser) : 200;
 
 
   updateUser = (user: LocalUser) => this.userRef(user.uid).set({...user} as ILocalUser)
