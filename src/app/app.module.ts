@@ -12,7 +12,6 @@ import {HeaderComponent} from './homepage/components/header/header.component';
 import {ContactComponent} from './homepage/components/contact/contact.component';
 import {RespComponent} from './homepage/components/responsibilities/resp.component';
 import {AboutComponent} from './homepage/components/about/about.component';
-import {NavbarComponent} from './navbar/navbar.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {HomeComponent} from './dashboard/components/home/home.component';
 import {LeaderboardComponent} from './dashboard/components/leaderboard/leaderboard.component';
@@ -40,6 +39,7 @@ import {CounterComponent} from './homepage/components/counter/counter.component'
 import { FooterComponent } from './homepage/components/footer/footer.component';
 import { SponsorsComponent } from './homepage/components/sponsors/sponsors.component';
 import {DialogMessageComponent} from '@services/fblogin.service';
+import {NavbarComponent} from './navbar/navbar.component';
 
 
 @NgModule({

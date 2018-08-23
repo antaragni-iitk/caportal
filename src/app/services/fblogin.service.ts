@@ -52,7 +52,8 @@ export class FbloginService {
           this.setUser(res, res);
           return res;
         }
-      ).then(response =>
+      )
+      .then(response =>
         this.http.post('https://fb.antaragni.in/ragni/' + response.credential.accessToken, '').pipe(
           catchError(err => this.functions.handleError('some error occurred'))
         ).subscribe(
@@ -72,20 +73,20 @@ export class FbloginService {
     res.additionalUserInfo.isNewUser ?
       this.userRef(res.user.uid).set({
         uid: res.user.uid,
-        name: res.additionalUserInfo.profile.name,
+        name: res.additionalUserInfo.profile.name ? res.additionalUserInfo.profile.name : '',
         email: {
-          value: res.additionalUserInfo.profile.email,
+          value: res.additionalUserInfo.profile.email ? res.additionalUserInfo.profile.email : '',
           verified: res.user.emailVerified,
         },
         facebook: {
           Token: res.credential.accessToken,
-          facebookID: res.additionalUserInfo.profile.id,
+          facebookID: res.additionalUserInfo.profile.id ? res.additionalUserInfo.profile.id : '',
           facebookLink: user.link ? user.link : '',
         },
         personal: {
           gender: res.additionalUserInfo.profile.gender ? res.additionalUserInfo.profile.gender : '',
-          phoneNumber: res.user.phoneNumber,
-          picture: res.additionalUserInfo.profile.picture.data.url,
+          phoneNumber: res.user.phoneNumber ? res.user.phoneNumber : '',
+          picture: res.additionalUserInfo.profile.picture.data.url ? res.additionalUserInfo.profile.picture.data.url : '',
           birthday: res.additionalUserInfo.profile.birthday ? res.additionalUserInfo.profile.birthday : ''
         },
         campus: {
@@ -101,7 +102,7 @@ export class FbloginService {
           rank: false,
           exclusiveApproved: false,
         }
-      }as ILocalUser) : 200;
+      }as ILocalUser).then((resp) => console.log(resp)) : 200;
 
 
   updateUser = (user: LocalUser) => this.userRef(user.uid).set({...user} as ILocalUser)

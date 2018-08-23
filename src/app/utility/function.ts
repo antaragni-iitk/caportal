@@ -8,6 +8,7 @@ export class Funcs {
   }
 
   handleError(error = 'check your internet Connection') {
+    console.log('please send this error: ', error);
     this.snackbar.open(error, '', {
       duration: 4000
     });
