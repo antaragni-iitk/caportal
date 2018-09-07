@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FbloginService} from '@services/fblogin.service';
-import {LocalUser} from '@models/localuser';
+import {Campus, LocalUser} from '@models/localuser';
 import {AngularFirestore} from 'angularfire2/firestore';
 import {take} from 'rxjs/internal/operators';
 import {Funcs} from '../../../utility/function';
@@ -47,6 +47,19 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.newuser.firstUpdate = true;
+    this.newuser.campus = {
+      isAmbassador: true,
+        posts: [],
+        validPosts: [],
+        likes: 0,
+        shares: 0,
+        otherPoints: 0,
+        ideaPoints: 0,
+        totalPoints: 0,
+        isExclusive: false,
+        rank: false,
+        exclusiveApproved: false,
+    } as Campus;
     if ((!this.newuser.campus.referralCode) || (this.newuser.campus.referralCode === '')) {
       this.newuser.campus.referralCode = this.refCode;
       this.afs.doc('/config/counter').set({data: this.count + 1});

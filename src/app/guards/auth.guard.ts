@@ -33,7 +33,7 @@ export class RegisteredUserGuard implements CanActivate {
   canActivate(): Observable<boolean> {
     return this.localUserService.currentUser.pipe(
       map((result) => {
-        if (!result.firstUpdate) {
+        if (!result.firstUpdate || (!result.campus)) {
           this.router.navigate(['/dashboard/register']);
           return false;
         }
@@ -53,7 +53,7 @@ export class RegisteredGuard implements CanActivate {
   canActivate(): Observable<boolean> {
     return this.localUserService.currentUser.pipe(
       map((result) => {
-        if (result.firstUpdate) {
+        if (result.firstUpdate && result.campus) {
           this.router.navigate(['/dashboard/home']);
           return false;
         }

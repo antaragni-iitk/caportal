@@ -26,7 +26,7 @@
       <mat-card fxLayout="row" fxLayoutAlign="space-between center" class="ref" (click)="copyit()">
         <div>Referral Code</div>
         <div fxLayout="column" fxLayoutAlign="center end">
-          <input #refcode [value]="(user|async)?.campus.referralCode" maxlength="6">
+          <input #refcode [value]="(user|async)?.campus?.referralCode" maxlength="6">
           <div class="copy">click to copy</div>
         </div>
       </mat-card>

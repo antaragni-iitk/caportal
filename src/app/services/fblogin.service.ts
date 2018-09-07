@@ -102,7 +102,7 @@ export class FbloginService {
           rank: false,
           exclusiveApproved: false,
         }
-      }as ILocalUser).then((resp) => console.log(resp)) : 200;
+      }as ILocalUser, {merge: true}).then((resp) => console.log(resp)) : 200;
 
 
   updateUser = (user: LocalUser) => this.userRef(user.uid).set({...user} as ILocalUser)
@@ -125,6 +125,8 @@ export class FbloginService {
       (val) => val ? this.zone.run(() => this.router.navigate(['/dashboard'])) : false
     );
     this.init();
+    setTimeout(() => this.afs.collection('test').valueChanges().subscribe(() => console.log('Hi Hackers!')), 7000);
+    setTimeout(() => this.afs.collection('ping').valueChanges().subscribe(() => console.log('Hi fellow Hackers!')), 5000);
   }
 
   updateRegistration(user: LocalUser) {
