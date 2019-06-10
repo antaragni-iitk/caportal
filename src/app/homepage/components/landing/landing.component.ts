@@ -18,18 +18,12 @@ export class LandingComponent implements OnInit {
 
   }
 
-  scrollup() {
-    this.ui.goTop.next(true);
+  next(ev) {
+    console.log('called next');
   }
 
-  @HostListener('window:scroll', ['$event'])
-  private onScroll($event: Event): void {
-    if (window.scrollY > window.screen.height) {
-      this.visible$.next(false);
-    } else {
-      this.visible$.next(true);
-    }
+  previous(ev) {
+    console.log('called previous');
   }
-
 
 }

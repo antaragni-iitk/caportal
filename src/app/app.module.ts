@@ -40,6 +40,7 @@ import { FooterComponent } from './homepage/components/footer/footer.component';
 import { SponsorsComponent } from './homepage/components/sponsors/sponsors.component';
 import {DialogMessageComponent} from '@services/fblogin.service';
 import {NavbarComponent} from './navbar/navbar.component';
+import { WheelTrackerDirective } from './directives/wheel-tracker.directive';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import {NavbarComponent} from './navbar/navbar.component';
     FooterComponent,
     SocialLinksComponent,
     SponsorsComponent,
-    DialogMessageComponent
+    DialogMessageComponent,
+    WheelTrackerDirective
   ],
   imports: [
     BrowserModule,

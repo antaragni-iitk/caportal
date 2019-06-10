@@ -41,7 +41,7 @@ export class FbloginService {
       this.currentUser.next(users);
       this.dataFetched.next(!!users);
     });
-  };
+  }
 
   signin = () => {
     const provider = new auth.FacebookAuthProvider();
@@ -67,7 +67,7 @@ export class FbloginService {
           this.dialogRef.open(DialogMessageComponent);
         }
       });
-  };
+  }
 
   setUser = (res, user) =>
     res.additionalUserInfo.isNewUser ?
@@ -102,11 +102,11 @@ export class FbloginService {
           rank: false,
           exclusiveApproved: false,
         }
-      }as ILocalUser, {merge: true}).then((resp) => console.log(resp)) : 200;
+      }as ILocalUser, {merge: true}).then((resp) => console.log(resp)) : 200
 
 
   updateUser = (user: LocalUser) => this.userRef(user.uid).set({...user} as ILocalUser)
-    .then(() => this.currentUser.next(user));
+    .then(() => this.currentUser.next(user))
 
   constructor(private router: Router,
               private afAuth: AngularFireAuth,
