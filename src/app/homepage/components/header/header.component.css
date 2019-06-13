@@ -1,11 +1,10 @@
-.header {
+/* .header {
   height: 100vh;
   max-height: 100%;
   width: 100%;
 }
 
 .headlinks{
-  /*-webkit-text-stroke: 0.3px black;*/
   color: white;
   text-shadow: 2px 2px #000;
 }
@@ -275,7 +274,6 @@ label {
     padding: 9px 10px;
     margin-top: 8px;
     margin-left: 47%;
-    /* margin-bottom: 8px; */
     background-color: transparent;
     background-image: none;
     border: 1px solid #fff;
@@ -470,7 +468,6 @@ label {
   }
 
   .clients-right {
-    /* background: url(../images/client.jpg) no-repeat 0px 0px; */
     background-size: cover;
   }
 
@@ -1009,4 +1006,46 @@ label {
 .backg {
   background: url("https://drive.google.com/uc?export=view&id=1GoIcDpGtWkHocriWgnlNmMgU4muY6CXE") center center;
   background-size: cover;
+} */
+
+.header{
+  height: 65vh;
+  width: 35vw;
+  background: #e6eaeb;
+  padding: 2.5vh 2vw;
+  position: relative;
+}
+
+img{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.heading{
+  margin-left: calc(30px + 2vw);
+  font-size: 2.5em;
+}
+
+.navigator{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 15vh;
+  width: fit-content;
+}
+
+.text{
+  width: 20vh;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+}
+
+.arrow{
+  width: 15vh;
+  background-image: linear-gradient(#2edccc, #01757f);
+  font-size: 3em;
+  color: #fff;
+  font-weight: 100;
+  cursor: pointer;
 }

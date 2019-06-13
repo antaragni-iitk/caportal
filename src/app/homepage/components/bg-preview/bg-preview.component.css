@@ -1,0 +1,8 @@
+.bgPreview {
+  width: 35vw;
+  height: 35vh;
+  transition: all 1s ease;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}

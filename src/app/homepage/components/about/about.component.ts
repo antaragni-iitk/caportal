@@ -1,6 +1,5 @@
-import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
-import {UiService} from '../../../services/ui.service';
-import {ContentService} from '../../../services/content.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { state } from '@angular/animations';
 
 @Component({
   selector: 'app-about',
@@ -8,15 +7,11 @@ import {ContentService} from '../../../services/content.service';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-  @ViewChild('about') about;
+  @Input('state') state;
 
-  contents;
-  constructor(private ui: UiService, private ares: ContentService) {}
+  constructor() { }
 
   ngOnInit() {
-    this.ares.getArray('ca_about').subscribe((content) => {
-      this.contents = content['data'];
-    });
-    this.ui.goAbout.subscribe(() => this.about.nativeElement.scrollIntoView({behavior: 'smooth', block: 'end'}));
   }
+
 }

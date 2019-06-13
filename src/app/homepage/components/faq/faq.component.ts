@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, Input} from '@angular/core';
 import {UiService} from '@services/ui.service';
 import {ContentService} from '@services/content.service';
 import {map, tap} from 'rxjs/internal/operators';
@@ -9,6 +9,7 @@ import {map, tap} from 'rxjs/internal/operators';
   styleUrls: ['./faq.component.css']
 })
 export class FaqComponent implements OnInit {
+  @Input('state') state
   @ViewChild('faq') faq: ElementRef;
   data;
   len: number;

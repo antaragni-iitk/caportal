@@ -1,3 +1,4 @@
+import { HeaderComponent } from './homepage/components/header/header.component';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';

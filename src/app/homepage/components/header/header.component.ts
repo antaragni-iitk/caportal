@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {FbloginService} from '../../../services/fblogin.service';
 import {UiService} from '@services/ui.service';
@@ -9,6 +9,8 @@ import {UiService} from '@services/ui.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  @Input('state') state;
+  @Output() next = new EventEmitter()
   loaded = new BehaviorSubject(false);
   @ViewChild('top') top: ElementRef;
   links = [
@@ -35,6 +37,12 @@ export class HeaderComponent implements OnInit {
   ];
 
   constructor(private loginService: FbloginService, private ui: UiService) {
+  }
+
+  callNext() {
+    this.next.emit()
+    console.log("asdad");
+    
   }
 
   onhit() {

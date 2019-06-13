@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, Input} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {ContentService} from '../../../services/content.service';
 import {UiService} from '@services/ui.service';
@@ -9,6 +9,7 @@ import {UiService} from '@services/ui.service';
   styleUrls: ['./properties.component.css']
 })
 export class PropertiesComponent implements OnInit {
+  @Input('state') state;
   @ViewChild('services')
   public services;
   scrolltoview = new BehaviorSubject(false);

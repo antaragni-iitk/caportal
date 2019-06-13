@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Input } from '@angular/core';
 import {UiService} from '@services/ui.service';
 import {ContentService} from '../../../services/content.service';
 
@@ -8,6 +8,7 @@ import {ContentService} from '../../../services/content.service';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  @Input('state') state;
 
   @ViewChild('services')
   public services;

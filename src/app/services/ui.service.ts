@@ -14,6 +14,14 @@ export class UiService {
   goFaq = new Subject();
   goTop = new Subject();
 
+  url = [
+    'about',
+    'why',
+    'incentives',
+    'contact',
+    'faq'
+  ]
+
   constructor() {
   }
 }

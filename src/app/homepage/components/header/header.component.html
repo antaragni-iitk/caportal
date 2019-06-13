@@ -1,4 +1,4 @@
-<div class="header backg" #top>
+<!-- <div class="header backg" #top>
   <div class="banner-agileits">
     <div class="banner-top-w3-agile row" fxLayoutAlign="center center">
       <ul class="headlinks">
@@ -20,12 +20,12 @@
                 <div class="_group">
                   <h3>Campus Ambassador</h3>
                   <p>Antaragni, 2018</p>
-                  <!--<div class="bnr-butn-w3ls">-->
-                    <!--<div class="login" (click)="onhit()">-->
-                      <!--<i class="fab fa-facebook-f"></i>-->
-                      <!--<span> facebook login</span>-->
-                    <!--</div>-->
-                  <!--</div>-->
+                  <div class="bnr-butn-w3ls">
+                    <div class="login" (click)="onhit()">
+                      <i class="fab fa-facebook-f"></i>
+                      <span> facebook login</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -35,4 +35,22 @@
     </div>
   </div>
 
+</div> -->
+
+<div class="header" fxLayout="column" fxLayoutGap="8vh">
+  <div class="logo" fxLayoutAlign="start center" fxLayoutGap="2vw">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Logo_antaragni.jpg" alt="">
+    <div class="text">Antaragni</div>
+  </div>
+  <div class="heading">
+    Campus Ambassador
+  </div>
+  <div class="navigator" fxLayout>
+    <div class="text" fxLayoutAlign="center center">
+      <span>{{state}}</span>
+    </div>
+    <div class="arrow" fxLayoutAlign="center center" (click)="callNext()">
+      <span>&#62;</span>
+    </div>
+  </div>
 </div>

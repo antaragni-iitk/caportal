@@ -1,7 +1,7 @@
-import {Component, HostListener, OnInit} from '@angular/core';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import {ContentService} from '@services/content.service';
-import {map, skipUntil, take} from 'rxjs/internal/operators';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { ContentService } from '@services/content.service';
+import { map, skipUntil, take } from 'rxjs/internal/operators';
 
 export interface AresCounterData {
   data: Array<{
@@ -46,24 +46,28 @@ export class CounterComponent implements OnInit {
       map((val: AresCounterData) => val.data.map(prop => prop.title))
     );
     this.startCount$.pipe(take(2)).subscribe(() => {
-        for (const i in this.data) {
-          if (this.data.hasOwnProperty(i)) {
-            this.counter(this.data[i].limit, this.counters$[i], Math.floor(this.data[i].time / this.data[i].limit));
-          }
+      console.log("call")
+      for (const i in this.data) {
+        if (this.data.hasOwnProperty(i)) {
+          this.counter(this.data[i].limit, this.counters$[i], Math.floor(this.data[i].time / this.data[i].limit));
         }
       }
+    }
     );
     source.subscribe((res: AresCounterData) => {
       this.data = res.data;
     });
+    setTimeout(() => {
+      this.startCount$.next(0);
+    }, 500);
   }
 
-  @HostListener('window:scroll', ['$event'])
-  @HostListener('touchmove', ['$event'])
-  private onScroll($event: Event): void {
-    if (window.scrollY > window.screen.height / 10) {
-      this.startCount$.next(0);
-    }
-  }
+  // @HostListener('window:scroll', ['$event'])
+  // @HostListener('touchmove', ['$event'])
+  // private onScroll($event: Event): void {
+  //   if (window.scrollY > window.screen.height / 10) {
+  //     this.startCount$.next(0);
+  //   }
+  // }
 
 }

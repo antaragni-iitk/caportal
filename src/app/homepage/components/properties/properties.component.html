@@ -1,6 +1,6 @@
 <div fxLayout="column" class="grid" #why>
-  <div fxLayout="row" fxLayout.xs="column" class="incentive full-width">
-    <div class="half-width pad3" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5vh">
+  <div fxLayout="row" fxLayout.xs="column" class="incentive" [style.height]="state == 'why' ? '50vh' : '0'" [style.opacity]="state == 'why' ? '1' : '0'" fxLayout.xs="column">
+    <div class="pad3" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5vh">
       <h1>Why ?</h1>
       <div fxLayout="row wrap" fxLayoutAlign="left start" fxLayoutGap="20px" fxLayout.xs="column">
         <div fxLayout="row" *ngFor="let prop of data?.slice(0,len/2)" fxLayoutAlign="left center" fxLayoutGap="20px" class="incent">
@@ -12,11 +12,9 @@
         </div>
       </div>
     </div>
-    <div class="half-width image1"></div>
   </div>
-  <div fxLayout="row" class="incentive full-width" fxLayout.xs="column">
-    <div class="half-width image2"></div>
-    <div class="half-width pad3" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5vh">
+  <div fxLayout="row" class="incentive" [style.height]="state == 'incentives' ? '50vh' : '0'" [style.opacity]="state == 'incentives' ? '1' : '0'" fxLayout.xs="column">
+    <div class="pad3" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5vh">
       <h1>Incentives</h1>
       <div fxLayout="row wrap" fxLayoutAlign="left center" fxLayoutGap="20px" fxLayout.xs="column">
         <div fxLayout="row" *ngFor="let prop of data?.slice(len/2,len)" fxLayoutAlign="left center" [class.reveal]="!(scrolltoview|async)"

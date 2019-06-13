@@ -25,4 +25,26 @@
   </svg>
 </div> -->
 
-<div appWheelTracker (mouseWheelDown)="next()" (mouseWheelUp)="previous()" style="height: 100vh; width: 100vw;"></div>
+<div appWheelTracker (mouseWheelDown)="previous()" (mouseWheelUp)="next()">
+  <div class="top-left">
+    <app-header (next)="next()" [state]="state"></app-header>
+  </div>
+
+  <div class="top-right">
+    <app-nav-bar [countTrack]="countTrack"></app-nav-bar>
+  </div>
+
+  <div class="bot-right">
+    <app-counter></app-counter>
+    <div class="dynamic-component">
+      <app-about [state]="state"></app-about>
+      <app-properties [state]="state"></app-properties>
+      <app-contact [state]="state"></app-contact>
+      <app-faq [state]="state"></app-faq>
+    </div>
+  </div>
+
+  <div class="bot-left">
+    <app-bg-preview [countTrack]="countTrack"></app-bg-preview>
+  </div>
+</div>

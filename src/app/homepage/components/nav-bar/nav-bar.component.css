@@ -1,0 +1,24 @@
+.navWrap{
+  height: 65vh;
+  background-repeat: no-repeat;
+  width: 65vw;
+  transition: all 1s ease;
+  background-size: cover;
+}
+
+.nav div{
+  border-radius: 3px;
+  padding: 5px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 1)
+}
+
+.nav div:hover{
+  background-color: black;
+  color: white;
+}
+
+i{
+  padding-right: 3px;
+}
+

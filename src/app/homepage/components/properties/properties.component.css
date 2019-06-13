@@ -1,19 +1,16 @@
 .grid {
-  height: 160vh;
   background-color: #fcfcfc;
   border: solid 1px #eee;
 }
 
 .incentive {
-  height: 50%;
+  overflow: hidden;
+  transition: all .5s ease-out;
+  width: 65vw;
 }
 
-.half-width {
-  width: 50%;
-}
-
-.pad3 {
-  padding: 5vh 5vw;
+.pad3{
+  padding: 2vw;
 }
 
 .image2 {
