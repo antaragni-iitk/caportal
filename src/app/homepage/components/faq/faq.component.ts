@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild, Input} from '@angular/core';
+import {Component, ElementRef, OnInit, Input} from '@angular/core';
 import {UiService} from '@services/ui.service';
 import {ContentService} from '@services/content.service';
 import {map, tap} from 'rxjs/internal/operators';
@@ -10,7 +10,6 @@ import {map, tap} from 'rxjs/internal/operators';
 })
 export class FaqComponent implements OnInit {
   @Input('state') state
-  @ViewChild('faq') faq: ElementRef;
   data;
   len: number;
 
@@ -23,6 +22,5 @@ export class FaqComponent implements OnInit {
       map((res) => Object.keys(res.data).map(val => res.data[val]))
     )
     ;
-    this.ui.goFaq.subscribe(() => this.faq.nativeElement.scrollIntoView({behavior: 'smooth', block: 'center'}));
   }
 }

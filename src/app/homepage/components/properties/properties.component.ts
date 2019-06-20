@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild, Input} from '@angular/core';
+import {Component, ElementRef, OnInit, Input} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {ContentService} from '../../../services/content.service';
 import {UiService} from '@services/ui.service';
@@ -10,10 +10,6 @@ import {UiService} from '@services/ui.service';
 })
 export class PropertiesComponent implements OnInit {
   @Input('state') state;
-  @ViewChild('services')
-  public services;
-  scrolltoview = new BehaviorSubject(false);
-  @ViewChild('why') why: ElementRef;
   data;
   len: number;
 
@@ -25,6 +21,5 @@ export class PropertiesComponent implements OnInit {
       this.data = content['data'];
       this.len = this.data.length;
     });
-    this.ui.goWhy.subscribe(() => this.why.nativeElement.scrollIntoView({behavior: 'smooth', block: 'start'}));
   }
 }

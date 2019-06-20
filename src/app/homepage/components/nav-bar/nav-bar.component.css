@@ -1,7 +1,7 @@
 .navWrap{
   height: 65vh;
   background-repeat: no-repeat;
-  width: 65vw;
+  width: 100%;
   transition: all 1s ease;
   background-size: cover;
 }
@@ -14,8 +14,19 @@
 }
 
 .nav div:hover{
-  background-color: black;
+  /* background-color: black; */
   color: white;
+  animation: blink 3s forwards;
+}
+
+@keyframes blink{
+  0% {opacity: 1;}
+  10% {opacity: 0.6;}
+  12% {opacity: 1;}
+  17% {opacity: 0;}
+  69% {opacity: 1;}
+  75% {opacity: 0.8;}
+  80% {opacity: 1;}
 }
 
 i{

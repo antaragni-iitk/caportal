@@ -5,8 +5,8 @@
 
 .incentive {
   overflow: hidden;
-  transition: all .5s ease-out;
-  width: 65vw;
+  transition: all .5s ease;
+  width: 100%;
 }
 
 .pad3{

@@ -1,5 +1,5 @@
 import { state } from '@angular/animations';
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { UiService } from '../../../services/ui.service';
 import { BehaviorSubject } from 'rxjs';
 
@@ -9,11 +9,18 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-  @ViewChild('contact') el: ElementRef;
   visible$ = new BehaviorSubject(true);
   countTrack = 0;
   busy = false
   state
+  height = {
+    "about": "35vh",
+    "why": "50vh",
+    "incentives": "50vh",
+    "contact": "60vh",
+    "responsibilities": "60vh",
+    "faq": "65vh",
+  }
 
   constructor(public ui: UiService) {
   }
@@ -23,7 +30,7 @@ export class LandingComponent implements OnInit {
   }
 
   next() {
-    if (!this.busy && this.countTrack < 4) {
+    if (!this.busy && this.countTrack < this.ui.url.length - 1) {
       this.busy = true
       this.countTrack++;
       this.state = this.ui.url[this.countTrack]
@@ -32,12 +39,18 @@ export class LandingComponent implements OnInit {
   }
 
   previous() {
-    if (!this.busy || this.countTrack > 0) {
+    if (!this.busy && this.countTrack > 0) {
       this.busy = true
       this.countTrack--;
       this.state = this.ui.url[this.countTrack]
       setTimeout(() => { this.busy = false }, 1000)
     }
+  }
+
+  nav(ev) {
+    if (ev == this.countTrack) return
+    this.countTrack += ev - this.countTrack;
+    this.state = this.ui.url[this.countTrack]
   }
 
 }

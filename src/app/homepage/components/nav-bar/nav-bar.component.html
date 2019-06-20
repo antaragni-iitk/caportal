@@ -1,6 +1,6 @@
 <div class="navWrap" [style.background-image]="'url(' + bgs[countTrack] + ')'">
   <div class="nav" fxLayout="row" fxLayoutAlign="space-evenly center">
-    <div *ngFor="let link of links">{{link.description}}</div>
+    <div *ngFor="let link of links; let i=index" (click)="navTo(i)">{{link.description}}</div>
     <div class="login" (click)="onhit()">
       <i class="fab fa-facebook-f"></i>
       <span>Login</span>

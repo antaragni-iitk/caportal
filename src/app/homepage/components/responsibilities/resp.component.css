@@ -12,13 +12,15 @@
 }
 
 .responsibilities {
-  padding: 5em 0em;
+  background: white;
+  transition: height .5s ease;
+  width: 100%;
 }
 
 .clipper{
   position: relative;
   overflow: hidden;
-  width: 16vw;
+  width: 14vw;
   height: 30vh;
   box-shadow: -10px 12px 20px rgba(158, 156, 156, 0.59);
   z-index: 3;
@@ -63,10 +65,8 @@ h1 {
 
 .boxes div {
   text-align: center;
-  line-height: 1.5rem;
   font-size: 0.8rem;
   font-weight: 100;
-  letter-spacing: 1.5px;
 }
 
 h2 {

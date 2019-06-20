@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import {UiService} from '@services/ui.service';
 import {ContentService} from '../../../services/content.service';
 
@@ -10,11 +10,9 @@ import {ContentService} from '../../../services/content.service';
 export class ContactComponent implements OnInit {
   @Input('state') state;
 
-  @ViewChild('services')
   public services;
-  text;
+  // text;
 
-  @ViewChild('contact') contact: ElementRef;
   team;
 
   constructor(private ui: UiService, private ares: ContentService) {
@@ -24,7 +22,6 @@ export class ContactComponent implements OnInit {
     this.ares.getArray('ca_team').subscribe((content) => {
       this.team = content['data'];
     });
-    this.text = this.ares.getArray('ca_team_text');
-    this.ui.goTeam.subscribe(() => this.contact.nativeElement.scrollIntoView({behavior: 'smooth', block: 'start'}));
+    // this.text = this.ares.getArray('ca_team_text');
   }
 }

@@ -1,5 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {ContentService} from '../../../services/content.service';
+import { state } from '@angular/animations';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-resp',
@@ -7,6 +9,7 @@ import {ContentService} from '../../../services/content.service';
   styleUrls: ['./resp.component.css']
 })
 export class RespComponent implements OnInit {
+  @Input('state') state;
   public hov = false;
 
   contents;
@@ -27,10 +30,7 @@ export class RespComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ares.getArray('ca_responsibilities').subscribe((content) => {
-      this.contents = content['data'];
-      // console.log(content);
-    });
+    this.contents = this.ares.getArray('ca_responsibilities').pipe(map(res => res['data']))
   }
 
   hovered() {

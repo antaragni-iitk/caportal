@@ -1010,7 +1010,7 @@ label {
 
 .header{
   height: 65vh;
-  width: 35vw;
+  width: 100%;
   background: #e6eaeb;
   padding: 2.5vh 2vw;
   position: relative;

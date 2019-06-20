@@ -18,8 +18,9 @@ export class UiService {
     'about',
     'why',
     'incentives',
+    'responsibilities',
+    'faq',
     'contact',
-    'faq'
   ]
 
   constructor() {

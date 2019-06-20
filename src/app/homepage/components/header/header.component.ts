@@ -1,7 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
-import {FbloginService} from '../../../services/fblogin.service';
-import {UiService} from '@services/ui.service';
+import { Component, ElementRef, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { FbloginService } from '../../../services/fblogin.service';
+import { UiService } from '@services/ui.service';
 
 @Component({
   selector: 'app-header',
@@ -11,8 +11,6 @@ import {UiService} from '@services/ui.service';
 export class HeaderComponent implements OnInit {
   @Input('state') state;
   @Output() next = new EventEmitter()
-  loaded = new BehaviorSubject(false);
-  @ViewChild('top') top: ElementRef;
   links = [
     {
       id: 'why',
@@ -41,33 +39,12 @@ export class HeaderComponent implements OnInit {
 
   callNext() {
     this.next.emit()
-    console.log("asdad");
-    
   }
 
   onhit() {
     this.loginService.signin();
   }
 
-  gonow(cases: string) {
-    switch (cases) {
-      case 'about':
-        this.ui.goAbout.next(true);
-        break;
-      case 'team':
-        this.ui.goTeam.next(true);
-        break;
-      case 'why':
-        this.ui.goWhy.next(true);
-        break;
-      case 'faq':
-        this.ui.goFaq.next(true);
-        break;
-    }
-  }
-
   ngOnInit() {
-    setTimeout(() => this.loaded.next(true), 1000);
-    this.ui.goTop.subscribe(() => this.top.nativeElement.scrollIntoView({behavior: 'smooth'}));
   }
 }

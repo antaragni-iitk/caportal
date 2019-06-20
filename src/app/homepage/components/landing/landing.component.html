@@ -31,14 +31,15 @@
   </div>
 
   <div class="top-right">
-    <app-nav-bar [countTrack]="countTrack"></app-nav-bar>
+    <app-nav-bar [countTrack]="countTrack" (nav)="nav($event)"></app-nav-bar>
   </div>
 
   <div class="bot-right">
     <app-counter></app-counter>
-    <div class="dynamic-component">
+    <div class="dynamic-component" [style.height]="height[state]">
       <app-about [state]="state"></app-about>
       <app-properties [state]="state"></app-properties>
+      <app-resp [state]="state"></app-resp>
       <app-contact [state]="state"></app-contact>
       <app-faq [state]="state"></app-faq>
     </div>
