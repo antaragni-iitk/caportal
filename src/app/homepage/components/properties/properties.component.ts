@@ -12,14 +12,12 @@ export class PropertiesComponent implements OnInit {
   @Input('state') state;
   data;
   len: number;
-  temp
 
-  constructor(private ui: UiService, private ares: ContentService) {
+  constructor(public ui: UiService, private ares: ContentService) {
   }
 
   ngOnInit() {
     if(this.ui.mobile) this.state = 'why';
-    if(this.state == 'incentives' || this.ui.mobile) this.temp = 'incentives'
     
     this.ares.getArray('ca_why').subscribe((content) => {
       this.data = content['data'];

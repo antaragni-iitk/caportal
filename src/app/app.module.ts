@@ -43,6 +43,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { WheelTrackerDirective } from './directives/wheel-tracker.directive';
 import { NavBarComponent } from './homepage/components/nav-bar/nav-bar.component';
 import { BgPreviewComponent } from './homepage/components/bg-preview/bg-preview.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -87,6 +88,7 @@ import { BgPreviewComponent } from './homepage/components/bg-preview/bg-preview.
     NgsRevealModule.forRoot(),
     MatComponentsModule,
     FacebookModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [UiService, Funcs, AntaragniFeedService, ContentService],
   bootstrap: [AppComponent],
