@@ -25,7 +25,7 @@
   </svg>
 </div> -->
 
-<div appWheelTracker (mouseWheelDown)="previous()" (mouseWheelUp)="next()">
+<div appWheelTracker (mouseWheelDown)="previous()" (mouseWheelUp)="next()" *ngIf="!ui.mobile; else mobile">
   <div class="top-left">
     <app-header (next)="next()" [state]="state"></app-header>
   </div>
@@ -49,3 +49,13 @@
     <app-bg-preview [countTrack]="countTrack"></app-bg-preview>
   </div>
 </div>
+<ng-template #mobile>
+  <div class="mobile">
+    <app-counter></app-counter>
+    <app-about [state]="state"></app-about>
+    <app-properties [state]="state"></app-properties>
+    <app-resp [state]="state"></app-resp>
+    <app-contact [state]="state"></app-contact>
+    <app-faq [state]="state"></app-faq>
+  </div>
+</ng-template>

@@ -15,7 +15,8 @@
 
 @media (max-width: 767px) {
   .counter-box {
-    padding: 50px 15px;
+    padding: 66px 15px;
+    width: 100vw;
   }
 }
 

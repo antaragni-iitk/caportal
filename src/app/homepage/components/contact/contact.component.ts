@@ -19,6 +19,7 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.ui.mobile) this.state = 'contact'
     this.ares.getArray('ca_team').subscribe((content) => {
       this.team = content['data'];
     });

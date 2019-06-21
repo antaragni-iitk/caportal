@@ -1,5 +1,5 @@
+import { UiService } from '@services/ui.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { state } from '@angular/animations';
 
 @Component({
   selector: 'app-about',
@@ -9,9 +9,10 @@ import { state } from '@angular/animations';
 export class AboutComponent implements OnInit {
   @Input('state') state;
 
-  constructor() { }
+  constructor(public ui: UiService) { }
 
   ngOnInit() {
+    if(this.ui.mobile) this.state = 'about'
   }
 
 }

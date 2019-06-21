@@ -1,4 +1,4 @@
-<div class="_container" #faq [style.height]="state == 'faq' ? '65vh' : '0'" [style.padding]="state == 'faq' ? '6%' : '0'">
+<div class="_container" [ngClass]="state == 'faq' ? 'active' : 'inactive'" #faq>
   <h1>
     FAQs
   </h1>

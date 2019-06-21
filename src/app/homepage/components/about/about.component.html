@@ -1,4 +1,4 @@
-<div class="about" fxLayout="column" fxLayoutAlign="center" [style.height]="state == 'about' ? '35vh' : '0'"  [style.opacity]="state == 'about' ? '1' : '0'" [style.padding]="state == 'about' ? '2vh 2vw' : '0'">
+<div [ngClass]="state == 'about' ? 'active' : 'inactive'" class="about" fxLayout="column" fxLayoutAlign="center" fxLayoutAlign.xs="center center">
   <div class="head">
     About Us
   </div>

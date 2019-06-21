@@ -1,4 +1,4 @@
-<div class="responsibilities" [style.height]="state == 'responsibilities' ? '60vh' : '0'" [style.padding]="state == 'responsibilities' ? '2.5em 0em 3.5em' : '0'" [style.opacity]="state == 'responsibilities' ? '1' : '0'">
+<div class="responsibilities" [ngClass]="state == 'responsibilities' ? 'active' : 'inactive'">
   <div class="main">
     <div class="container" [style.margin]="state == 'responsibilities' ? '20px 0 40px' : '0'">
       <h2 class="section-title">Responsibilities</h2>

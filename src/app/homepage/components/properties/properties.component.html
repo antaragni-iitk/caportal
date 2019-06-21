@@ -1,5 +1,5 @@
 <div fxLayout="column" class="grid" #why>
-  <div fxLayout="row" fxLayout.xs="column" class="incentive" [style.height]="state == 'why' ? '50vh' : '0'" [style.opacity]="state == 'why' ? '1' : '0'" fxLayout.xs="column">
+  <div fxLayout="row" fxLayout.xs="column" class="incentive" [ngClass]="state == 'why' ? 'active' : 'inactive'" fxLayout.xs="column">
     <div class="pad3" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5vh">
       <h1>Why ?</h1>
       <div fxLayout="row wrap" fxLayoutAlign="left start" fxLayoutGap="20px" fxLayout.xs="column">
@@ -7,13 +7,13 @@
           <div class="icon" fxLayoutAlign="center center"><i [class]="prop.icon"></i></div>
           <div fxLayout="column">
             <h6 [innerHtml]="prop.title"></h6>
-            <p [innerHtml]="prop.desc.content"></p>
+            <div class="p" [innerHtml]="prop.desc.content"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div fxLayout="row" class="incentive" [style.height]="state == 'incentives' ? '50vh' : '0'" [style.opacity]="state == 'incentives' ? '1' : '0'" fxLayout.xs="column">
+  <div fxLayout="row" class="incentive" [ngClass]="temp == 'incentives' ? 'active' : 'inactive'" fxLayout.xs="column">
     <div class="pad3" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5vh">
       <h1>Incentives</h1>
       <div fxLayout="row wrap" fxLayoutAlign="left center" fxLayoutGap="20px" fxLayout.xs="column">
@@ -22,7 +22,7 @@
           <div class="icon" fxLayoutAlign="center center"><i [class]="prop.icon"></i></div>
           <div fxLayout="column">
             <h6 [innerHtml]="prop.title"></h6>
-            <p [innerHtml]="prop.desc.content"></p>
+            <div class="p" [innerHtml]="prop.desc.content"></div>
           </div>
         </div>
       </div>

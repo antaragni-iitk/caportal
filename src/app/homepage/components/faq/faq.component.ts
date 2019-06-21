@@ -17,6 +17,7 @@ export class FaqComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.ui.mobile) this.state = 'faq'
     this.data = this.ares.getArray('ca_faq').pipe(
       tap((val: {data: any}) => this.len = val.data.length),
       map((res) => Object.keys(res.data).map(val => res.data[val]))

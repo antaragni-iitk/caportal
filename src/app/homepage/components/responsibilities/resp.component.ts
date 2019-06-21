@@ -1,3 +1,4 @@
+import { UiService } from '@services/ui.service';
 import {Component, OnInit, Input} from '@angular/core';
 import {ContentService} from '../../../services/content.service';
 import { state } from '@angular/animations';
@@ -26,10 +27,11 @@ export class RespComponent implements OnInit {
     'blue',
 ];
 
-  constructor(private ares: ContentService) {
+  constructor(private ares: ContentService, public ui: UiService) {
   }
 
   ngOnInit() {
+    if(this.ui.mobile) this.state = 'responsibilities';
     this.contents = this.ares.getArray('ca_responsibilities').pipe(map(res => res['data']))
   }
 

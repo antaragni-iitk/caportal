@@ -9,6 +9,18 @@
   width: 100%;
 }
 
+.active{
+  height: 50vh;
+  opacity: 1;
+  /* padding: 2vh 2vw; */
+}
+
+.inactive{
+  height: 0;
+  opacity: 0;
+  /* padding: 0; */
+}
+
 .pad3{
   padding: 2vw;
 }
@@ -26,7 +38,7 @@
   background-attachment: fixed;
 }
 
-p {
+p, .p {
   font-size: 0.8rem;
 }
 

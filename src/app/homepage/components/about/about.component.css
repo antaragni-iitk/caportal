@@ -1,3 +1,15 @@
+.active{
+  height: 35vh;
+  opacity: 1;
+  padding: 2vh 2vw;
+}
+
+.inactive{
+  height: 0;
+  opacity: 0;
+  padding: 0;
+}
+
 .about{
   width: 100%;
   /* height: 35vh; */
@@ -21,4 +33,15 @@
   margin-left: 3vw;
   padding-top: 1.5vw;
   width: 50vw;
+}
+
+@media(max-width: 768px) {
+  .active{
+    height: unset
+  }
+
+  .content{
+    width: 90vw;
+    margin: unset;
+  }
 }

@@ -4,12 +4,6 @@
   display: block;
 }
 
-@media (max-width: 768px) {
-  .mobile {
-    display: none;
-  }
-}
-
 .head{
   font-family: open-sans-800 sans-serif;
 }

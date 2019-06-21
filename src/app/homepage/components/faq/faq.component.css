@@ -1,6 +1,16 @@
-._container {
+.active{
+  height: 65vh;
+  opacity: 1;
   padding: 6%;
-  height: 60vh;
+}
+
+.inactive{
+  height: 0;
+  opacity: 0;
+  padding: 0;
+}
+
+._container {
   width: 100%;
   /* background: url("https://drive.google.com/uc?export=view&id=1pY9otTrIDQGDMXk2lE-hPWN3Ff0plYki"); */
   background: white;

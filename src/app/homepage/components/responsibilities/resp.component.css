@@ -11,9 +11,20 @@
   height: 30vh;
 }
 
+.active{
+  height: 60vh;
+  opacity: 1;
+  padding: 2.5em 0em 3.5em;
+}
+
+.inactive{
+  height: 0;
+  opacity: 0;
+  padding: 0;
+}
 .responsibilities {
   background: white;
-  transition: height .5s ease;
+  transition: all .5s ease;
   width: 100%;
 }
 
@@ -85,6 +96,9 @@ h4 {
 }
 
 @media (max-width: 1023px) {
+  .active{
+    height: unset;
+  }
   .boxes,.clipper,.overlayed{
     width: 80vw;
     height: 50vh;

@@ -14,6 +14,7 @@ export class UiService {
   goFaq = new Subject();
   goTop = new Subject();
 
+  mobile = window.screen.width < 768 ? true : false
   url = [
     'about',
     'why',
