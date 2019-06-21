@@ -15,10 +15,10 @@ import {bounceOutLeft} from '../animations/bounceOutLeft';
 })
 export class DashboardComponent implements OnInit {
   state;
-  @ViewChild('refcode') ref: ElementRef;
+  @ViewChild('refcode', {static: false}) ref: ElementRef;
   mobile = window.screen.width < 1023;
   user: Observable<LocalUser>;
-  @ViewChild('drawer') drawer;
+  @ViewChild('drawer', {static: false}) drawer;
   showFiller = false;
   points = {
     'Idea Points': 'otherPoints',

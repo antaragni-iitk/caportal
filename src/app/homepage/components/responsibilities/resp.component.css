@@ -99,6 +99,7 @@ h4 {
   .active{
     height: unset;
   }
+  
   .boxes,.clipper,.overlayed{
     width: 80vw;
     height: 50vh;

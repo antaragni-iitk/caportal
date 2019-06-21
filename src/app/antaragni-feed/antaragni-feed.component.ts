@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
+import {Subject} from 'rxjs';
 import {AntaragniFeedService} from '../services/feed';
 import {HttpClient} from '@angular/common/http';
 

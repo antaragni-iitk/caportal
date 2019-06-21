@@ -13,7 +13,7 @@
       </div>
     </div>
   </div>
-  <div fxLayout="row" class="incentive" [ngClass]="temp == 'incentives' ? 'active' : 'inactive'" fxLayout.xs="column">
+  <div fxLayout="row" class="incentive" [ngClass]="!ui.mobile ? (state == 'incentives' ? 'active' : 'inactive') : 'active'" fxLayout.xs="column">
     <div class="pad3" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5vh">
       <h1>Incentives</h1>
       <div fxLayout="row wrap" fxLayoutAlign="left center" fxLayoutGap="20px" fxLayout.xs="column">
