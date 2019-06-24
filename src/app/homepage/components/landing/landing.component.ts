@@ -52,5 +52,24 @@ export class LandingComponent implements OnInit {
     this.countTrack += ev - this.countTrack;
     this.state = this.ui.url[this.countTrack]
   }
+  links = [
+    { description: 'ABOUT', id: 'about' },
+    { description: 'WHY?', id: 'why' },
+    { description: 'RESPONSIBILITIES', id: 'responsibilities' },
+    { description: 'CONTACT US', id: 'contacts' },
+    { description: 'FAQs', id: 'faq' },
+  ];
 
+  public clicked=false;
+
+  menu(){
+    if(this.clicked==true)this.clicked=false;
+    else this.clicked=true;
+  }
+
+  scroll(id){
+    let el = document.getElementById(id);
+    el.scrollIntoView({behavior: 'smooth'});
+    this.clicked=false;
+  }
 }
