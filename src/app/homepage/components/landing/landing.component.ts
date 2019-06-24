@@ -63,12 +63,16 @@ export class LandingComponent implements OnInit {
   public clicked=false;
 
   menu(){
-    if(this.clicked==false)this.clicked=true;
-    else this.clicked=false;
+    if(this.clicked==true)this.clicked=false;
+    else this.clicked=true;
   }
 
   scroll(id){
     let el = document.getElementById(id);
     el.scrollIntoView({behavior: 'smooth'});
+    this.clicked=false;
   }
+  
+  public hgt: Number;
+  hgt=0;
 }
