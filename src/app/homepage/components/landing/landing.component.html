@@ -51,11 +51,20 @@
 </div>
 <ng-template #mobile>
   <div class="mobile">
+    <div class="header">
+      <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Logo_antaragni.jpg">
+      <div class="title">Antaragni</div>
+      <div class="heading">Campus Ambassador</div>
+      <img id="hamburger" (click)="menu()" src="https://www.stickpng.com/assets/images/588a6507d06f6719692a2d15.png">
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start center" *ngIf="clicked" class="topbar">
+      <div *ngFor="let link of links" (click)="scroll(link.id)" class="navbar">{{link.description}}</div>
+    </div>
     <app-counter></app-counter>
-    <app-about [state]="state"></app-about>
-    <app-properties [state]="state"></app-properties>
-    <app-resp [state]="state"></app-resp>
-    <app-contact [state]="state"></app-contact>
-    <app-faq [state]="state"></app-faq>
+    <app-about [state]="state" id="about"></app-about>
+    <app-properties [state]="state" id="why"></app-properties>
+    <app-resp [state]="state" id="responsibilities"></app-resp>
+    <app-contact [state]="state" id="contacts"></app-contact>
+    <app-faq [state]="state" id="faq"></app-faq>
   </div>
 </ng-template>
