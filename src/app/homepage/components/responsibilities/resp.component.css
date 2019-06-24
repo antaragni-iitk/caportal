@@ -12,7 +12,7 @@
 }
 
 .active{
-  height: 60vh;
+  height: 100%;
   opacity: 1;
   padding: 2.5em 0em 3.5em;
 }

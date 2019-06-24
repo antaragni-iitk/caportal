@@ -17,7 +17,7 @@ export class LandingComponent implements OnInit {
     "about": "35vh",
     "why": "50vh",
     "incentives": "50vh",
-    "contact": "60vh",
+    "contact": "65vh",
     "responsibilities": "60vh",
     "faq": "65vh",
   }
