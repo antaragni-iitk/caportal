@@ -1058,3 +1058,8 @@ img{
   font-weight: 100;
   cursor: pointer;
 }
+
+.right-arrow{
+  width: 32px;
+  height: auto;
+}
