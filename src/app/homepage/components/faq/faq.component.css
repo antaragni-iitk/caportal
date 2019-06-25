@@ -18,6 +18,7 @@
 }
 
 p {
+  font-family: product-sans;
   font-weight: 400;
 }
 
@@ -29,9 +30,16 @@ p {
 }
 
 h1{
-  font-family: Yanone_Kaffeesatz;
-  font-weight: 500;
-  font-size: 3.2em;
+  margin-left: 2vw;
+  font-family: Adam-CG-Pro, Verdana, Geneva, sans-serif;
+  font-size: 2em;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #666;
+}
+
+h5{
+  font-family: product-sans-bold;
 }
 
 @media (max-width: 1023px) {
