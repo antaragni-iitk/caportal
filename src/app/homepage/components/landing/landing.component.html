@@ -52,11 +52,11 @@
 <ng-template #mobile>
   <div class="mobile">
     <div class="header">
-      <div class="topbar" fxLayout="row" fxLayoutAlign="start center">
-        <div><img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Logo_antaragni.jpg"></div>
+      <div class="topbar" fxLayout="row" fxLayoutAlign="space-between center">
+        <div><img id="logo" src="/assets/images/Antaragni Generic Logo_white.png"></div>
         <div class="title">Antaragni</div>
+        <div id="hamburger" (click)="menu()"><i class="fas fa-bars"></i></div>
       </div>
-      <div id="hamburger" (click)="menu()"><i class="fas fa-bars"></i></div>
     </div>
     <div fxLayout="column" fxLayoutAlign="center center" class="top-bar" [style.visibility]="clicked ? 'visible': 'hidden'" style="height: 100vh" [style.opacity]="clicked ? '1' : '0'">
         <div (click)="menu()" class="closebtn">&times;</div>

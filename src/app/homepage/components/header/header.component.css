@@ -1019,12 +1019,12 @@ label {
 img{
   height: 30px;
   width: 30px;
-  border-radius: 50%;
 }
 
 .heading{
-  margin-left: calc(30px + 2vw);
-  font-size: 2.5em;
+  font-family: ethnocentric;
+  margin-left: calc(30px + 1vw);
+  font-size: 2.3em;
 }
 
 .navigator{
@@ -1036,9 +1036,18 @@ img{
 }
 
 .text{
+  font-family: assassin;
   width: 20vh;
   text-transform: uppercase;
   transition: all 0.5s ease;
+  font-size: 1.5em;
+}
+
+.text1{
+  width: 20vh;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+  font-size: 1.2em;
 }
 
 .arrow{
@@ -1048,4 +1057,9 @@ img{
   color: #fff;
   font-weight: 100;
   cursor: pointer;
+}
+
+.right-arrow{
+  width: 32px;
+  height: auto;
 }
