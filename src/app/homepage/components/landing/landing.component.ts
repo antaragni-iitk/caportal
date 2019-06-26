@@ -1,5 +1,6 @@
+import { FbloginService } from '@services/fblogin.service';
 import { state } from '@angular/animations';
-import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { UiService } from '../../../services/ui.service';
 import { BehaviorSubject } from 'rxjs';
 
@@ -9,6 +10,7 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
+  @ViewChild('top', {static: false}) element: ElementRef;
   visible$ = new BehaviorSubject(true);
   countTrack = 0;
   busy = false
@@ -21,8 +23,15 @@ export class LandingComponent implements OnInit {
     "responsibilities": "60vh",
     "faq": "65vh",
   }
+  links = [
+    { description: 'ABOUT', id: 'about' },
+    { description: 'WHY?', id: 'why' },
+    { description: 'RESPONSIBILITIES', id: 'responsibilities' },
+    { description: 'CONTACT US', id: 'contacts' },
+    { description: 'FAQs', id: 'faq' },
+  ];
 
-  constructor(public ui: UiService) {
+  constructor(public ui: UiService, public loginService: FbloginService) {
   }
 
   ngOnInit() {
@@ -52,24 +61,34 @@ export class LandingComponent implements OnInit {
     this.countTrack += ev - this.countTrack;
     this.state = this.ui.url[this.countTrack]
   }
-  links = [
-    { description: 'ABOUT', id: 'about' },
-    { description: 'WHY?', id: 'why' },
-    { description: 'RESPONSIBILITIES', id: 'responsibilities' },
-    { description: 'CONTACT US', id: 'contacts' },
-    { description: 'FAQs', id: 'faq' },
-  ];
 
-  public clicked=false;
+  public clicked = false;
 
-  menu(){
-    if(this.clicked==true)this.clicked=false;
-    else this.clicked=true;
+  menu() {
+    if (this.clicked == true) this.clicked = false;
+    else this.clicked = true;
   }
 
-  scroll(id){
+  scroll(id) {
     let el = document.getElementById(id);
-    el.scrollIntoView({behavior: 'smooth'});
-    this.clicked=false;
+    el.scrollIntoView({ behavior: 'smooth' });
+    this.clicked = false;
+  }
+
+  scrollup() {
+    this.element.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  onhit() {
+    this.loginService.signin();
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  private onScroll($event: Event): void {
+    if (window.scrollY > window.screen.height) {
+      this.visible$.next(false);
+    } else {
+      this.visible$.next(true);
+    }
   }
 }

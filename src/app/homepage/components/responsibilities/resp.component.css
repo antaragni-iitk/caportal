@@ -39,7 +39,7 @@
 
 .overlayed{
   position: absolute;
-  width: 16vw;
+  width: 14vw;
   height: 30vh;
   background: red;
   z-index: 2;

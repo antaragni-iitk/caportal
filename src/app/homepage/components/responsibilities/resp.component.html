@@ -10,11 +10,19 @@
         <h1 [class]="content.icon"></h1>
         <h4 [innerHtml]="content.title"></h4>
       </div>
-      <div class="boxes" [ngsReveal]="{delay: 100*i, scale: 0.5, viewFactor: 0.5}" fxLayout="column"
-        fxLayoutAlign="center center" fxLayoutGap="2vh">
-        <h4 [innerHtml]="content.title"></h4>
+      <div class="boxes" fxLayout="column" fxLayoutAlign="center center"
+        fxLayoutGap="2vh">
+        <h4>{{content.title}}</h4>
         <div [innerHtml]="content.desc.content" class="content"></div>
       </div>
+
+      <!-- <ng-template #mobile>
+        <div class="boxes" [ngsReveal]="{delay: 100*(i + 1), scale: 0.5, viewFactor: 0.5}" fxLayout="column"
+          fxLayoutAlign="center center" fxLayoutGap="2vh">
+          <h4>{{content.title}}</h4>
+          <div [innerHtml]="content.desc.content" class="content"></div>
+        </div>
+      </ng-template> -->
     </div>
   </div>
 </div>

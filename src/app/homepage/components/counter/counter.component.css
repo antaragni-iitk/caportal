@@ -42,6 +42,9 @@ section{
   .title-counter {
     margin-bottom: 5px;
   }
+  section {
+    background: white;
+  }
 }
 
 .prop-obj {
