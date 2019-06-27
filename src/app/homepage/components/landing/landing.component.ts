@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-  @ViewChild('top', {static: false}) element: ElementRef;
+  @ViewChild('top', { static: false }) element: ElementRef;
   visible$ = new BehaviorSubject(true);
   countTrack = 0;
   busy = false

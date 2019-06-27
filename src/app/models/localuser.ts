@@ -5,6 +5,7 @@ export interface ILocalUser {
   facebook: Facebook;
   personal: Personal;
   campus: Campus;
+  notificationToken: string;
 }
 
 export interface Facebook {
@@ -74,4 +75,5 @@ export class LocalUser implements ILocalUser {
   campus: Campus;
   registration: Registration;
   payment: Payment;
+  notificationToken: string;
 }
