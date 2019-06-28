@@ -18,7 +18,7 @@
 }
 
 p {
-  font-family: product-sans;
+  font-family: raleway;
   font-weight: 400;
 }
 
@@ -39,7 +39,7 @@ h1{
 }
 
 h5{
-  font-family: product-sans-bold;
+  font-family: raleway;
 }
 
 @media (max-width: 1023px) {
