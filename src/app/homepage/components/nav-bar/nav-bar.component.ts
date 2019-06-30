@@ -11,7 +11,7 @@ export class NavBarComponent implements OnInit {
   @Input('countTrack') countTrack;
   @Output() nav = new EventEmitter<number>()
   links = [
-    { description: 'ABOUT?', id: 'about' },
+    { description: 'ABOUT', id: 'about' },
     { description: 'WHY?', id: 'why' },
     { description: 'INCENTIVES', id: 'incentives' },
     { description: 'RESPONSIBILITIES', id: 'responsibilities' },

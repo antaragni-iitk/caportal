@@ -18,7 +18,7 @@ export interface AresCounterData {
 })
 export class CounterComponent implements OnInit {
   counters$ = [
-    new BehaviorSubject(70),
+    new BehaviorSubject(75),
     new BehaviorSubject(350),
     new BehaviorSubject(10),
   ];
@@ -56,10 +56,8 @@ export class CounterComponent implements OnInit {
     );
     source.subscribe((res: AresCounterData) => {
       this.data = res.data;
-    });
-    setTimeout(() => {
       this.startCount$.next(0);
-    }, 500);
+    });
   }
 
   // @HostListener('window:scroll', ['$event'])

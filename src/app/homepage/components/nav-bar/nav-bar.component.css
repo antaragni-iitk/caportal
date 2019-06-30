@@ -1,4 +1,4 @@
-.navWrap{
+.navWrap {
   height: 65vh;
   background-repeat: no-repeat;
   width: 100%;
@@ -6,30 +6,44 @@
   background-size: cover;
 }
 
-.nav div{
+.nav div {
   border-radius: 3px;
+  text-shadow: 2px 0 black;
   padding: 5px;
   cursor: pointer;
   color: rgba(255, 255, 255, 1)
 }
 
-.nav div:hover{
+.nav div:hover {
   /* background-color: black; */
   color: white;
   animation: blink 3s forwards;
 }
 
-@keyframes blink{
-  0% {opacity: 1;}
-  10% {opacity: 0.6;}
-  12% {opacity: 1;}
-  17% {opacity: 0;}
-  69% {opacity: 1;}
-  75% {opacity: 0.8;}
-  80% {opacity: 1;}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  12% {
+    opacity: 1;
+  }
+  17% {
+    opacity: 0;
+  }
+  69% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 1;
+  }
 }
 
-i{
+i {
   padding-right: 3px;
 }
-
