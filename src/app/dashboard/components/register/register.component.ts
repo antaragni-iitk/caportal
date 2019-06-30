@@ -1,7 +1,8 @@
+import { UiService } from '@services/ui.service';
 import { Component, OnInit } from '@angular/core';
 import { FbloginService } from '@services/fblogin.service';
 import { Campus, LocalUser } from '@models/localuser';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { take } from 'rxjs/internal/operators';
 import { Funcs } from '../../../utility/function';
 
@@ -29,7 +30,7 @@ export class RegisterComponent implements OnInit {
   newuser = new LocalUser();
   newuser$ = new LocalUser();
 
-  constructor(private fblogin: FbloginService, private afs: AngularFirestore, private fun: Funcs) {
+  constructor(private fblogin: FbloginService, private afs: AngularFirestore, private fun: Funcs, public ui: UiService) {
     this.fun.handleError('please fill the missed out data before proceeding');
   }
 
@@ -47,7 +48,8 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.newuser.firstUpdate = true;
-    this.newuser.notificationToken = window['fcmToken'] ? window['fcmToken'] : ''
+    if (!this.ui.mobile) this.newuser.notificationTokenPc = window['fcmToken'] ? window['fcmToken'] : ''
+    else this.newuser.notificationTokenMob = window['fcmToken'] ? window['fcmToken'] : ''
     this.newuser.campus = {
       isAmbassador: true,
       posts: [],
@@ -66,6 +68,6 @@ export class RegisterComponent implements OnInit {
       this.afs.doc('/config/counter').set({ data: this.count + 1 });
     }
     this.fblogin.updateRegistration(this.newuser);
-    this.afs.doc('/notificationsWeb/' + this.newuser.uid).set({uid: this.newuser.uid, token: window['fcmToken'], topic: 'ca'});
+    this.afs.doc('/notificationsWeb/' + this.newuser.uid).set({ uid: this.newuser.uid, tokenPc: this.newuser.notificationTokenPc, tokenMob: this.newuser.notificationTokenMob, topic: 'ca' });
   }
 }

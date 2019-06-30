@@ -4,7 +4,7 @@ import {FacebookService, UIParams, UIResponse} from 'ngx-facebook';
 import {FbloginService} from './fblogin.service';
 import {Funcs} from '../utility/function';
 import {LocalUser} from '@models/localuser';
-import {AngularFirestore} from 'angularfire2/firestore';
+import {AngularFirestore} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
 import {take} from 'rxjs/internal/operators';
 import {environment} from '@environments/environment';

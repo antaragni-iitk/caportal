@@ -1,4 +1,4 @@
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UiService } from '../services/ui.service';
 import { FbloginService } from '../services/fblogin.service';
@@ -58,9 +58,16 @@ export class DashboardComponent implements OnInit {
     this.initializeNotification();
   }
   sendTokenToServer(token) {
-    this.newuser.notificationToken = token
-    this.fbloginservice.updateRegistration(this.newuser);
-    this.afs.doc('/notificationsWeb/' + this.newuser.uid).update({token: token});
+    if (!this.ui.mobile) {
+      this.newuser.notificationTokenPc = token;
+      this.fbloginservice.updateRegistration(this.newuser);
+      this.afs.doc('/notificationsWeb/' + this.newuser.uid).update({ tokenPc: token });
+    }
+    else {
+      this.newuser.notificationTokenMob = token;
+      this.fbloginservice.updateRegistration(this.newuser);
+      this.afs.doc('/notificationsWeb/' + this.newuser.uid).update({ tokenMob: token });
+    }
   }
   initializeNotification() {
     var app = firebase.apps[0]
@@ -70,8 +77,11 @@ export class DashboardComponent implements OnInit {
       if (permission === 'granted') {
         console.log('Notification permission granted.');
         messaging.getToken().then(token => {
-          if (!this.newuser.notificationToken) {
+          if ((!this.newuser.notificationTokenPc && !this.ui.mobile) || (!this.newuser.notificationTokenMob && this.ui.mobile)) {
             window['fcmToken'] = token
+            if (this.newuser.hasOwnProperty('firstUpdate') && this.newuser.firstUpdate) {
+              this.sendTokenToServer(token);
+            }
           }
         })
         messaging.onTokenRefresh(() => {
@@ -85,6 +95,10 @@ export class DashboardComponent implements OnInit {
         });
         // TODO(developer): Retrieve an Instance ID token for use with FCM.
         // ...
+        messaging.onMessage((payload) => {
+          console.log('Message received. ', payload);
+          // ...
+        });
       } else {
         console.log('Unable to get permission to notify.');
       }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {FbloginService} from '../../../services/fblogin.service';
-import {AngularFirestore} from 'angularfire2/firestore';
+import {AngularFirestore} from '@angular/fire/firestore';
 import {Funcs} from '../../../utility/function';
 import {first} from 'rxjs/internal/operators';
 

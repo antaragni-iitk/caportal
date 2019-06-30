@@ -1,20 +1,20 @@
-import {Component, Injectable, NgZone} from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, Injectable, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
 
 
-import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
-import {AngularFirestore, AngularFirestoreDocument} from 'angularfire2/firestore';
-import {AngularFireAuth} from 'angularfire2/auth';
-import {Funcs} from '../utility/function';
-import {catchError, switchMap} from 'rxjs/operators';
-import {distinctUntilChanged, map} from 'rxjs/internal/operators';
-import {ILocalUser, LocalUser} from '../models/localuser';
-import {UiService} from '@services/ui.service';
-import {auth} from 'firebase';
-import {FacebookService} from 'ngx-facebook';
-import {environment} from '@environments/environment';
-import {MatDialog} from '@angular/material';
-import {HttpClient} from '@angular/common/http';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Funcs } from '../utility/function';
+import { catchError, switchMap } from 'rxjs/operators';
+import { distinctUntilChanged, map } from 'rxjs/internal/operators';
+import { ILocalUser, LocalUser } from '../models/localuser';
+import { UiService } from '@services/ui.service';
+import { auth } from 'firebase';
+import { FacebookService } from 'ngx-facebook';
+import { environment } from '@environments/environment';
+import { MatDialog } from '@angular/material';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -49,16 +49,17 @@ export class FbloginService {
     return this.afAuth.auth.signInWithPopup(provider)
       .catch(err => this.functions.handleError(err.message))
       .then((res: any) => {
-          this.setUser(res, res);
-          return res;
-        }
+        this.setUser(res, res);
+        console.log(res);
+        return res;
+      }
       )
       .then(response =>
         this.http.post('https://fb.antaragni.in/ragni/' + response.credential.accessToken, '').pipe(
           catchError(err => this.functions.handleError('some error occurred'))
         ).subscribe(
           (res: { access_token: string }) => res.access_token ?
-            this.userRef(response.user.uid).update({'facebook.Token': res.access_token}) : null
+            this.userRef(response.user.uid).update({ 'facebook.Token': res.access_token }) : null
         )
       )
       .catch(err => {
@@ -102,21 +103,21 @@ export class FbloginService {
           rank: false,
           exclusiveApproved: false,
         }
-      }as ILocalUser, {merge: true}).then((resp) => console.log(resp)) : 200
+      } as ILocalUser, { merge: true }).then((resp) => console.log(resp)) : 200
 
 
-  updateUser = (user: LocalUser) => this.userRef(user.uid).set({...user} as ILocalUser)
+  updateUser = (user: LocalUser) => this.userRef(user.uid).set({ ...user } as ILocalUser)
     .then(() => this.currentUser.next(user))
 
   constructor(private router: Router,
-              private afAuth: AngularFireAuth,
-              private afs: AngularFirestore,
-              private functions: Funcs,
-              public zone: NgZone,
-              private ui: UiService,
-              private fb: FacebookService,
-              private dialogRef: MatDialog,
-              private http: HttpClient) {
+    private afAuth: AngularFireAuth,
+    private afs: AngularFirestore,
+    private functions: Funcs,
+    public zone: NgZone,
+    private ui: UiService,
+    private fb: FacebookService,
+    private dialogRef: MatDialog,
+    private http: HttpClient) {
     fb.init({
       appId: environment.fbAppID,
       version: 'v3.0'
