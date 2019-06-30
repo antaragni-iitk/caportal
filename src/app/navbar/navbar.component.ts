@@ -10,6 +10,8 @@ import {FbloginService} from '../services/fblogin.service';
 })
 
 export class NavbarComponent {
+  public mobile=this.ui.mobile;
+
   links: Link[] = [
     {name: 'Home', id: 'home'},
     {name: 'Leaderboard', id: 'leaderboard'},
