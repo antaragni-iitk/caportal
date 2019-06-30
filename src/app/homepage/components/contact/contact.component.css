@@ -17,13 +17,15 @@
   overflow: hidden;
 }
 
-h3, h1 {
-  font-family: Yanone_Kaffeesatz;
+h3 {
+  font-family: raleway, Yanone_Kaffeesatz;
 }
 
 h1 {
-  font-size: 3.2em;
-  text-align: center;
+  font-family: Adam-CG-Pro, poppins;
+  color: #666;
+  width: 100%;
+  padding-left: 3vw;
 }
 
 .pic, .overlayed {
@@ -55,6 +57,7 @@ h1 {
 }
 
 .post {
+  font-family: raleway;
   color: #999;
   font-family: open-sans;
   font-weight: 600;

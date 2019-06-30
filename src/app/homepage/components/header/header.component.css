@@ -12,8 +12,9 @@
 
 .heading{
   font-family: ethnocentric;
+  padding-top: 5vh;
   margin-left: calc(30px + 1vw);
-  font-size: 148%;
+  font-size: 180%;
 }
 
 .navigator{
@@ -29,7 +30,7 @@
   width: 20vh;
   text-transform: uppercase;
   transition: all 0.5s ease;
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 .text1{

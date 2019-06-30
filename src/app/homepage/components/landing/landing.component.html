@@ -8,7 +8,7 @@
   </div>
 
   <div class="bot-right">
-    <app-counter></app-counter>
+    <app-counter *ngIf="countTrack===0"></app-counter>
     <div class="dynamic-component" [style.height]="height[state]">
       <app-about [state]="state"></app-about>
       <app-properties [state]="state"></app-properties>
