@@ -154,3 +154,15 @@
   width: 28vw;
   left: 0;
 }
+
+.main .login {
+  margin-top: 3vh;
+}
+
+.main i {
+  margin-right: 4px;
+}
+
+.main .login {
+  font-weight: 300;
+}

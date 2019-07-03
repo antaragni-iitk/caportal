@@ -72,7 +72,7 @@ export class LandingComponent implements OnInit {
 
   scroll(id) {
     let el = document.getElementById(id);
-    el.scrollIntoView({ behavior: 'smooth' });
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     this.clicked = false;
   }
 

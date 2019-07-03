@@ -30,7 +30,6 @@ self.addEventListener('notificationclick', function (event) {
   var promiseChain = clients.openWindow('/')
   if ('data' in event.notification) {
     var temp = event.notification.data
-    console.log('abe')
 
     if ('openWindow' in clients) {
       promiseChain = clients.openWindow(temp.checkTarget)
