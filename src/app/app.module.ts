@@ -12,7 +12,7 @@ import { HeaderComponent } from './homepage/components/header/header.component';
 import { ContactComponent } from './homepage/components/contact/contact.component';
 import { RespComponent } from './homepage/components/responsibilities/resp.component';
 import { AboutComponent } from './homepage/components/about/about.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent, NotificationRequestDialog } from './dashboard/dashboard.component';
 import { HomeComponent } from './dashboard/components/home/home.component';
 import { LeaderboardComponent } from './dashboard/components/leaderboard/leaderboard.component';
 import { IdeasComponent } from './dashboard/components/ideas/ideas.component';
@@ -74,6 +74,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     NavBarComponent,
     WheelTrackerDirective,
     BgPreviewComponent,
+    NotificationRequestDialog
   ],
   imports: [
     BrowserModule,
@@ -92,7 +93,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   ],
   providers: [UiService, Funcs, AntaragniFeedService, ContentService],
   bootstrap: [AppComponent],
-  entryComponents: [DialogMessageComponent]
+  entryComponents: [DialogMessageComponent, NotificationRequestDialog]
 })
 export class AppModule {
 }

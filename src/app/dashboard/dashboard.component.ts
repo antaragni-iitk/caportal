@@ -1,5 +1,5 @@
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Inject } from '@angular/core';
 import { UiService } from '../services/ui.service';
 import { FbloginService } from '../services/fblogin.service';
 import { LocalUser } from '../models/localuser';
@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { bounceOutLeft } from '../animations/bounceOutLeft';
 import * as firebase from 'firebase';
 import { map } from 'rxjs/operators';
+import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-dashboard',
@@ -34,7 +35,7 @@ export class DashboardComponent implements OnInit {
   newuser = new LocalUser();
   userT;
 
-  constructor(private ui: UiService, private fbloginservice: FbloginService, private afs: AngularFirestore) {
+  constructor(private ui: UiService, private fbloginservice: FbloginService, private afs: AngularFirestore, public dialog: MatDialog) {
     this.userT = this.fbloginservice.currentUser;
     this.user = this.userT
     this.userT.subscribe(res => {
@@ -55,7 +56,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.ui.sidenav.subscribe(() => this.drawer.toggle());
-    this.initializeNotification();
+    if (Notification.permission == "granted") this.initializeNotification();
+    else this.openDialog();
   }
   sendTokenToServer(token) {
     if (!this.ui.mobile) {
@@ -68,6 +70,17 @@ export class DashboardComponent implements OnInit {
       this.fbloginservice.updateRegistration(this.newuser);
       this.afs.doc('/notificationsWeb/' + this.newuser.uid).update({ tokenMob: token });
     }
+  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(NotificationRequestDialog, {
+      minWidth: '30vw',
+      minHeight: '25vh',
+      data: 'Please allow notifications to allow us connect better! :)'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.initializeNotification();
+    });
   }
   initializeNotification() {
     var app = firebase.apps[0]
@@ -104,4 +117,20 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
+}
+
+@Component({
+  selector: 'notification-request-dialog',
+  templateUrl: 'notification-request-dialog.html',
+})
+export class NotificationRequestDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<NotificationRequestDialog>,
+    @Inject(MAT_DIALOG_DATA) public data) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }

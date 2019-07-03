@@ -2,23 +2,18 @@
   <nav mat-tab-nav-bar>
     <div class="logo" fxLayout="row" fxLayoutAlign="left center">
       <i id="sidebar" class="fa fa-bars" (click)="toggleit()"></i>
-      <span class="mobile">Dashboard</span>
+      <span class="mobile" *ngIf="!ui.mobile">Dashboard</span>
     </div>
     <div *ngIf="!mobile" fxFlex="grow" class="mobile"></div>
-    <a mat-tab-link
-       *ngFor="let link of links"
-       [routerLink]="link.id"
-       [class.selected]="selectedLink === link.id"
-       (click)="selectedLink = link.name"
-       routerLinkActive #rla="routerLinkActive">
+    <a mat-tab-link *ngFor="let link of links" [routerLink]="link.id" [class.selected]="selectedLink === link.id"
+      (click)="selectedLink = link.name" routerLinkActive #rla="routerLinkActive">
       <div *ngIf="!mobile">{{link.name}}</div>
       <div *ngIf="mobile && (link.id=='home')" class="nav-bar"><i class="fa fa-home" aria-hidden="true"></i></div>
       <div *ngIf="mobile && (link.id=='ideas')" class="nav-bar"><i class="fas fa-lightbulb"></i></div>
-      <div *ngIf="mobile && (link.id=='leaderboard')"><img src="https://img.icons8.com/ios/50/000000/leaderboard.png"></div>
+      <div *ngIf="mobile && (link.id=='leaderboard')"><img src="https://img.icons8.com/ios/50/000000/leaderboard.png">
+      </div>
     </a>
-    <a mat-tab-link
-       (click)="logout()"
-       routerLinkActive #rla="routerLinkActive">
+    <a mat-tab-link (click)="logout()" routerLinkActive #rla="routerLinkActive">
       <div *ngIf="!mobile">Logout</div>
       <div *ngIf="mobile" class="nav-bar"><i class="fas fa-sign-out-alt"></i></div>
     </a>
