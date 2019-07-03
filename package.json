@@ -8,9 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --aot --prod&&firebase deploy --project ca",
+    "deploy": "ng build --prod&&firebase deploy --project ca",
     "precommit": "ng lint app2",
-    "gitdep": "ng build --aot --prod --base-href /caportal --output-path=docs"
+    "gitdep": "ng build --prod --base-href /caportal --output-path=docs"
   },
   "private": true,
   "dependencies": {

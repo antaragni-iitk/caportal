@@ -22,10 +22,31 @@
         "files": [
           "/assets/**",
           "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
-        ],
-        "urls": [
-          "https://drive.google.com/*"
         ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "gDrive",
+      "urls": [
+        "https://drive.google.com/*"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 100,
+        "maxAge": "30d"
+      }
+    },
+    {
+      "name": "firebase",
+      "urls": [
+        "https://firestore.googleapis.com/*"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 100,
+        "maxAge": "3d"
       }
     }
   ]
