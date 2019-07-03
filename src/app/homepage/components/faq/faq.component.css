@@ -1,10 +1,10 @@
-.active{
+.active {
   height: 100%;
   opacity: 1;
   padding: 6%;
 }
 
-.inactive{
+.inactive {
   height: 0;
   opacity: 0;
   padding: 0;
@@ -29,7 +29,7 @@ p {
   padding: 3em 0;
 }
 
-h1{
+h1 {
   margin-left: 2vw;
   font-family: Adam-CG-Pro, Verdana, Geneva, sans-serif;
   font-size: 2em;
@@ -38,12 +38,12 @@ h1{
   color: #666;
 }
 
-h5{
+h5 {
   font-family: raleway;
 }
 
 @media (max-width: 1023px) {
-  .container{
+  .container {
     height: auto;
   }
 }

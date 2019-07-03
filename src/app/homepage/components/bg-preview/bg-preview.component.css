@@ -6,3 +6,24 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+
+.finalBgPreview {
+  transition: all 1s ease;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.inactive {
+  height: 0;
+  width: 0;
+}
+
+.inactive2 {
+  height: 35vh;
+}
+
+.active {
+  height: 100vh;
+  width: 100vw;
+}

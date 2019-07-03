@@ -39,10 +39,10 @@ export class LandingComponent implements OnInit {
   }
 
   next() {
-    if (!this.busy && this.countTrack < this.ui.url.length - 1) {
+    if (!this.busy && this.countTrack < this.ui.url.length) {
       this.busy = true
       this.countTrack++;
-      this.state = this.ui.url[this.countTrack]
+      if (this.countTrack != this.ui.url.length) this.state = this.ui.url[this.countTrack]
       setTimeout(() => { this.busy = false }, 1000)
     }
   }

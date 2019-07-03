@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor() {
+    console.log("v2");
+
   }
 
 }

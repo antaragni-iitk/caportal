@@ -1,4 +1,4 @@
-.arrow{
+.arrow {
   position: fixed;
   bottom: 0;
   right: 0;
@@ -9,39 +9,39 @@
   cursor: pointer;
 }
 
-.hideit{
+.hideit {
   opacity: 0;
 }
 
 @media (max-width: 1023px) {
-  .arrow{
+  .arrow {
     bottom: 6vh;
   }
 }
 
-.top-bar{
+.top-bar {
   height: 100%;
   width: 100%;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0, 0.89);
+  background-color: rgba(0, 0, 0, 0.89);
   overflow-y: hidden;
   transition: all 0.5s;
 }
 
-.topbar{
+.topbar {
   height: 100%;
 }
 
-.header{
+.header {
   height: 9vh;
   background-image: linear-gradient(#2edccc, #01757f);
   width: 100%;
 }
 
-.title{
+.title {
   font-family: assassin, URW Chancery L, cursive;
   color: white;
   margin: auto;
@@ -51,21 +51,21 @@
   text-transform: uppercase;
 }
 
-.main{
+.main {
   width: 100%;
-  background: url("https://drive.google.com/uc?export=view&id=1H4YC3e4w_gaSj5Zvit28fIstGwVu06ow"),  rgba(0,0,0,0.5);
+  background: url("https://drive.google.com/uc?export=view&id=1H4YC3e4w_gaSj5Zvit28fIstGwVu06ow"), rgba(0, 0, 0, 0.5);
   background-blend-mode: overlay;
   background-position: center;
   background-size: auto 100%;
   background-repeat: no-repeat;
 }
 
-#hamburger{
+#hamburger {
   padding-right: 15px;
   font-size: 2em;
 }
 
-#campus{
+#campus {
   font-family: ethnocentric, 'Open Sans', sans-serif;
   color: white;
   text-decoration: none;
@@ -76,7 +76,7 @@
   position: relative;
 }
 
-#ambassador{
+#ambassador {
   font-family: ethnocentric, 'Open Sans', sans-serif;
   color: white;
   text-decoration: none;
@@ -87,7 +87,7 @@
   position: relative;
 }
 
-.login{
+.login {
   font-size: 1.5em;
   padding: 0 10px;
   color: white;
@@ -96,12 +96,13 @@
   border-radius: 5px;
 }
 
-#logo{
+#logo {
   height: 4.5vh;
   margin-left: 25px;
 }
-.navbar{
-  font-family: raleway, 'Lato',  sans-serif;
+
+.navbar {
+  font-family: raleway, 'Lato', sans-serif;
   padding: 8px;
   text-decoration: none;
   font-size: 30px;
@@ -110,7 +111,7 @@
   transition: 0.3s;
 }
 
-.top-bar .closebtn{
+.top-bar .closebtn {
   color: #f1f1f1;
   position: absolute;
   top: 20px;
@@ -118,14 +119,14 @@
   font-size: 60px;
 }
 
-.top-right{
+.top-right {
   position: fixed;
   top: 0;
   width: 72vw;
   right: 0;
 }
 
-.bot-right{
+.bot-right {
   position: fixed;
   bottom: 0;
   right: 0;
@@ -134,19 +135,20 @@
   width: 72vw;
 }
 
-.dynamic-component{
+.dynamic-component {
   transition: all 0.5s ease;
 }
 
-.top-left{
+.top-left {
   position: fixed;
   top: 0;
   width: 28vw;
   left: 0;
 }
 
-.bot-left{
+.bot-left {
   position: fixed;
+  transition: all 2s ease;
   bottom: 0;
   width: 28vw;
   left: 0;

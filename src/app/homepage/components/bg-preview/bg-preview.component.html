@@ -1,2 +1,7 @@
 <div class="bgPreview" [style.background-image]="'url(' + bgs[countTrack + 1] + ')'">
 </div>
+
+<div class="finalBgPreview" [class.active]="countTrack == 6" [class.inactive2]="countTrack == 5"
+  [class.inactive]="countTrack < 5">
+  <app-sponsors></app-sponsors>
+</div>

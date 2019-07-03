@@ -1,13 +1,8 @@
-<div [ngClass]="state == 'about' ? 'active' : 'inactive'" class="about" fxLayout="column" fxLayoutAlign="center" fxLayoutAlign.xs="center center">
+<div [ngClass]="state == 'about' ? 'active' : 'inactive'" class="about" fxLayout="column" fxLayoutAlign="center"
+  fxLayoutAlign.xs="center center">
   <div class="head">
     About Us
   </div>
-  <div class="content">
-    Initiated in 1965, Antaragni has emerged as the biggest college based fiesta in North India and as one of the most
-    awaited and anticipated cultural event of the country. With it’s exciting competitions, splendid performances and
-    glamorous pro-nites, Antaragni is one of the largest cultural festival inviting a crowd of over 1.1 Lakh students
-    from 300 different colleges. Over the 52 years, Antaragni has seen many outstanding talents and a lot of
-    scintillating performances by the likes of KSHMR, Adnan Sami, Atif Aslam and many more. Let’s all get together and
-    see what surprises Antaragni has up its sleeves this time.
+  <div class="content" [innerHtml]="about | async">
   </div>
 </div>

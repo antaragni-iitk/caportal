@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div class="bot-left">
+  <div class="bot-left" [style.zIndex]="countTrack == 6 ? '22' : '0'">
     <app-bg-preview [countTrack]="countTrack"></app-bg-preview>
   </div>
 </div>
@@ -49,6 +49,7 @@
     <app-resp [state]="state" id="responsibilities"></app-resp>
     <app-contact [state]="state" id="contacts"></app-contact>
     <app-faq [state]="state" id="faq"></app-faq>
+    <app-sponsors></app-sponsors>
   </div>
 </ng-template>
 

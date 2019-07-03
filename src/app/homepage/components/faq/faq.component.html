@@ -4,14 +4,19 @@
   </h1>
   <div class="questions" fxLayout="row wrap">
     <div class="col-md-6" [style.display]="state == 'faq' ? 'block' : 'none'">
-      <div class="question" *ngFor="let i of (data | async)?.slice(0,len/2)">
-        <b><h5 [innerHTML]="i?.questions?.content"></h5></b>
+      <div class="question" *ngFor="let i of (data | async)?.slice(0,2)">
+        <b>
+          <h5 [innerHTML]="i?.questions?.content"></h5>
+        </b>
         <p [innerHTML]="i?.answers?.content"></p>
       </div>
+
     </div>
     <div class="col-md-6" [style.display]="state == 'faq' ? 'block' : 'none'">
-      <div class="question" *ngFor="let i of (data | async)?.slice(len/2,len)">
-        <b><h5 [innerHTML]="i?.questions?.content"></h5></b>
+      <div class="question" *ngFor="let i of (data | async)?.slice(4,len)">
+        <b>
+          <h5 [innerHTML]="i?.questions?.content"></h5>
+        </b>
         <p [innerHTML]="i?.answers?.content"></p>
       </div>
     </div>
