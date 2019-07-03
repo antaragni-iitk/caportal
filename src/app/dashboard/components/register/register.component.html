@@ -29,19 +29,23 @@
             <mat-form-field class="point9-width">
               <input required #pincode="ngModel" name="pincode" type="number" matInput placeholder="Pincode"
                      minlength="6" maxlength="6"
+                     pattern="[0-9]{6}"
                      [(ngModel)]="newuser.personal.zipcode"
-                     [disabled]="newuser$.personal.zipcode">
+                     [disabled]="newuser$.personal.zipcode"
+                     matTooltip="6 digits" [matTooltipPosition]="'left'">
               <!--<matTooltip ="6 digits" [matTooltipPosition]="'left'" >-->
-              <mat-error *ngIf="pincode.errors">Required</mat-error>
+              <mat-error *ngIf="pincode.errors">Required 6 digits</mat-error>
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="full-width">
               <input required #fbLink="ngModel" name="facebook Link" matInput
                      placeholder="facebook link to your profile"
+                     type="url"
+                     pattern="https?://www.facebook.com/.+"
                      [(ngModel)]="newuser.facebook.facebookLink"
                      [disabled]="newuser$.facebook.facebookLink?newuser.facebook.facebookLink!='':false">
-              <mat-error *ngIf="fbLink.errors">Required</mat-error>
+              <mat-error *ngIf="fbLink.errors">Required valid facebook url</mat-error>
             </mat-form-field>
           </td>
         </tr>
