@@ -92,6 +92,7 @@ export class DashboardComponent implements OnInit {
         messaging.getToken().then(token => {
           if ((!this.newuser.notificationTokenPc && !this.ui.mobile) || (!this.newuser.notificationTokenMob && this.ui.mobile)) {
             window['fcmToken'] = token
+            console.log('Sending to server');
             if (this.newuser.hasOwnProperty('firstUpdate') && this.newuser.firstUpdate) {
               this.sendTokenToServer(token);
             }
