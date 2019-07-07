@@ -30,22 +30,23 @@
     {
       "name": "gDrive",
       "urls": [
-        "https://drive.google.com/*"
+        "https://drive.google.com/**"
       ],
       "cacheConfig": {
         "strategy": "performance",
-        "maxSize": 100,
-        "maxAge": "30d"
+        "maxSize": 10,
+        "maxAge": "3d"
       }
     },
     {
       "name": "firebase",
       "urls": [
-        "https://firestore.googleapis.com/*"
+        "https://firestore.googleapis.com/**"
       ],
       "cacheConfig": {
         "strategy": "freshness",
-        "maxSize": 100,
+        "maxSize": 20,
+        "timeout": "30s",
         "maxAge": "3d"
       }
     }

@@ -21,8 +21,7 @@ export class UiService {
     'incentives',
     'responsibilities',
     'faq',
-    'contact',
-    'sponsors'
+    'contact'
   ]
 
   constructor() {
