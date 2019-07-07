@@ -29,6 +29,7 @@ export class LandingComponent implements OnInit {
     { description: 'RESPONSIBILITIES', id: 'responsibilities' },
     { description: 'CONTACT US', id: 'contacts' },
     { description: 'FAQs', id: 'faq' },
+    { description: 'SPONSORS', id: 'sponsors'}
   ];
 
   constructor(public ui: UiService, public loginService: FbloginService) {

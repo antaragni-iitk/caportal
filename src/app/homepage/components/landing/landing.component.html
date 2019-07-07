@@ -39,7 +39,7 @@
       <div (click)="menu()" class="closebtn">&times;</div>
       <div *ngFor="let link of links" (click)="scroll(link.id)" class="navbar">{{link.description}}</div>
     </div>
-    <div style="height: 70vh" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2vh" class="main">
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2vh" class="main">
       <div id="campus">CAMPUS</div>
       <div id="ambassador">AMBASSADOR</div>
       <div class="login" (click)="onhit()">
@@ -53,7 +53,7 @@
     <app-resp [state]="state" id="responsibilities"></app-resp>
     <app-contact [state]="state" id="contacts"></app-contact>
     <app-faq [state]="state" id="faq"></app-faq>
-    <app-sponsors></app-sponsors>
+    <app-sponsors id="sponsors"></app-sponsors>
     <app-footer></app-footer>
   </div>
 </ng-template>

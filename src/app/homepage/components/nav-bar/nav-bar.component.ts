@@ -16,7 +16,8 @@ export class NavBarComponent implements OnInit {
     { description: 'INCENTIVES', id: 'incentives' },
     { description: 'RESPONSIBILITIES', id: 'responsibilities' },
     { description: 'FAQs', id: 'faq' },
-    { description: 'CONTACT US', id: 'contacts' }
+    { description: 'CONTACT US', id: 'contacts' },
+    { description: 'SPONSORS', id: 'sponsors'}
   ];
 
   bgs = [

@@ -36,10 +36,11 @@
           </td>
           <td>
             <mat-form-field class="full-width">
-              <input required #fbLink="ngModel" name="facebook Link" matInput
-                placeholder="facebook link to your profile" type="url" pattern="https://www.?facebook.com/.+"
-                [(ngModel)]="newuser.facebook.facebookLink"
-                [disabled]="newuser$.facebook.facebookLink?newuser.facebook.facebookLink!='':false">
+              <input required #fbLink="ngModel" name="facebook Link" type="url" matInput
+                      pattern="(.*fb.com/.+)|(.*facebook.com/.+)"
+                     placeholder="facebook link to your profile"
+                     [(ngModel)]="newuser.facebook.facebookLink"
+                     [disabled]="newuser$.facebook.facebookLink?newuser.facebook.facebookLink!='':false">
               <mat-error *ngIf="fbLink.errors">Required valid facebook url</mat-error>
             </mat-form-field>
           </td>
