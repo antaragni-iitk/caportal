@@ -13,9 +13,10 @@ messaging.setBackgroundMessageHandler(function (payload) {
     payload
   )
   // Customize notification here
-  var notificationTitle = payload.data.score
+  var notificationTitle = payload.data.heading
   var notificationOptions = {
-    body: payload.data.time,
+    body: payload.data.content,
+    vibrate: [100, 50, 100],
     icon: 'favicon.ico'
   }
 
@@ -30,9 +31,8 @@ self.addEventListener('notificationclick', function (event) {
   var promiseChain = clients.openWindow('/')
   if ('data' in event.notification) {
     var temp = event.notification.data
-
     if ('openWindow' in clients) {
-      promiseChain = clients.openWindow(temp.checkTarget)
+      promiseChain = clients.openWindow(temp.link)
     }
   }
   event.waitUntil(promiseChain)

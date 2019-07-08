@@ -12,7 +12,7 @@
 
       <mat-form-field>
         <input required ngModel #email="ngModel" type="email" name="email" matInput placeholder="Email ID"
-          [(ngModel)]="newuser.email.value" [disabled]="newuser$.email.value">
+          [(ngModel)]="newuser.email.value" [disabled]="newuser$.email.value.length">
         <mat-error *ngIf="email.errors">valid email Required</mat-error>
       </mat-form-field>
 
@@ -37,10 +37,9 @@
           <td>
             <mat-form-field class="full-width">
               <input required #fbLink="ngModel" name="facebook Link" type="url" matInput
-                      pattern="(.*fb.com/.+)|(.*facebook.com/.+)"
-                     placeholder="facebook link to your profile"
-                     [(ngModel)]="newuser.facebook.facebookLink"
-                     [disabled]="newuser$.facebook.facebookLink?newuser.facebook.facebookLink!='':false">
+                pattern="(.*fb.com/.+)|(.*facebook.com/.+)" placeholder="facebook link to your profile"
+                [(ngModel)]="newuser.facebook.facebookLink"
+                [disabled]="newuser$.facebook.facebookLink?newuser.facebook.facebookLink!='':false">
               <mat-error *ngIf="fbLink.errors">Required valid facebook url</mat-error>
             </mat-form-field>
           </td>
