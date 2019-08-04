@@ -19,7 +19,7 @@
         <mat-card-content>
           <div *ngFor="let point of pointkeys" fxLayout="row wrap" fxLayoutAlign="space-between center">
             <div>{{point}}</div>
-            <div>: {{(user|async)?.campus[points[point]]}}</div>
+            <div>: {{(user|async)?.hasOwnProperty(campus) ? (user|async)?.campus[points[point]] : '0'}}</div>
           </div>
         </mat-card-content>
       </mat-card>
@@ -37,4 +37,3 @@
     <router-outlet #o="outlet"></router-outlet>
   </div>
 </mat-drawer-container>
-

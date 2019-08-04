@@ -90,8 +90,6 @@ export class DashboardComponent implements OnInit {
       if (permission === 'granted') {
         console.log('Notification permission granted.');
         messaging.getToken().then(token => {
-          console.log(token);
-
           if ((!this.newuser.notificationTokenPc && !this.ui.mobile) || (!this.newuser.notificationTokenMob && this.ui.mobile)) {
             window['fcmToken'] = token
             console.log('Sending to server');
