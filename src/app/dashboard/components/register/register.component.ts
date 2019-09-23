@@ -37,6 +37,13 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.fblogin.currentUser.subscribe((user: LocalUser) => {
       this.newuser = user;
+      if (!this.newuser.hasOwnProperty('facebook')) {
+        this.newuser.facebook = {
+          Token: '',
+          facebookID: '',
+          facebookLink: ''
+        }
+      }
       this.newuser$ = JSON.parse(JSON.stringify(user));
     });
     this.afs.doc('/config/counter').valueChanges().pipe(take(2)).subscribe((res: { data: number }) => {
@@ -48,8 +55,8 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.newuser.firstUpdate = true;
-    if (!this.ui.mobile) this.newuser.notificationTokenPc = window['fcmToken'] ? window['fcmToken'] : ''
-    else this.newuser.notificationTokenMob = window['fcmToken'] ? window['fcmToken'] : ''
+    if (!this.ui.mobile) { this.newuser.notificationTokenPc = window['fcmToken'] ? window['fcmToken'] : ''; this.newuser.notificationTokenMob = '' }
+    else { this.newuser.notificationTokenMob = window['fcmToken'] ? window['fcmToken'] : ''; this.newuser.notificationTokenPc = '' }
     this.newuser.campus = {
       isAmbassador: true,
       posts: [],
